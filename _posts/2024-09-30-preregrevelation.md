@@ -6,7 +6,7 @@ description: The Preregistration Revelation
 tags: openscience preregistration metascience
 categories: [metascience, statistics, retraction preregistration]
 ---
-
+ 
 # The Preregistration Revelation 
 
 I did not want to write this blog post. I hate when science gets resolved by blog and thread. This is why I emailed the authors in November of last year. I shared very detailed concerns and offered to walk them through those concerns so they could retract on their own terms. The declined, 
