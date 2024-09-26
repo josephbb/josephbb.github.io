@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://josephbb.github.io/al-folio/sitemap.xml
+Sitemap: https://joebakcoleman.com/sitemap.xml
