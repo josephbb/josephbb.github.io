@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2022-6-23 15:59:00-0400
+date: 2026-01-20 09:00:00-0500
 inline: true
 related_posts: false
 ---
 
-New publication out in <i>Nature Human Behavior</i>: <a href="https://www.nature.com/articles/s41562-022-01388-6">Combining interventions to reduce the spread of viral misinformation</a>
+Our preprint on industry influence in social media research was covered by <i>Science</i>: <a href="https://www.science.org/content/article/nearly-third-social-media-research-has-undisclosed-ties-industry-preprint-claims">Nearly one-third of social media research has undisclosed ties to industry</a>.

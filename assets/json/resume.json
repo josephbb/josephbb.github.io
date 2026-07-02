@@ -1,0 +1,279 @@
+{
+  "basics": {
+    "name": "Joseph B. Bak-Coleman",
+    "label": "Research Scientist, University of Washington",
+    "email": "jbakcoleman@gmail.com",
+    "url": "https://joebakcoleman.com",
+    "summary": "Computational social scientist studying collective decision-making, misinformation, polarization, and evidence-based tech policy. Author of the forthcoming book Of Fish and Fascists (Princeton University Press, 2027).",
+    "profiles": [
+      {
+        "network": "Google Scholar",
+        "username": "Joseph B. Bak-Coleman",
+        "url": "https://scholar.google.com/citations?user=Y5000VQAAAAJ"
+      },
+      {
+        "network": "ORCID",
+        "username": "0000-0002-7590-3824",
+        "url": "https://orcid.org/0000-0002-7590-3824"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "University of Washington",
+      "position": "Research Scientist",
+      "location": "Seattle, WA",
+      "startDate": "2025-05-01",
+      "endDate": "",
+      "summary": "Department of Biology."
+    },
+    {
+      "name": "United Nations Development Programme",
+      "position": "Consulting Expert",
+      "location": "Remote",
+      "startDate": "2024-07-01",
+      "endDate": "2025-05-01",
+      "summary": "Human Development Reports Office."
+    },
+    {
+      "name": "Columbia University",
+      "position": "Associate Research Scholar",
+      "location": "New York, NY",
+      "startDate": "2022-07-01",
+      "endDate": "2024-06-01",
+      "summary": "Craig Newmark Center for Journalism Ethics and Security."
+    },
+    {
+      "name": "University of Washington",
+      "position": "Postdoctoral Scholar",
+      "location": "Seattle, WA",
+      "startDate": "2020-09-01",
+      "endDate": "2022-07-01",
+      "summary": "Center for an Informed Public."
+    },
+    {
+      "name": "Owens Community College",
+      "position": "Adjunct Instructor",
+      "location": "Ohio",
+      "startDate": "2014-01-01",
+      "endDate": "2014-12-01",
+      "summary": "Biology Department."
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Santa Fe Institute",
+      "position": "External Applied Complexity Fellow",
+      "startDate": "2025-01-01",
+      "endDate": "",
+      "summary": "Applied Complexity."
+    },
+    {
+      "organization": "University of Konstanz",
+      "position": "Collaboration Partner",
+      "startDate": "2024-08-01",
+      "endDate": "",
+      "summary": "Centre for the Advanced Study of Collective Behaviour."
+    },
+    {
+      "organization": "Harvard University",
+      "position": "External Affiliate",
+      "startDate": "2023-04-01",
+      "endDate": "",
+      "summary": "Berkman Klein Center for Internet & Society."
+    },
+    {
+      "organization": "UNC Chapel Hill",
+      "position": "Affiliate",
+      "startDate": "2022-08-01",
+      "endDate": "",
+      "summary": "Center for Information, Technology, and Public Life."
+    },
+    {
+      "organization": "Harvard University",
+      "position": "RSM Assembly Fellow",
+      "startDate": "2022-09-01",
+      "endDate": "2023-04-01",
+      "summary": "Berkman Klein Center for Internet & Society."
+    },
+    {
+      "organization": "University of Washington",
+      "position": "UW Data Science Postdoctoral Fellow",
+      "startDate": "2020-09-01",
+      "endDate": "2022-07-01",
+      "summary": "eScience Institute."
+    },
+    {
+      "organization": "Coalition for Independent Tech Research",
+      "position": "Member",
+      "startDate": "2022-01-01",
+      "endDate": "",
+      "summary": ""
+    },
+    {
+      "organization": "United Nations Development Programme",
+      "position": "Annual Report Consultant",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-01",
+      "summary": ""
+    },
+    {
+      "organization": "Center for an Informed Public, University of Washington",
+      "position": "Lab Meeting and Seminar Series Organizer",
+      "startDate": "2020-01-01",
+      "endDate": "2022-12-01",
+      "summary": ""
+    },
+    {
+      "organization": "Election Integrity Partnership",
+      "position": "Analyst Team Lead",
+      "startDate": "2020-01-01",
+      "endDate": "2020-12-01",
+      "summary": ""
+    }
+  ],
+  "education": [
+    {
+      "institution": "Princeton University",
+      "location": "Princeton, NJ",
+      "area": "Ecology and Evolutionary Biology",
+      "studyType": "PhD",
+      "startDate": "2014-01-01",
+      "endDate": "2020-01-01",
+      "courses": [
+        "Supervisors: Professor Iain Couzin, Professor Dan Rubenstein",
+        "Dissertation: Collective behavior in a connected world"
+      ]
+    },
+    {
+      "institution": "Princeton University",
+      "location": "Princeton, NJ",
+      "area": "Ecology and Evolutionary Biology",
+      "studyType": "MA",
+      "startDate": "2014-01-01",
+      "endDate": "2016-01-01",
+      "courses": ["Supervisors: Professor Iain Couzin, Professor Dan Rubenstein"]
+    },
+    {
+      "institution": "Bowling Green State University",
+      "location": "Bowling Green, OH",
+      "area": "Biology",
+      "studyType": "MS",
+      "startDate": "2011-01-01",
+      "endDate": "2014-01-01",
+      "courses": [
+        "Supervisor: Professor Sheryl Coombs",
+        "Thesis: The role of the lateral line during rheotaxis"
+      ]
+    },
+    {
+      "institution": "Bowling Green State University",
+      "location": "Bowling Green, OH",
+      "area": "Neuroscience",
+      "studyType": "BS",
+      "startDate": "2007-01-01",
+      "endDate": "2011-01-01",
+      "courses": []
+    }
+  ],
+  "awards": [
+    {
+      "title": "Templeton World Charities Foundation",
+      "date": "2025-01-01",
+      "awarder": "",
+      "summary": ""
+    },
+    {
+      "title": "Paper of the Year",
+      "date": "2024-01-01",
+      "awarder": "Behavioral Science and Policy Association",
+      "summary": ""
+    },
+    {
+      "title": "Dimensionality Working Group",
+      "date": "2025-01-01",
+      "awarder": "Santa Fe Institute",
+      "summary": ""
+    },
+    {
+      "title": "RSM Fellowship",
+      "date": "2022-09-01",
+      "awarder": "Berkman Klein Center, Harvard University",
+      "summary": ""
+    },
+    {
+      "title": "Rapid Response Workshop",
+      "date": "2021-01-01",
+      "awarder": "CIP Innovation Fund, University of Washington",
+      "summary": ""
+    },
+    {
+      "title": "Experimental approaches to studying misinformation online",
+      "date": "2021-01-01",
+      "awarder": "CIP Innovation Fund, University of Washington",
+      "summary": ""
+    },
+    {
+      "title": "Postdoctoral Fellowship",
+      "date": "2020-09-01",
+      "awarder": "Center for an Informed Public, University of Washington",
+      "summary": ""
+    },
+    {
+      "title": "Data Science Postdoctoral Fellowship",
+      "date": "2020-09-01",
+      "awarder": "UW eScience Institute",
+      "summary": ""
+    },
+    {
+      "title": "Summer Research Fellowship",
+      "date": "",
+      "awarder": "BGSU CURS",
+      "summary": ""
+    },
+    {
+      "title": "Summer Research Fellowship",
+      "date": "",
+      "awarder": "BGSU SETGO",
+      "summary": ""
+    },
+    {
+      "title": "Bioinformatics Scholarship",
+      "date": "",
+      "awarder": "Choose Ohio First (3 years)",
+      "summary": ""
+    },
+    {
+      "title": "Travel Award",
+      "date": "",
+      "awarder": "Flow Sensing in Air and Water",
+      "summary": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Of Fish and Fascists",
+      "description": "Forthcoming book. Princeton University Press (US), Oneworld Publishing (UK), Corpus (Russia), Ullstein Verlag (Germany), Sangsangsquare (Korea). Agent: Brockman Inc.",
+      "startDate": "2027-01-01",
+      "endDate": "",
+      "url": "",
+      "roles": ["Author"],
+      "keywords": ["collective behavior", "polarization", "misinformation"]
+    },
+    {
+      "name": "Human Development Report 2025",
+      "description": "A matter of choice: People and possibilities in the age of AI.",
+      "startDate": "2025-05-01",
+      "endDate": "",
+      "url": "https://hdr.undp.org/content/human-development-report-2025",
+      "roles": ["Consulting Expert"],
+      "keywords": ["UNDP", "AI", "human development"]
+    }
+  ],
+  "interests": [
+    {
+      "name": "Hobbies",
+      "keywords": ["Birding", "Brewing", "Biking", "BBQ", "Bass Guitar", "Board Games"]
+    }
+  ]
+}

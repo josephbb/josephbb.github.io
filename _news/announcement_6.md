@@ -1,12 +1,8 @@
 ---
 layout: post
-date: 2022-11-21 15:59:00-0400
+date: 2025-05-06 09:00:00-0400
 inline: true
 related_posts: false
 ---
 
-New opinion piece out in <i>Scientific American</i>: <a href="https://www.scientificamerican.com/article/twitter-is-not-rocket-science-its-harder/">Twitter Is Not Rocket Science—It’s Harder</a>
-
-
-
-
+The UNDP's flagship <a href="https://hdr.undp.org/content/human-development-report-2025">Human Development Report 2025</a>, <i>A matter of choice: People and possibilities in the age of AI</i>, was released, for which I served as a Consulting Expert.
