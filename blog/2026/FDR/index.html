@@ -1,0 +1,246 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> The Absurdities and Indignities of False Discovery Rates in Social Science | Joe B. Bak-Coleman </title> <meta name="author" content="Joe B. Bak-Coleman"> <meta name="description" content="As if multiple comparison corrections weren't complicated enough."> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://joebakcoleman.com/blog/2026/FDR/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Joe</span> B. Bak-Coleman </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">cv </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">The Absurdities and Indignities of False Discovery Rates in Social Science</h1> <p class="post-meta"> Created on July 04, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/tag/statistics"> <i class="fa-solid fa-hashtag fa-sm"></i> statistics</a>   <a href="/blog/tag/metascience"> <i class="fa-solid fa-hashtag fa-sm"></i> metascience</a>   <a href="/blog/tag/fdr"> <i class="fa-solid fa-hashtag fa-sm"></i> FDR</a>   <a href="/blog/tag/multiple-comparisons"> <i class="fa-solid fa-hashtag fa-sm"></i> multiple-comparisons</a>   <a href="/blog/tag/replication"> <i class="fa-solid fa-hashtag fa-sm"></i> replication</a>   ·   <a href="/blog/category/statistics"> <i class="fa-solid fa-tag fa-sm"></i> statistics</a>   <a href="/blog/category/metascience"> <i class="fa-solid fa-tag fa-sm"></i> metascience</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>As a social scientist with a history of biology and neuroscience, it’s been bizarre to start seeing “False Discovery Rate” crop up in the papers I read and review. The first time I saw it, it jogged something in my mind; an ancient memory from discussion of fMRI data in undergrad or perhaps my master’s. What was it doing <em>here</em>, in the land of humans taking surveys?</p> <h2 id="the-fdr-in-brief">The FDR in brief</h2> <p>Anyone who has taken a stats class remembers the multiple comparisons problem. Roll the proverbial p-value dice enough times and they’re bound to come up significant. When a study or scientist conducts a lot of hypothesis testing, significance will invariably appear; especially at $P &lt; 0.05$.</p> <p>For nearly a century this has bothered practicing scientists and statisticians alike. Early on, there were recommendations like ensuring the ANOVA is significant before looking at pairwise comparisons. Over time, more elaborate methods evolved; from Bonferroni to Dunn-Šidák and Holm-Bonferroni. Odds are good you learned and forgot these. But each of these seeks to control the Family Wise Error Rate:</p> <blockquote class="block-tip"> <p><strong>FWER:</strong> The long-run probability that <em>one or more</em> false claims of statistical significance are made, among a family of tests.</p> </blockquote> <p>Controlling FWER is pretty restrictive. Only a one-in-twenty chance that <em>one or more</em> claims are false; that’s a 19 out of 20 chance that none are. Think of the hit rate you’d need for thousands of claims to be so confident not one is a Type I error.</p> <p>This was the problem faced by genomicists and neuroscientists as their data started rolling in from sequences and Magnetic Resonance Imaging. Try applying a Bonferroni correction to tests of whether there’s significant activity in each voxel of your increasingly high-resolution 3D imaging and you’ll just be reporting a paper full of nulls.</p> <p>This isn’t simply about sneakily getting significant effects as we fret over so frequently; it’s about balancing a very real trade-off between false positives and false negatives. If there’s a gene that can identify a protein target for treating disease, the last thing you want to do is squash any chance of finding it under a Type I error correction.</p> <p>Along comes the False Discovery Rate. In contrast to FWER:</p> <blockquote class="block-tip"> <p><strong>FDR:</strong> Expected proportion of false claims of significance, among claims of significance made.</p> </blockquote> <p>We’ve loosened the belt. It’s OK now if some things are false discoveries, we just want to know how many to expect.</p> <p>This is exactly what you want if you’re in early-2000s genomics. Searching for genes that have some meaningful relationship to a phenotype of interest, you’re starting off in an exploratory phase. In 2003, Storey [1] pointed out that you can select your threshold for inclusion as <em>significant</em> after computing the adjustment and computing <em>q</em>-values. This will sound heretical to anyone who has lived in the social sciences over the past decade. Can you imagine selecting $\alpha$ for a significance test after computing $p$?</p> <p>A given <em>q</em> value is the minimum tolerance for a false discovery rate you’d need to have to accept that result and any smaller <em>q</em>s. In other words, you’re welcome to tolerate an expected 12% rate of false discoveries; perhaps that gives you a tractable number of genes to follow up on with more in-depth work. Maybe you only need one true positive to move to the next step.</p> <p>There is a lot more nuance, debate, and method development in the FDR literature, and arguments over which methods are best. At the end of the day, however, it’s a useful dial for some scientists to calibrate their expected rate of false discoveries when triaging a massive number of significance tests.</p> <h2 id="nuance-lost">Nuance Lost</h2> <p>Despite FWER and FDR being conceptually different—and practically quite different—they’re just right next to each other in the same function when someone goes to address multiple comparisons after a reviewer complains. Here’s the documentation.</p> <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p.adjust</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p.adjust.methods</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w">
+</span><span class="n">p.adjust.methods</span><span class="w">
+</span><span class="c1"># c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY",</span><span class="w">
+</span><span class="c1">#   "fdr", "none")</span><span class="w">
+</span></code></pre></div></div> <p>Choose Holm? You’ve got FWER. BH? FDR. It’s not the code maintainer’s job to ensure you know what you’re doing, but this is the guidance you’d get if you looked at the documentation.</p> <blockquote> <p>“The false discovery rate is a less stringent condition than the family-wise error rate, so these methods are more powerful than the others.”</p> </blockquote> <p>Sounds good! More powerful. Nice. Right?</p> <p>The thing is you’ve effectively gone from building your paper around a story under the hope that every claim is solid (FWER) to tolerating some proportion of claims not being solid (FDR). By analogy to building a house, it’s going from</p> <blockquote class="block-tip"> <p><strong>FWER:</strong> <em>“probably none of the wood has termites that I’m using to build my home”</em> to</p> </blockquote> <p>to</p> <blockquote class="block-tip"> <p><strong>FDR:</strong> <em>“Some of the wood has termites but tolerating that will let me build 40 house prototypes”</em>.</p> </blockquote> <p>Neither of these is an <em>inherently wrong</em> way to do science, but they’re pretty fucking different. We lose this nuance when we focus on whether it’s more or less conservative or powerful or whatnot.</p> <h2 id="why-is-fdr-now-in-the-social-sciences">Why is FDR now in the social sciences?</h2> <p>Gelman, Hill, and Yajima [2] pointed out 14 years ago that FDR is a weird fit for the social sciences:</p> <blockquote> <p>Methods that control for the FDR may make particular sense in fields like genetics where one would expect to see a number of real effects amidst a vast quantity of zero effects such as when examining the effect of a treatment on differential gene expression (Grant et al., 2005). They may be less useful in social science applications when we are less likely to be testing thousands of hypotheses at a time and when there are less likely to be effects that are truly zero (or at least the distinction between zero and not-zero may be more blurry).</p> </blockquote> <p>A lot has changed in 14 years, and some social scientists do indeed test larger numbers of hypotheses in two ways. The first is the “MTurkification” of social science [3]. It was spooling up fourteen years ago, but became just extremely easy to pull data from Prolific, MTurk, etc… For your participants in randomly assigned conditions blasting through questions on Qualtrics, each one could be a hypothesis to test. Social scientists in the academy now could test dozens of hypotheses at a time.</p> <p>These same scientists, however, were being sternly warned about the risks of false positives as folks fret over the <a href="https://arxiv.org/abs/2604.26268" rel="external nofollow noopener" target="_blank">replication crisis</a>. Reviewers could now put any paper on blast for multiple comparisons, requesting some form of correction. <a href="/blog/2023/pcurve" target="_blank">P-values near .05 were circled</a>, and social scientists got into heated debates over 0.005 vs. 0.05 [4]. Turning to that code above, it makes sense that folks would use the powerful multiple comparisons correction. We can see this in citation data, where Benjamini and Hochberg’s FDR correction starts taking off mid 2010s in the social sciences.</p> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/BH_Cites-480.webp 480w,/assets/img/BH_Cites-800.webp 800w,/assets/img/BH_Cites-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/BH_Cites.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> <figcaption class="caption">Citations in Social Science to BH's classic paper on FDR. Data from OpenAlex</figcaption> </figure> </div> <p>Elsewhere, social scientists were being paid much more money to test many more hypotheses, while eating free snacks and hitting the in-house meditation studio as the experiments ran. Although the tech industry has now <a href="https://www.theatlantic.com/books/archive/2025/05/more-everything-forever-adam-becker-book-review/682951/" rel="external nofollow noopener" target="_blank">collectively lost its shit</a>, back then they were busy figuring out which color button will make you buy that Instant pot ring or forget to unsubscribe from Moviepass. With hundreds of millions, now billions, of users some platforms could run thousands of A/B tests in parallel automatically making minor adjustments.</p> <h2 id="so-what">So what?</h2> <p>Facebook’s widget-shuffling scientists have a pretty good case for using A/B tests, they were actually testing thousands of hypotheses. Most of these are likely to have precisely zero effect on the outcome of interest. As with the neuroscientists or genomicists; FDR is a sensible correction. What of us academics, making mid-five to low-six figures with no stock options?</p> <h3 id="are-you-yoking">Are you Yoking?</h3> <p>I imagine one of the reasons FWER wasn’t more popular in the social sciences is that the familiar ones can take a huge bite out of your statistical power. Bonferroni requires $p&lt;\frac{\alpha}{m}$ where $m$ is the number of tests you’re running. If you’ve got a $d=0.28$ (publishable…) effect size you’re testing with $n=100$, you’ve got an acceptable 80% power in a one-sample z-test; good chance of catching it. With ten tests, that power drops down to something like 50%. To recover your 80% power, you’re gonna need to recruit another 70 participants; nearly doubling your cost for that particular hypothesis. Are the other nine worth it or just questions you’re throwing in because you’re fielding a survey?</p> <p>Ok, so let’s say they instead decide to use FDR and have heard cool things about BKY, whatever that is. We can write a little simulation in Python. We consider two extremes. In one case it’s all sanity checks in the other 9 hypotheses. In the other, it’s absurd ideas colleagues forced you to include, none of which are going to pan out.</p> <details> <summary>Simulation code, expandable if you're curious (Python)</summary> <div class="language-python highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="n">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="n">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span>
+
+<span class="k">def</span> <span class="nf">bky_sim</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mf">0.28</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">p_true</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">sims</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="n">sims</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">sims</span><span class="p">):</span>
+        <span class="n">d_bg</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+        <span class="n">d_bg</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">rand</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">p_true</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">r_</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">d_bg</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="p">.</span><span class="nf">cdf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">rej</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="nf">multipletests</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="sh">"</span><span class="s">fdr_tsbky</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rej</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">.</span><span class="nf">mean</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">bky_sim</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">p_true</span><span class="o">=</span><span class="mf">0.95</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">bky_sim</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">p_true</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</code></pre></div> </div> </details> <p>Running this, we find that when they’re testing their hypothesis alongside sanity checks they reject it 93% of the time! Their power has startlingly increased when correcting for multiple comparisons! Now what if they’ve included it alongside 9 absurd ideas, or things that are anticipated to be null by design. In this case, they’re only rejecting their focal hypothesis 53% of the time. Their power has dropped, by about as much as Bonferroni.</p> <p><strong>A 40% swing in statistical power of the test we care about, based solely on what it happened to be yoked with in an FDR correction.</strong></p> <p>This is, of course, known and expected behavior for BKY FDR. It even makes sense for voxels of neurons. If you hit someone with a stimulus that causes a ton of brain-wide activity, it makes sense to take that into account when evaluating the plausibility a given voxel is significantly impacted by the stimulus.</p> <p>But it’s weird for us social scientists. Often we test very different hypotheses; or at least more different from one another than activity in adjacent regions of cortex. Perhaps one hypothesis is about SES and vaccine hesitancy and the other SES and LLM use.</p> <h3 id="do-you-come-from-a-big-family">Do you come from a big family?</h3> <p>It’s also worth noting that us social scientists rarely test thousands of hypotheses. Where I see FDR, it’s in the low to mid double-digits; sometimes even used for single digits. The thing is, as you increase the number of hypotheses the distribution of p-values gets smoother and spooky things occur.</p> <p>Let’s consider a scenario where we’re testing our same hypothesis above ($d=0.28$, $n=100$) but we’re doing so either alongside a small ($m=9$) or huge $(m=9000)$ number of other hypotheses. Here’s where things get really weird. If you have a large number of null tests thrown into the family, your power plummets to near 5%. That’s basically $\alpha$, as though you’d never run the experiment at all.</p> <p>What’s going on behind the scenes is that the smallest $p$-values are getting the smallest upward adjustment. Because everything is null, the first pass makes the whole procedure quite skeptical. With a lot of tests, even if most are null, odds are good that your focal hypothesis isn’t the smallest $p$ on the block. It gets penalized into null obscurity.</p> <div class="row justify-content-center"> <div class="col-sm-6 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/PowerBigFamily-480.webp 480w,/assets/img/PowerBigFamily-800.webp 800w,/assets/img/PowerBigFamily-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/PowerBigFamily.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> </div> </div> <h2 id="its-always-trade-offs">“It’s always trade-offs!”</h2> <p>These are extreme examples, but they highlight how the same exact statistical test can have a chance of rejecting the null that ranges from 5%, the nominal $\alpha$, to nearly 100% depending entirely on what else is in the FDR family. Because we’ve defined the outcome as being a true effect, we can start to think about what that means in terms of trade-offs.</p> <p>In one extreme, our 5\% chance of a false positive set by our FDR with a threshold of $q&lt;.05$ is about on par with the \approx5% chance of a false negative. We’re equally valuing getting it wrong in either direction. On the other extreme, however, we’re willing to tolerate 19 false negatives for every false positive claim we make.</p> <p>Should we?</p> <h2 id="real-life">Real Life</h2> <p>I’m sure there are some that would happily exchange 19 false negatives for every false positive, after chucking those parameters into Ioannidis 2005 paper and finding out the significance-biased literature will be mostly true (and boring). As social scientists we’ve been conditioned to fear the false positive, lest we become the poster child for a failed replication on a claim we boldly made and turned into a book deal or speaking tour.</p> <p>In many cases this is perhaps reasonable. A lot of disciplines in social sciences (looking at you, social psych) reward and incentivize <em>discovery</em> of some phenomenon that you riff on through tenure. Ideally it gets a name and that name is associated with you. You need that to be real, otherwise your whole career is teetering on $\alpha=.05$. This isn’t a dunk on social psychology, basic and exploratory science can make a pretty good argument for prioritizing positive findings over null ones. Find things, verify them, then let the applied folks use them.</p> <p>It’s out in real life, away from the abstraction of a discovery, that false negatives start to throw their weight around. Perhaps you’re trying to determine access to which of very many different social services in a large city improves grades for K-12 students; and you’ve got a lot of hypotheses to test. Does the team running an important, and effective, service wind up being evaluated with 5 or 95% power? Or somewhere in between? When a null shows up, how do we know if it came from the effect being studied or the effects being studied alongside it?</p> <h3 id="a-worked-example">A worked example</h3> <p>One of the defining questions of the 2010s, and into the 2020s, was the degree to which social media is impacting elections; both in the US and globally. There certainly was a palpable shift in the alignment and general vibes of many nations’ leaders. An academic collaboration with Meta set out to measure this in 2020, in part through a de-activation experiment. These experiments <a href="https://arxiv.org/abs/2505.09254" rel="external nofollow noopener" target="_blank">can’t really measure platform effects</a> on large-scale societal processes, but let us pretend for a moment.</p> <p>One of the papers [5] is titled “The effects of Facebook and Instagram on the 2020 election: A deactivation experiment.” Elections are decided by voting. As such, one finding (alongside turnout, perhaps) of the very many seems to be the answer to the titular question:</p> <blockquote> <p>The point estimate for the effect of Facebook deactivation on Trump vote is a reduction of 0.026 units (P = 0.015, Q = 0.076, 95% CI bounds = −0.046, −0.005). This effect falls just short of our preregistered signiﬁcance threshold of Q &lt; 0.05.</p> </blockquote> <p>In other words, they seem to have found around a 2.6\% shift in votes away from Trump among the folks who took time off of Facebook. Significant before FDR, non-significant afterwards. The resolution to this decade defining question winds up spending eternity in frequentist purgatory. It’s unlikely we’ll see a collaboration like this again, and it would occur in a very different world. And the strangest damn thing is that, corrected for multiple comparisons with different hypotheses, the answer could have been unambiguous on either side.</p> <p>Of course this is a real-life question and it matters. If privately owned companies have designed technology that alters democratic outcomes then it means they <em>can</em> sway or determine democracies. Two and a half percent, in the right places, moves an election in the US. Of course the true effect could be considerably larger, as this is just from taking a wee break. Imagine what a decade of time on platform could have done beforehand to candidate preference and voting behavior.</p> <h2 id="caught-between-the-replication-crisis-and-the-real-world">Caught between the replication crisis and the real world</h2> <p>None of this is to suggest we should never use FDR or FWER. Nor is it to opine on whether the Facebook election collaboration erred in doing so. Both are just statistical procedures, appropriate when they help us answer the questions we’re asking. Yet I think they get stuck in the throats of social scientists caught between the replication crisis and the real world. On one hand, false positives are to be avoided at all costs. On the other, false negatives can have very real consequences. So how do we manage?</p> <p>Well, the best way out of this is to follow Gelman, Hill and Yajima [2] and don’t worry about multiple comparisons. Use multi-level models, get comfy with Bayesian inference and start describing effect sizes rather than dichotomizing claims. When you’re in the real world, you can use the posteriors from your analyses to evaluate and calculate varying assumptions about the costs of getting it right and wrong.</p> <p>Absent that, I think it’s just worth asking whether you care about the chance you miss a real effect. If you’re hunting around in the lab for the new nudge that will make your career, have money to burn, and worry about getting replicated, then spool up that FDR. Alternatively if you’re truly exploring a large landscape of near-zero effects; triage with FDR then follow up like it was intended.</p> <p>Alternatively, if false negatives could have a real life impact it’s worth asking whether the reduction in false positives is worth the ambiguity about the change in false negatives. It’s one thing to be able to constrain power across plausible effect sizes, but there’s no good way to do that if your test is yoked in with a bunch of other very different hypotheses. If you find yourself in this regime, it’s worth thinking carefully about whether FDR is worth it and, if so, who goes into the family.</p> <h4 id="coda">Coda</h4> <p>This is my first blog post back after a long hiatus from blogging and a few months of being sick and in the hospital. I’m feeling really jazzed to think about science, but invariably will have typos and things that are wrong somewhere in here. Let me know, and I’ll update as time allows. As for LLMs, they did a bit of spell-checking, math-checking, and code-reorganizing but I don’t find them useful for drafting prose. As <a href="https://www.nature.com/articles/d41586-025-01839-w" rel="external nofollow noopener" target="_blank">I’ve written about peer review</a>, I think the slogs we go through are often where science happens.</p> <h2 id="references">References</h2> <ol> <li>Storey, J. D. (2003). The positive false discovery rate: A Bayesian interpretation and the q-value. <em>The Annals of Statistics</em>, <em>31</em>(6), 2013–2035.</li> <li>Gelman, A., Hill, J., &amp; Yajima, M. (2012). Why we (usually) don’t have to worry about multiple comparisons. <em>Journal of Research on Educational Effectiveness</em>, <em>5</em>(2), 189–211.</li> <li>Anderson, C. A., Allen, J. J., Plante, C., Quigley-McBride, A., Lovett, A., &amp; Rokkum, J. N. (2019). The MTurkification of social and personality psychology. <em>Personality and social psychology bulletin</em>, <em>45</em>(6), 842-850.</li> <li>Benjamin, D. J., Berger, J. O., Johannesson, M., Nosek, B. A., Wagenmakers, E. J., Berk, R., … &amp; Johnson, V. E. (2018). Redefine statistical significance. Nature human behaviour, 2(1), 6-10.</li> <li>Allcott, H., Gentzkow, M., Mason, W., Wilkins, A., Barberá, P., Brown, T., … &amp; Tucker, J. A. (2024). The effects of Facebook and Instagram on the 2020 election: A deactivation experiment. Proceedings of the National Academy of Sciences, 121(21), e2321584121.</li> </ol> <hr> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/nosek/">I did not want to write another blog post.</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/protzko/">I did not want to write this blog post.</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/contrarian/">The Preregistration Revelation</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2023/replication/">Replication failures from fishy science</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2023/Harvard/">Rigor Desiderada</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2023/pcurve/">Retire the P-Curve (On Twitter)</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Joe B. Bak-Coleman. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-publications",
+          title: "publications",
+          description: "Peer-reviewed publications in reverse chronological order.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-cv",
+          title: "cv",
+          description: "Appointments, affiliations, education, and awards. Download the full CV using the button above.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-the-absurdities-and-indignities-of-false-discovery-rates-in-social-science",
+        
+          title: "The Absurdities and Indignities of False Discovery Rates in Social Science",
+        
+        description: "As if multiple comparison corrections weren&#39;t complicated enough.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/FDR/";
+          
+        },
+      },{id: "post-i-did-not-want-to-write-another-blog-post",
+        
+          title: "I did not want to write another blog post.",
+        
+        description: "The Preregistration Revelation Part II",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/nosek/";
+          
+        },
+      },{id: "post-i-did-not-want-to-write-this-blog-post",
+        
+          title: "I did not want to write this blog post.",
+        
+        description: "The Preregistration Revelation",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/protzko/";
+          
+        },
+      },{id: "post-the-preregistration-revelation",
+        
+          title: "The Preregistration Revelation",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/contrarian/";
+          
+        },
+      },{id: "post-replication-failures-from-fishy-science",
+        
+          title: "Replication failures from fishy science",
+        
+        description: "The title is not what it seems.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/replication/";
+          
+        },
+      },{id: "post-rigor-desiderada",
+        
+          title: "Rigor Desiderada",
+        
+        description: "Why Sleuthing Needs Standards",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/Harvard/";
+          
+        },
+      },{id: "post-retire-the-p-curve-on-twitter",
+        
+          title: "Retire the P-Curve (On Twitter)",
+        
+        description: "It&#39;s past time to stop circling P-values",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/pcurve/";
+          
+        },
+      },{id: "news-new-paper-in-science-advances-addressing-climate-change-with-behavioral-science-amp-mdash-a-global-intervention-tournament-in-63-countries",
+          title: 'New paper in Science Advances: Addressing climate change with behavioral science &amp;amp;mdash; a...',
+          description: "",
+          section: "News",},{id: "news-the-protzko-et-al-study-was-retracted-from-nature-human-behaviour-following-concerns-i-raised-as-covered-by-the-chronicle-of-higher-education",
+          title: 'The Protzko et al. study was retracted from Nature Human Behaviour following concerns...',
+          description: "",
+          section: "News",},{id: "news-returned-to-the-university-of-washington-as-a-research-scientist-in-the-department-of-biology-after-joining-the-santa-fe-institute-as-an-external-applied-complexity-fellow-earlier-in-2025",
+          title: 'Returned to the University of Washington as a Research Scientist in the Department...',
+          description: "",
+          section: "News",},{id: "news-the-undp-39-s-flagship-human-development-report-2025-a-matter-of-choice-people-and-possibilities-in-the-age-of-ai-was-released-for-which-i-served-as-a-consulting-expert",
+          title: 'The UNDP&amp;#39;s flagship Human Development Report 2025, A matter of choice: People and...',
+          description: "",
+          section: "News",},{id: "news-taught-as-faculty-at-the-santa-fe-institute-39-s-complexity-global-school-for-emerging-political-economies-in-bogotá-colombia",
+          title: 'Taught as faculty at the Santa Fe Institute&amp;#39;s Complexity Global School for Emerging...',
+          description: "",
+          section: "News",},{id: "news-new-preprint-on-the-risks-of-industry-influence-in-tech-research-with-cailin-o-39-connor-carl-bergstrom-and-jevin-west",
+          title: 'New preprint on The Risks of Industry Influence in Tech Research, with Cailin...',
+          description: "",
+          section: "News",},{id: "news-gave-the-citp-seminar-at-princeton-on-scientific-barriers-to-evidence-based-tech-policy-watch-the-recording",
+          title: 'Gave the CITP Seminar at Princeton on Scientific Barriers to Evidence-Based Tech Policy...',
+          description: "",
+          section: "News",},{id: "news-our-preprint-on-industry-influence-in-social-media-research-was-covered-by-science-nearly-one-third-of-social-media-research-has-undisclosed-ties-to-industry",
+          title: 'Our preprint on industry influence in social media research was covered by Science:...',
+          description: "",
+          section: "News",},{id: "projects-stewardship-of-global-collective-behavior",
+          title: 'Stewardship of Global Collective Behavior',
+          description: "Communication technology radically reshapes our global social network. How do we ensure these changes will lead towards a sustainable, equitable and healthy world?",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_project/";
+            },},{id: "projects-wise-and-foolish-crowds",
+          title: 'Wise and foolish crowds',
+          description: "When do groups outperform individuals in cognitive tasks? Combining experiments and theory, this line of research examine fundamental principles underlying collective wisdom across human and animal groups.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_project/";
+            },},{id: "projects-animal-collectives",
+          title: 'Animal Collectives',
+          description: "Animal groups often have to make life or death decisions in the absence of clear leader and limited individual information. How do social animals make sense of the world and why do they live together in the first place?",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_project/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/BakColemanCV.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6A%62%61%6B%63%6F%6C%65%6D%61%6E@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=Y5000VQAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0000-0002-7590-3824", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/josephbb", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
