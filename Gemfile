@@ -30,6 +30,7 @@ end
 
 # Gems for development or external data fetching (outside :jekyll_plugins)
 group :other_plugins do
+    gem 'i18n', '~> 1.14.8' # pin below yanked 1.15.2 for reproducible bundle install
     gem 'css_parser'
     gem 'observer'       # used by jekyll-scholar
     gem 'ostruct'        # used by jekyll-twitter-plugin
