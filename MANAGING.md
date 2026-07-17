@@ -8,13 +8,13 @@ The site is a static Astro site. There is no CMS, no database, and almost no cli
 
 ## Mental model
 
-| Layer | Role |
-| --- | --- |
-| **YAML in `src/data/`** | Facts and curated lists (bio, links, essays, selected papers, citation counts) |
-| **Markdown in `src/content/`** | Dated writing (news, blog notes) |
-| **`vendor/cv/`** | Copy of [josephbb/CV](https://github.com/josephbb/CV) — publications on the site are driven by active `\nocite{...}` lines in `cv.tex` plus the `.bib` files |
-| **`public/`** | Files served as-is (CV PDF, portrait, outlet logos, `CNAME`) |
-| **`src/pages/` + `src/styles/`** | Layout and look — change only when you want design/behavior changes |
+| Layer                            | Role                                                                                                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **YAML in `src/data/`**          | Facts and curated lists (bio, links, essays, selected papers, citation counts)                                                                               |
+| **Markdown in `src/content/`**   | Dated writing (news, blog notes)                                                                                                                             |
+| **`vendor/cv/`**                 | Copy of [josephbb/CV](https://github.com/josephbb/CV) — publications on the site are driven by active `\nocite{...}` lines in `cv.tex` plus the `.bib` files |
+| **`public/`**                    | Files served as-is (CV PDF, portrait, outlet logos, `CNAME`)                                                                                                 |
+| **`src/pages/` + `src/styles/`** | Layout and look — change only when you want design/behavior changes                                                                                          |
 
 **Rule of thumb:** update content in YAML/Markdown/`vendor/cv`/`public`. Don’t edit Astro/CSS unless you’re changing how the site works.
 
@@ -35,25 +35,25 @@ Open the URL Astro prints (usually `http://localhost:4321/`).
 
 Useful commands:
 
-| Command | What it does |
-| --- | --- |
-| `pnpm dev` | Local preview with hot reload |
-| `pnpm build` | Production build into `dist/` |
-| `pnpm preview` | Serve `dist/` locally |
-| `pnpm format` | Prettier on the repo |
+| Command                | What it does                                    |
+| ---------------------- | ----------------------------------------------- |
+| `pnpm dev`             | Local preview with hot reload                   |
+| `pnpm build`           | Production build into `dist/`                   |
+| `pnpm preview`         | Serve `dist/` locally                           |
+| `pnpm format`          | Prettier on the repo                            |
 | `pnpm enrich:openalex` | Refresh DOI / OA metadata (optional; see below) |
 
 ---
 
 ## How the site is structured (pages)
 
-| URL | Purpose | Content sources |
-| --- | --- | --- |
-| `/` (About) | Portrait, name, bio, recent news, selected pubs | `site.yaml`, `socials.yaml`, `content/news/`, `selected.yaml` + CV pubs |
-| `/news/` | Full news list | `content/news/` |
-| `/publications/` | All CV-listed works (Latest / Greatest) | `vendor/cv` + `citations.yaml` (+ optional OpenAlex) |
-| `/writing/` | Published elsewhere + Notes (blog) | `essays.yaml`, `content/blog/` |
-| `/cv/` | PDF + short summary | `public/cv/…`, `site.yaml`, `socials.yaml` |
+| URL              | Purpose                                         | Content sources                                                         |
+| ---------------- | ----------------------------------------------- | ----------------------------------------------------------------------- |
+| `/` (About)      | Portrait, name, bio, recent news, selected pubs | `site.yaml`, `socials.yaml`, `content/news/`, `selected.yaml` + CV pubs |
+| `/news/`         | Full news list                                  | `content/news/`                                                         |
+| `/publications/` | All CV-listed works (Latest / Greatest)         | `vendor/cv` + `citations.yaml` (+ optional OpenAlex)                    |
+| `/writing/`      | Published elsewhere + Notes (blog)              | `essays.yaml`, `content/blog/`                                          |
+| `/cv/`           | PDF + short summary                             | `public/cv/…`, `site.yaml`, `socials.yaml`                              |
 
 Nav is defined in `src/layouts/BaseLayout.astro`.
 
@@ -69,7 +69,7 @@ Edit **`src/data/site.yaml`**.
 
 - `bio` uses a **literal** YAML block (`bio: |`) so blank lines become real paragraphs on the About page.
 - Do **not** switch `bio` back to folded style (`>`): that collapses paragraphs into one run-on block.
-- `book:` is the actual book (*Of Fish and Fascists*) — it is **not** the blog name.
+- `book:` is the actual book (_Of Fish and Fascists_) — it is **not** the blog name.
 - `affiliations` / `education` feed the CV page summary and (affiliations) the About narrative context.
 
 ### Email, Scholar, ORCID, GitHub, CV links
@@ -78,7 +78,7 @@ Edit **`src/data/socials.yaml`**.
 
 ```yaml
 email: …
-scholar_userid: …      # Google Scholar user id
+scholar_userid: … # Google Scholar user id
 orcid_id: …
 github_username: …
 cv_pdf: /cv/BakColemanCV.pdf
@@ -105,8 +105,8 @@ Joined the University of Washington as a Research Scientist.
 Optional:
 
 ```yaml
-date_label: Early 2025   # shown instead of the calendar day when the exact day is fuzzy
-title: Optional title    # rarely needed; body Markdown is the main text
+date_label: Early 2025 # shown instead of the calendar day when the exact day is fuzzy
+title: Optional title # rarely needed; body Markdown is the main text
 ```
 
 **Rules:**
@@ -127,7 +127,7 @@ Frontmatter:
 
 ```markdown
 ---
-title: "Your post title"
+title: 'Your post title'
 date: 2026-07-04
 description: One-line summary for the list page.
 tags: [stats, metascience]
@@ -138,7 +138,7 @@ Post body in Markdown / MDX…
 
 - Sorted **newest first**.
 - URL shape: `/blog/<filename-stem>/` (from the file id Astro assigns).
-- This is **not** branded *Of Fish and Fascists* — that name is reserved for the book.
+- This is **not** branded _Of Fish and Fascists_ — that name is reserved for the book.
 
 ---
 
@@ -151,13 +151,13 @@ Each entry:
 
 ```yaml
 - title: Article title
-  outlet: Nature                 # must match a key in outlets.yaml for a logo
-  date: 2025-06-25               # ISO date; list is newest-first
+  outlet: Nature # must match a key in outlets.yaml for a logo
+  date: 2025-06-25 # ISO date; list is newest-first
   url: https://…
   blurb: One short sentence.
   # optional:
-  image: /writing/my-thumb.jpg   # per-piece image instead of outlet logo
-  cite_key: BergstromBakColeman2025   # IMPORTANT — see below
+  image: /writing/my-thumb.jpg # per-piece image instead of outlet logo
+  cite_key: BergstromBakColeman2025 # IMPORTANT — see below
 ```
 
 ### `cite_key` (critical)
@@ -264,10 +264,10 @@ The `/cv/` page also shows affiliations/education from `site.yaml` and profile l
 Intended hosting: **GitHub Pages** via Actions, custom domain **`joebakcoleman.com`**.
 
 1. Push to **`main`** (or `master`) on the Pages repo (planned: `josephbb.github.io`).
-2. Workflow: `.github/workflows/deploy.yml`  
-   - `pnpm install --frozen-lockfile`  
-   - `pnpm run build`  
-   - upload `dist/` → GitHub Pages  
+2. Workflow: `.github/workflows/deploy.yml`
+   - `pnpm install --frozen-lockfile`
+   - `pnpm run build`
+   - upload `dist/` → GitHub Pages
 3. `public/CNAME` must contain `joebakcoleman.com`.
 4. In the GitHub repo: **Settings → Pages → Source = GitHub Actions**.
 
@@ -287,16 +287,16 @@ Until cutover, this may still live as `PersonalWebsite` locally — deploy steps
 
 ## Common gotchas
 
-| Symptom | Cause / fix |
-| --- | --- |
-| About bio is one giant paragraph | `bio` used `>` instead of `\|` in `site.yaml` |
-| Paper appears on both Writing and Publications | Add `cite_key` on the essay entry matching the bib/`\nocite` key |
-| New paper missing from Publications | Not `\nocite`’d in active CV section, or `vendor/cv` not synced |
-| Selected paper missing on homepage | Key not in `selected.yaml`, or excluded by essay `cite_key`, or missing from CV nocite |
-| News date shows wrong day | Use `YYYY-MM-DD`; display uses UTC. Or set `date_label` |
-| Outlet has letter mark, not logo | Add logo under `public/outlets/` and map it in `outlets.yaml` |
-| Dev server looks stale after CV edit | Pubs are read from disk each build; hard-refresh. Touch `publications.ts` if needed |
-| `pnpm install --frozen-lockfile` fails in CI | Commit an updated `pnpm-lock.yaml` after dependency changes |
+| Symptom                                        | Cause / fix                                                                            |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| About bio is one giant paragraph               | `bio` used `>` instead of `\|` in `site.yaml`                                          |
+| Paper appears on both Writing and Publications | Add `cite_key` on the essay entry matching the bib/`\nocite` key                       |
+| New paper missing from Publications            | Not `\nocite`’d in active CV section, or `vendor/cv` not synced                        |
+| Selected paper missing on homepage             | Key not in `selected.yaml`, or excluded by essay `cite_key`, or missing from CV nocite |
+| News date shows wrong day                      | Use `YYYY-MM-DD`; display uses UTC. Or set `date_label`                                |
+| Outlet has letter mark, not logo               | Add logo under `public/outlets/` and map it in `outlets.yaml`                          |
+| Dev server looks stale after CV edit           | Pubs are read from disk each build; hard-refresh. Touch `publications.ts` if needed    |
+| `pnpm install --frozen-lockfile` fails in CI   | Commit an updated `pnpm-lock.yaml` after dependency changes                            |
 
 ---
 
@@ -367,7 +367,7 @@ vendor/cv/         # Vendored josephbb/CV
 - Bird photography
 - Teaching / proposed courses
 - Research themes page (content already in `src/content/themes/`)
-- Structured press/coverage library (quotes and stories *about* you, separate from essays you wrote)
+- Structured press/coverage library (quotes and stories _about_ you, separate from essays you wrote)
 - Notebook → Notes pipeline (e.g. `nbconvert` / Quarto export into `src/content/blog/`, plus a small helper script) — analysis stays in notebooks; the site still publishes static Markdown
 
 ---

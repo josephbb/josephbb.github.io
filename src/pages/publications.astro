@@ -29,18 +29,26 @@ const scholarProfile = scholarUrl(socials.scholar_userid);
     <div class="section__head section__head--modes">
       <h2 class="visually-hidden">All works</h2>
       <div class="mode-toggle" role="group" aria-label="Sort publications">
-        <button type="button" class="mode-toggle__btn" data-mode="latest" aria-pressed="true">
+        <button
+          type="button"
+          class="mode-toggle__btn"
+          data-mode="latest"
+          aria-pressed="true"
+        >
           Latest
         </button>
-        <button type="button" class="mode-toggle__btn" data-mode="greatest" aria-pressed="false">
+        <button
+          type="button"
+          class="mode-toggle__btn"
+          data-mode="greatest"
+          aria-pressed="false"
+        >
           Greatest
         </button>
       </div>
     </div>
 
-    <p class="mode-hint mute" data-hint-for="latest">
-      Sorted by year.
-    </p>
+    <p class="mode-hint mute" data-hint-for="latest">Sorted by year.</p>
     <p
       class="mode-hint pub-stats mute"
       data-hint-for="greatest"
@@ -70,11 +78,7 @@ const scholarProfile = scholarUrl(socials.scholar_userid);
 
     <div data-panel="greatest" hidden>
       <ol class="pub-list pub-list--ranked">
-        {
-          byCites.map((pub) => (
-            <PublicationItem pub={pub} showCitations />
-          ))
-        }
+        {byCites.map((pub) => <PublicationItem pub={pub} showCitations />)}
       </ol>
     </div>
   </section>

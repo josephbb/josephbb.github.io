@@ -37,17 +37,17 @@ pnpm format:check
 
 ## Updating content
 
-| What | Where |
-| --- | --- |
-| Bio, affiliations, tagline | `src/data/site.yaml` |
-| Email, Scholar, ORCID, CV links | `src/data/socials.yaml` |
-| Homepage selected papers | `src/data/selected.yaml` (cite keys) |
-| Citation counts (Greatest sort) | `src/data/citations.yaml` (Scholar snapshot; OpenAlex cites fill gaps) |
-| DOI / open access | `src/data/openalex.yaml` — refresh with `pnpm enrich:openalex` |
-| News | `src/content/news/*.md` |
-| Blog | `src/content/blog/*.md` |
-| Publications list | Edit `\nocite` + `.bib` in [josephbb/CV](https://github.com/josephbb/CV), then sync `vendor/cv` |
-| CV PDF | Rebuild in the CV repo → copy to `public/cv/BakColemanCV.pdf` |
+| What                            | Where                                                                                           |
+| ------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Bio, affiliations, tagline      | `src/data/site.yaml`                                                                            |
+| Email, Scholar, ORCID, CV links | `src/data/socials.yaml`                                                                         |
+| Homepage selected papers        | `src/data/selected.yaml` (cite keys)                                                            |
+| Citation counts (Greatest sort) | `src/data/citations.yaml` (Scholar snapshot; OpenAlex cites fill gaps)                          |
+| DOI / open access               | `src/data/openalex.yaml` — refresh with `pnpm enrich:openalex`                                  |
+| News                            | `src/content/news/*.md`                                                                         |
+| Blog                            | `src/content/blog/*.md`                                                                         |
+| Publications list               | Edit `\nocite` + `.bib` in [josephbb/CV](https://github.com/josephbb/CV), then sync `vendor/cv` |
+| CV PDF                          | Rebuild in the CV repo → copy to `public/cv/BakColemanCV.pdf`                                   |
 
 ### Sync CV vendor copy
 

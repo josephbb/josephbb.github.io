@@ -42,8 +42,16 @@ function normalizeTitle(s) {
 }
 
 function titleScore(a, b) {
-  const ta = new Set(normalizeTitle(a).split(' ').filter((w) => w.length > 2));
-  const tb = new Set(normalizeTitle(b).split(' ').filter((w) => w.length > 2));
+  const ta = new Set(
+    normalizeTitle(a)
+      .split(' ')
+      .filter((w) => w.length > 2),
+  );
+  const tb = new Set(
+    normalizeTitle(b)
+      .split(' ')
+      .filter((w) => w.length > 2),
+  );
   if (!ta.size || !tb.size) return 0;
   let inter = 0;
   for (const w of ta) if (tb.has(w)) inter++;
@@ -52,12 +60,7 @@ function titleScore(a, b) {
 
 function pickOaUrl(work) {
   const best = work.best_oa_location;
-  return (
-    best?.pdf_url ||
-    best?.landing_page_url ||
-    work.open_access?.oa_url ||
-    undefined
-  );
+  return best?.pdf_url || best?.landing_page_url || work.open_access?.oa_url || undefined;
 }
 
 async function fetchJson(url) {
@@ -109,8 +112,7 @@ function matchWork(pub, index) {
     const tScore = titleScore(pub.title, work.display_name ?? '');
     if (tScore < MIN_TITLE_SCORE) continue;
     const workYear = work.publication_year ?? 0;
-    const yearDelta =
-      pub.year && workYear ? Math.abs(pub.year - workYear) : 99;
+    const yearDelta = pub.year && workYear ? Math.abs(pub.year - workYear) : 99;
     const yearScore =
       yearDelta === 0 ? 1 : yearDelta === 1 ? 0.7 : yearDelta <= 2 ? 0.4 : 0;
     const score = tScore * 0.75 + yearScore * 0.25;
@@ -188,6 +190,4 @@ const out = {
 };
 
 fs.writeFileSync(OUT, yaml.stringify(out, { lineWidth: 100 }));
-console.log(
-  `Wrote ${OUT} (${matched}/${pubs.length} matched, ${oaCount} with OA URL)`,
-);
+console.log(`Wrote ${OUT} (${matched}/${pubs.length} matched, ${oaCount} with OA URL)`);

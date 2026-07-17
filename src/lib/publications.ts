@@ -43,8 +43,7 @@ function stripTexComments(source: string): string {
 function extractActiveNocites(tex: string): { key: string; section: string }[] {
   const cleaned = stripTexComments(tex);
   const results: { key: string; section: string }[] = [];
-  const sectionRe =
-    /\\begin\{refsection\}\[([^\]]+)\]([\s\S]*?)\\end\{refsection\}/g;
+  const sectionRe = /\\begin\{refsection\}\[([^\]]+)\]([\s\S]*?)\\end\{refsection\}/g;
   let match: RegExpExecArray | null;
   while ((match = sectionRe.exec(cleaned)) !== null) {
     const section = match[1];
@@ -52,7 +51,10 @@ function extractActiveNocites(tex: string): { key: string; section: string }[] {
     const citeRe = /\\nocite\{([^}]+)\}/g;
     let cite: RegExpExecArray | null;
     while ((cite = citeRe.exec(body)) !== null) {
-      for (const key of cite[1].split(',').map((k) => k.trim()).filter(Boolean)) {
+      for (const key of cite[1]
+        .split(',')
+        .map((k) => k.trim())
+        .filter(Boolean)) {
         results.push({ key, section });
       }
     }
@@ -115,9 +117,7 @@ function loadBibEntries(): Map<string, Record<string, string>> {
 }
 
 function tagValue(tags: Record<string, string>, ...names: string[]): string {
-  const lower = new Map(
-    Object.entries(tags).map(([k, v]) => [k.toLowerCase(), v]),
-  );
+  const lower = new Map(Object.entries(tags).map(([k, v]) => [k.toLowerCase(), v]));
   for (const name of names) {
     const v = lower.get(name.toLowerCase());
     if (v) return cleanLatex(v);
@@ -158,11 +158,9 @@ export function getPublications(options: { openAlex?: boolean } = {}): Publicati
     ),
   );
   const aliasPath = path.join(process.cwd(), 'src', 'data', 'cite-aliases.yaml');
-  const aliases = (
-    fs.existsSync(aliasPath)
-      ? (yaml.parse(fs.readFileSync(aliasPath, 'utf8')) as Record<string, string>)
-      : {}
-  );
+  const aliases = fs.existsSync(aliasPath)
+    ? (yaml.parse(fs.readFileSync(aliasPath, 'utf8')) as Record<string, string>)
+    : {};
   const citationsPath = path.join(process.cwd(), 'src', 'data', 'citations.yaml');
   const citationsFile = fs.existsSync(citationsPath)
     ? (yaml.parse(fs.readFileSync(citationsPath, 'utf8')) as {
@@ -179,10 +177,7 @@ export function getPublications(options: { openAlex?: boolean } = {}): Publicati
   );
   const scholarUser = citationsFile.scholar_user || 'Y5000VQAAAAJ';
   const scholarIds = new Map<string, string>(
-    Object.entries(citationsFile.scholar_ids ?? {}).map(([k, v]) => [
-      k.toLowerCase(),
-      v,
-    ]),
+    Object.entries(citationsFile.scholar_ids ?? {}).map(([k, v]) => [k.toLowerCase(), v]),
   );
   const openalexPath = path.join(process.cwd(), 'src', 'data', 'openalex.yaml');
   const openalexFile =
@@ -197,10 +192,9 @@ export function getPublications(options: { openAlex?: boolean } = {}): Publicati
   const seen = new Set<string>();
   const essaysPath = path.join(process.cwd(), 'src', 'data', 'essays.yaml');
   const writingKeys = new Set(
-    (
-      fs.existsSync(essaysPath)
-        ? (yaml.parse(fs.readFileSync(essaysPath, 'utf8')) as { cite_key?: string }[])
-        : []
+    (fs.existsSync(essaysPath)
+      ? (yaml.parse(fs.readFileSync(essaysPath, 'utf8')) as { cite_key?: string }[])
+      : []
     )
       .map((e) => e.cite_key?.toLowerCase())
       .filter((k): k is string => Boolean(k)),
@@ -209,10 +203,7 @@ export function getPublications(options: { openAlex?: boolean } = {}): Publicati
   for (const { key, section } of nocites) {
     const resolved = aliases[key] || key;
     if (seen.has(resolved.toLowerCase())) continue;
-    if (
-      writingKeys.has(key.toLowerCase()) ||
-      writingKeys.has(resolved.toLowerCase())
-    ) {
+    if (writingKeys.has(key.toLowerCase()) || writingKeys.has(resolved.toLowerCase())) {
       continue;
     }
     seen.add(resolved.toLowerCase());
@@ -237,18 +228,17 @@ export function getPublications(options: { openAlex?: boolean } = {}): Publicati
     const arxivDoi = arxivId ? `10.48550/arXiv.${arxivId}` : undefined;
     const arxivAbs = arxivId ? `https://arxiv.org/abs/${arxivId}` : undefined;
     const arxivPdf = arxivId ? `https://arxiv.org/pdf/${arxivId}` : undefined;
-    const doi =
-      cleanLatex(tags.doi) || oa?.doi || arxivDoi || undefined;
+    const doi = cleanLatex(tags.doi) || oa?.doi || arxivDoi || undefined;
     const bibUrl = cleanLatex(tags.url) || cleanLatex(tags.URL) || undefined;
     const bibPdf = cleanLatex(tags.pdf) || cleanLatex(tags.PDF) || undefined;
     const bibHtml = cleanLatex(tags.html) || cleanLatex(tags.HTML) || undefined;
     const bibLooksFree = (u?: string) =>
       Boolean(
         u &&
-          (/arxiv\.org|socarxiv|osf\.io\/preprints|pmc\.ncbi\.nlm\.nih\.gov|europepmc\.org|\.pdf(\?|$)/i.test(
-            u,
-          ) ||
-            /\bpdf\b/i.test(u)),
+        (/arxiv\.org|socarxiv|osf\.io\/preprints|pmc\.ncbi\.nlm\.nih\.gov|europepmc\.org|\.pdf(\?|$)/i.test(
+          u,
+        ) ||
+          /\bpdf\b/i.test(u)),
       );
     const oaUrl =
       oa?.oa_url ||
@@ -260,16 +250,10 @@ export function getPublications(options: { openAlex?: boolean } = {}): Publicati
       undefined;
     const isOpenAccess = Boolean(
       oaUrl &&
-        (oa?.is_oa ||
-          Boolean(arxivId) ||
-          bibLooksFree(oaUrl) ||
-          section === 'policy'),
+      (oa?.is_oa || Boolean(arxivId) || bibLooksFree(oaUrl) || section === 'policy'),
     );
     const url =
-      bibUrl ||
-      arxivAbs ||
-      (doi ? `https://doi.org/${doi}` : undefined) ||
-      undefined;
+      bibUrl || arxivAbs || (doi ? `https://doi.org/${doi}` : undefined) || undefined;
     const citations =
       citationCounts.get(pubKey.toLowerCase()) ??
       citationCounts.get(resolved.toLowerCase()) ??
@@ -314,9 +298,7 @@ export function getSelectedPublications(): Publication[] {
       fs.readFileSync(path.join(process.cwd(), 'src', 'data', 'selected.yaml'), 'utf8'),
     ) as string[]
   ).map((k) => k.toLowerCase());
-  const byKey = new Map(
-    getPublications().map((p) => [p.key.toLowerCase(), p]),
-  );
+  const byKey = new Map(getPublications().map((p) => [p.key.toLowerCase(), p]));
   return selectedOrder
     .map((key) => byKey.get(key))
     .filter((p): p is Publication => Boolean(p));

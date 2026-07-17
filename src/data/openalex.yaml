@@ -28,7 +28,8 @@ works:
     unmatched: true
   Mada2024:
     openalex_id: https://openalex.org/W4391629219
-    matched_title: 'Addressing climate change with behavioral science: A global intervention tournament
+    matched_title:
+      'Addressing climate change with behavioral science: A global intervention tournament
       in 63 countries'
     title_score: 1
     doi: 10.1126/sciadv.adj5778
@@ -45,7 +46,8 @@ works:
     cited_by_count: 11
   doell2024international:
     openalex_id: https://openalex.org/W4403036292
-    matched_title: 'The International Climate Psychology Collaboration: Climate change-related data collected
+    matched_title:
+      'The International Climate Psychology Collaboration: Climate change-related data collected
       from 63 countries'
     title_score: 1
     doi: 10.1038/s41597-024-03865-1
@@ -78,7 +80,8 @@ works:
     cited_by_count: 4
   Jolles2022:
     openalex_id: https://openalex.org/W4285797947
-    matched_title: Both prey and predator features predict the individual predation risk and survival
+    matched_title:
+      Both prey and predator features predict the individual predation risk and survival
       of schooling prey
     title_score: 1
     doi: 10.7554/elife.76344
@@ -113,7 +116,8 @@ works:
     cited_by_count: null
   bak2021reply:
     openalex_id: https://openalex.org/W3207903154
-    matched_title: 'Reply to Cheong and Jones: The role of science in responding to collective behavioral
+    matched_title:
+      'Reply to Cheong and Jones: The role of science in responding to collective behavioral
       threats'
     title_score: 1
     doi: 10.1073/pnas.2114477118
@@ -130,7 +134,8 @@ works:
     cited_by_count: 291
   Cooombs2021:
     openalex_id: https://openalex.org/W3113180917
-    matched_title: 'Rheotaxis revisited: a multi-behavioral and multisensory perspective on how fish orient
+    matched_title:
+      'Rheotaxis revisited: a multi-behavioral and multisensory perspective on how fish orient
       to flow'
     title_score: 0.769
     doi: 10.1242/jeb.223008
@@ -139,7 +144,8 @@ works:
     cited_by_count: 83
   Winklmayer2020:
     openalex_id: https://openalex.org/W3096424387
-    matched_title: 'The wisdom of stalemates: consensus and clustering as filtering mechanisms for improving
+    matched_title:
+      'The wisdom of stalemates: consensus and clustering as filtering mechanisms for improving
       collective accuracy'
     title_score: 1
     doi: 10.1098/rspb.2020.1802
@@ -180,7 +186,8 @@ works:
     cited_by_count: 71
   Bak-Coleman2015b:
     openalex_id: https://openalex.org/W808845928
-    matched_title: 'Going with, then against the flow: evidence against the optomotor hypothesis of fish
+    matched_title:
+      'Going with, then against the flow: evidence against the optomotor hypothesis of fish
       rheotaxis'
     title_score: 1
     doi: 10.1016/j.anbehav.2015.06.007
@@ -189,7 +196,8 @@ works:
     cited_by_count: 24
   Chicoli2015:
     openalex_id: https://openalex.org/W2216131188
-    matched_title: Rheotaxis performance increases with group size in a coupled phase model with sensory
+    matched_title:
+      Rheotaxis performance increases with group size in a coupled phase model with sensory
       noise
     title_score: 0.786
     doi: 10.1140/epjst/e2015-50080-x
@@ -214,7 +222,8 @@ works:
     cited_by_count: 22
   Chicoli2014:
     openalex_id: https://openalex.org/W2003082213
-    matched_title: 'The effects of flow on schooling <i>Devario aequipinnatus</i>: school structure, startle
+    matched_title:
+      'The effects of flow on schooling <i>Devario aequipinnatus</i>: school structure, startle
       response and information transmission'
     title_score: 1
     doi: 10.1111/jfb.12365
@@ -223,7 +232,8 @@ works:
     cited_by_count: 48
   Bak-Coleman2013:
     openalex_id: https://openalex.org/W2138530634
-    matched_title: The spatiotemporal dynamics of rheotactic behavior depends on flow speed and available
+    matched_title:
+      The spatiotemporal dynamics of rheotactic behavior depends on flow speed and available
       sensory information
     title_score: 1
     doi: 10.1242/jeb.090480

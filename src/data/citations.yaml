@@ -1,7 +1,7 @@
 # Google Scholar citation counts (from al-folio snapshot, last updated ~2026-07-13).
 # Refresh periodically; keyed by CV cite keys.
 # Source: Scholar profile Y5000VQAAAAJ via previous site citations.yml
-last_updated: "2026-07-13"
+last_updated: '2026-07-13'
 scholar_user: Y5000VQAAAAJ
 counts:
   garland2026case: 3

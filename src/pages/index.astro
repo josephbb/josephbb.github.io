@@ -3,13 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import { getCollection, render } from 'astro:content';
 import { getSelectedPublications } from '../lib/publications';
-import {
-  getSite,
-  getSocials,
-  scholarUrl,
-  orcidUrl,
-  githubUrl,
-} from '../lib/site';
+import { getSite, getSocials, scholarUrl, orcidUrl, githubUrl } from '../lib/site';
 import { formatDate, dateAttr } from '../lib/dates';
 
 const site = getSite();
@@ -42,8 +36,7 @@ const news = (await getCollection('news')).sort(
     <div class="actions hero__actions">
       <a class="button" href={socials.cv_pdf}>Download CV</a>
       <a class="button button--ghost" href={`mailto:${socials.email}`}>Email</a>
-      <a class="button button--ghost" href={scholarUrl(socials.scholar_userid)}
-        >Scholar</a
+      <a class="button button--ghost" href={scholarUrl(socials.scholar_userid)}>Scholar</a
       >
     </div>
   </section>

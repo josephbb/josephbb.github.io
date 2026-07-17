@@ -8,14 +8,9 @@ const news = (await getCollection('news')).sort(
 );
 ---
 
-<BaseLayout
-  title="News"
-  description="Recent news and updates from Joe B. Bak-Coleman."
->
+<BaseLayout title="News" description="Recent news and updates from Joe B. Bak-Coleman.">
   <h1 class="page-title">News</h1>
-  <p class="page-lede">
-    Talks, papers, appointments, and other notes of record.
-  </p>
+  <p class="page-lede">Talks, papers, appointments, and other notes of record.</p>
 
   <section class="section">
     <ul class="news-list">
