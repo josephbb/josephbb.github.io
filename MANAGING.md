@@ -25,7 +25,7 @@ The site is a static Astro site. There is no CMS, no database, and almost no cli
 Requirements: **Node 22+**, **pnpm** (pinned in `package.json`).
 
 ```bash
-cd /path/to/PersonalWebsite   # or josephbb.github.io when that’s the live repo
+cd /path/to/josephbb.github.io   # or this PersonalWebsite checkout
 corepack enable
 pnpm install
 pnpm dev
@@ -261,9 +261,9 @@ The `/cv/` page also shows affiliations/education from `site.yaml` and profile l
 
 ## Deploy (go live)
 
-Intended hosting: **GitHub Pages** via Actions, custom domain **`joebakcoleman.com`**.
+Hosting: **GitHub Pages** via Actions on [`josephbb/josephbb.github.io`](https://github.com/josephbb/josephbb.github.io), custom domain **`joebakcoleman.com`**.
 
-1. Push to **`main`** (or `master`) on the Pages repo (planned: `josephbb.github.io`).
+1. Push to **`main`** (this repo’s remote).
 2. Workflow: `.github/workflows/deploy.yml`
    - `pnpm install --frozen-lockfile`
    - `pnpm run build`
@@ -271,7 +271,7 @@ Intended hosting: **GitHub Pages** via Actions, custom domain **`joebakcoleman.c
 3. `public/CNAME` must contain `joebakcoleman.com`.
 4. In the GitHub repo: **Settings → Pages → Source = GitHub Actions**.
 
-Until cutover, this may still live as `PersonalWebsite` locally — deploy steps are the same once the remote is the Pages user site.
+The previous al-folio site is preserved on `archive/al-folio` (source) and `archive/gh-pages-legacy` (built HTML).
 
 **There is no separate Vercel/Netlify step** for this static site; Pages replaces that.
 
