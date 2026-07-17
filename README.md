@@ -39,7 +39,7 @@ pnpm format:check
 
 | What                            | Where                                                                                           |
 | ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Bio, affiliations, tagline      | `src/data/site.yaml`                                                                            |
+| Bio, affiliations, tagline, **Now** line | `src/data/site.yaml` (`now` / `now_updated`) |
 | Email, Scholar, ORCID, CV links | `src/data/socials.yaml`                                                                         |
 | Homepage selected papers        | `src/data/selected.yaml` (cite keys)                                                            |
 | Citation counts (Greatest sort) | `src/data/citations.yaml` (Scholar snapshot; OpenAlex cites fill gaps)                          |
@@ -63,6 +63,6 @@ rm -rf vendor/cv/.git
 
 Push to `main` on `josephbb.github.io` with GitHub Pages set to **GitHub Actions**. `public/CNAME` is set to `joebakcoleman.com`.
 
-## v2 (not in this build)
+## v2 (ideas)
 
-Bird photography, teaching/courses, research themes page (`src/content/themes/`), structured press/coverage library, notebook→blog export helper.
+See [IDEAS.md](./IDEAS.md). Not in the live nav yet.

@@ -10,6 +10,10 @@ export type SiteConfig = {
   location: string;
   title: string;
   affiliation: string;
+  /** Optional one-liner under the hero (role + current work/reading). */
+  now?: string;
+  /** Display label for when `now` was last refreshed (e.g. "Jul 2026"). */
+  now_updated?: string;
   book: { title: string; year: number; press: string };
   affiliations: { role: string; org: string; current: boolean }[];
   education: { degree: string; year: number; school: string }[];

@@ -63,6 +63,17 @@ const personJsonLd = {
       <a class="button button--ghost" href={scholarUrl(socials.scholar_userid)}>Scholar</a
       >
     </div>
+    {
+      site.now && (
+        <p class="hero__now">
+          <span class="hero__now-label">Now</span>
+          <span class="hero__now-text">{site.now.replace(/\s*\n\s*/g, ' ').trim()}</span>
+          {site.now_updated && (
+            <span class="hero__now-updated">{site.now_updated}</span>
+          )}
+        </p>
+      )
+    }
   </section>
 
   <section class="section">

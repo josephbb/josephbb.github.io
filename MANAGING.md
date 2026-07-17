@@ -49,7 +49,7 @@ Useful commands:
 
 | URL              | Purpose                                         | Content sources                                                         |
 | ---------------- | ----------------------------------------------- | ----------------------------------------------------------------------- |
-| `/` (About)      | Portrait, name, bio, recent news, selected pubs | `site.yaml`, `socials.yaml`, `content/news/`, `selected.yaml` + CV pubs |
+| `/` (About)      | Portrait, name, **Now** line, bio, recent news, selected pubs | `site.yaml` (`now`), `socials.yaml`, `content/news/`, `selected.yaml` + CV pubs |
 | `/news/`         | Full news list                                  | `content/news/`                                                         |
 | `/publications/` | All CV-listed works (Latest / Greatest)         | `vendor/cv` + `citations.yaml` (+ optional OpenAlex)                    |
 | `/writing/`      | Published elsewhere + Notes (blog)              | `essays.yaml`, `content/blog/`                                          |
@@ -65,7 +65,7 @@ Nav is defined in `src/layouts/BaseLayout.astro`.
 
 ### Bio, job title, affiliations, book
 
-Edit **`src/data/site.yaml`**.
+Edit **`src/data/site.yaml`**. Refresh the homepage **Now** line (`now` / `now_updated`) when your focus changes.
 
 - `bio` uses a **literal** YAML block (`bio: |`) so blank lines become real paragraphs on the About page.
 - Do **not** switch `bio` back to folded style (`>`): that collapses paragraphs into one run-on block.
@@ -370,13 +370,9 @@ vendor/cv/         # Vendored josephbb/CV
 
 ---
 
-## v2 backlog (do not build into nav yet)
+## v2 backlog
 
-- Bird photography
-- Teaching / proposed courses
-- Research themes page (content already in `src/content/themes/`)
-- Structured press/coverage library (quotes and stories _about_ you, separate from essays you wrote)
-- Notebook → Notes pipeline (e.g. `nbconvert` / Quarto export into `src/content/blog/`, plus a small helper script) — analysis stays in notebooks; the site still publishes static Markdown
+See **[IDEAS.md](./IDEAS.md)** for the living list (research themes, book page, photography, media archive, etc.). Do not add those to the nav until deliberately built.
 
 ---
 
