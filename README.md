@@ -1,4 +1,4 @@
-# Joe B. Bak-Coleman — personal academic site
+# Joe Bak-Coleman — personal academic site
 
 Astro static site for [joebakcoleman.com](https://joebakcoleman.com), built to deploy on GitHub Pages (`josephbb.github.io`).
 
