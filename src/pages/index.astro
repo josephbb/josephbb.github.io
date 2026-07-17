@@ -12,9 +12,33 @@ const selected = getSelectedPublications();
 const news = (await getCollection('news')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: 'https://joebakcoleman.com/',
+  image: 'https://joebakcoleman.com/images/prof_pic.jpg',
+  jobTitle: site.title,
+  worksFor: {
+    '@type': 'Organization',
+    name: site.affiliation,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.location,
+  },
+  email: socials.email,
+  sameAs: [
+    scholarUrl(socials.scholar_userid),
+    orcidUrl(socials.orcid_id),
+    githubUrl(socials.github_username),
+  ],
+  description: site.bio_short.trim(),
+};
 ---
 
-<BaseLayout description={site.bio_short}>
+<BaseLayout description={site.bio_short} jsonLd={personJsonLd}>
   <section class="hero">
     <div class="hero__identity">
       <img

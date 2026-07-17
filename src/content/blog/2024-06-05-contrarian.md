@@ -1,7 +1,7 @@
 ---
 title: 'The Preregistration Revelation'
 date: 2024-06-05
-description: 'tags: metascience openscience'
+description: 'On preregistration, open science, and when “contrarian” takes go sideways.'
 tags:
   - metascience
   - openscience

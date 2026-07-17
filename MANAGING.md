@@ -273,6 +273,12 @@ Hosting: **GitHub Pages** via Actions on [`josephbb/josephbb.github.io`](https:/
 
 Build also emits **`/sitemap-index.xml`** and **`/robots.txt`**. After deploy, submit `sitemap-index.xml` in [Google Search Console → Sitemaps](https://search.google.com/search-console).
 
+SEO already baked in:
+
+- Canonical + Open Graph / Twitter tags on every page
+- `Person` JSON-LD on the homepage
+- Redirects from old al-folio blog permalinks (`/blog/YYYY/slug/`) to the new `/blog/…` paths
+
 The previous al-folio site is preserved on `archive/al-folio` (source) and `archive/gh-pages-legacy` (built HTML).
 
 **There is no separate Vercel/Netlify step** for this static site; Pages replaces that.

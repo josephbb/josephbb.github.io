@@ -5,14 +5,28 @@ import { getSite, getSocials } from '../lib/site';
 interface Props {
   title?: string;
   description?: string;
+  /** Absolute or site-root path for social share image. */
+  image?: string;
+  /** Open Graph type; defaults to website. */
+  ogType?: 'website' | 'article';
+  /** Optional JSON-LD object(s) embedded in the page head. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const site = getSite();
 const socials = getSocials();
-const { title, description = site.tagline } = Astro.props;
+const {
+  title,
+  description = site.tagline,
+  image = '/images/prof_pic.jpg',
+  ogType = 'website',
+  jsonLd,
+} = Astro.props;
 const pageTitle = title ? `${title} · ${site.short_name}` : site.name;
 const pathname = Astro.url.pathname;
 const canonicalURL = new URL(pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 const nav = [
   { href: '/', label: 'About' },
@@ -37,6 +51,17 @@ function isCurrent(href: string) {
     <meta name="author" content={site.name} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:site_name" content={site.short_name} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,6 +70,11 @@ function isCurrent(href: string) {
       rel="stylesheet"
     />
     <title>{pageTitle}</title>
+    {
+      jsonLdBlocks.map((block) => (
+        <script type="application/ld+json" set:html={JSON.stringify(block)} />
+      ))
+    }
     <script is:inline>
       (function () {
         try {
