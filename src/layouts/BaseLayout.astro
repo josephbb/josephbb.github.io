@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import { getSite, getSocials } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const site = getSite();
+const socials = getSocials();
+const { title, description = site.tagline } = Astro.props;
+const pageTitle = title ? `${title} · ${site.short_name}` : site.name;
+const pathname = Astro.url.pathname;
+
+const nav = [
+  { href: '/', label: 'About' },
+  { href: '/news/', label: 'News' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/writing/', label: 'Writing' },
+  { href: '/cv/', label: 'CV' },
+];
+
+function isCurrent(href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <a class="site-logo" href="/">{site.short_name}</a>
+          <nav class="site-nav" aria-label="Primary">
+            {
+              nav.map((item) => (
+                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          © {new Date().getFullYear()}
+          {site.name}. {site.contact_note}
+          <a href={`mailto:${socials.email}`}>{socials.email}</a>.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+# Google Scholar citation counts (from al-folio snapshot, last updated ~2026-07-13).
+# Refresh periodically; keyed by CV cite keys.
+# Source: Scholar profile Y5000VQAAAAJ via previous site citations.yml
+last_updated: "2026-07-13"
+scholar_user: Y5000VQAAAAJ
+counts:
+  garland2026case: 3
+  bak2025randomized: 3
+  BergstromBakColeman2025: 0
+  Mada2024: 390
+  bak2024claims: 21
+  doell2024international: 34
+  kozyreva2022: 348
+  Winklmayer2023: 5
+  bak2023create: 18
+  Jolles2022: 26
+  BakColeman2022: 6
+  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021: 231
+  BakColeman2021: 458
+  Cooombs2021: 97
+  bak2021reply: 0
+  lum2021mislead: 0
+  Winklmayer2020: 18
+  Li2020: 291
+  Sosna2019: 158
+  bergstrom2019information: 60
+  Kao2018: 83
+  Bak-Coleman2015b: 34
+  Chicoli2015: 0
+  Kulpa2015a: 48
+  Bak-Coleman2014: 27
+  Chicoli2014: 57
+  Bak-Coleman2013: 63
+  bak2026industry: 0
+  bak2025risks: 0
+  bak-coleman_2023: 0
+scholar_ids:
+  bak2024claims: JV2RwH3_ST0C
+  bak2026industry: eq2jaN3J8jMC
+  bak2025risks: tkaPQYYpVKoC
+  bak2025randomized: 1qzjygNMrQYC
+  bak2023create: 9ZlFYXVOiuMC
+  Jolles2022: ULOm3_A8WrAC
+  doell2024international: -f6ydRqryjwC
+  Mada2024: L8Ckcad2t8MC
+  kozyreva2022: R3hNpaxXUhUC
+  BakColeman2021: qUcmZB5y_30C
+  BakColeman2022: _kc_bZDykSQC
+  Cooombs2021: 0EnyYjriUFMC
+  Winklmayer2020: LkGwnXOMwfcC
+  Winklmayer2023: aqlVkmm33-oC
+  Sosna2019: WF5omc3nYNoC
+  bergstrom2019information: ufrVoPGSRksC
+  bak2021reply: 8k81kl-MbHgC
+  garland2026case: 5awf1xo2G04C
+  Li2020: Se3iqnhoufwC
+  Kao2018: YsMSGLbcyi4C
+  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021: qxL8FJ1GzNcC
+  Chicoli2015: Y0pCki6q_DkC
+  Kulpa2015a: zYLM7Y9cAGgC
+  Bak-Coleman2015b: Tyk-4Ss8FVUC
+  Bak-Coleman2014: qjMakFHDy7sC
+  Chicoli2014: UeHWp8X0CEIC
+  Bak-Coleman2013: u-x6o8ySG0sC
+  bak-coleman_2023: Wp0gIr-vW9MC

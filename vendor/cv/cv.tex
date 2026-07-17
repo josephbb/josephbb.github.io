@@ -1,0 +1,611 @@
+% !TEX encoding = UTF-8 Unicode
+%%% LaTeX Template: Curriculum Vitae
+%%%
+%%% Source: http://www.howtotex.com/
+%%% Feel free to distribute this template, but please keep the referal to HowToTeX.com.
+%%% Date: July 2011
+
+
+  
+  
+%%% ------------------------------------------------------------
+%%% BEGIN PREAMBLE
+%%% ------------------------------------------------------------
+\documentclass[paper=a4,fontsize=11pt]{scrartcl}
+
+% KOMA-article class							
+
+\usepackage[backend=bibtex,style=numeric,sorting=ydnt]{biblatex}
+\usepackage{fontspec}
+%\setmainfont{[Optima.ttf]}
+
+% Count total number of entries in each refsection
+\AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+    \csuse{entrycount:\therefsection}+1}}
+
+% Print the labelnumber as the total number of entries in the
+% current refsection, minus the actual labelnumber, plus one
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+\newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+  
+%\usepackage[english]{babel}								% English language/hyphenation
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%\color{darkgray}
+\usepackage{framed,color}
+%\definecolor{shader}{rgb}{1,0.8,0.3}
+%\definecolor{shader}{rgb}{1,1,1}
+%\definecolor{black}{black}{0.25}
+\usepackage[protrusion=true,expansion=true]{microtype}		% Better typography
+\usepackage{amsmath,amsfonts,amsthm}					% Math packages
+\usepackage{graphicx}								% Enable pdflatex
+\usepackage[svgnames]{xcolor}							% Colors by their 'svgnames'
+\usepackage[left=2cm,top=1cm,right=2cm,bottom=2cm,nohead,nofoot]{geometry}									% Saving trees ;-) 
+%\usepackage{url}
+\usepackage{hyperref}										% Clickable URL's
+\usepackage{wrapfig}									% Wrap text along figures
+\usepackage{comment}
+\renewcommand{\refname}{PUBLICATIONS}
+% Bibliography
+%\usepackage{natbib}\
+% Print the labelnumber as the total number of entries in the
+% current refsection, minus the actual labelnumber, plus one
+% Count total number of entries in each refsection
+
+
+
+\addbibresource[label=manuscripts]{manuscripts.bib}
+\addbibresource[label=published]{published.bib}
+%\usepackage{bibentry}
+%\usepackage{bibtex}
+%\nobibliography*
+%\bibliographystyle{apa}
+
+%%add a picture
+%\graphicspath{ {images/} }
+%\DeclareGraphicsExtensions{.jpg,.pdf,.png}
+
+
+
+%%% Chinese typesetting %%%%%%%%%%%
+%\usepackage{xeCJK}
+%\\setCJKmainfont{STFangsong}
+%\XeTeXlinebreaklocale "zh" 
+%\XeTeXlinebreakskip = 0pt plus 1pt
+
+\frenchspacing									% Better looking spacings after periods
+\pagestyle{empty}								% No pagenumbers/headers/footers
+%\usepackage{bbding}									% Symbols
+
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}							% Custom sectioning (see below)
+
+\sectionfont{%									% Change font of \section command
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}
+	}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}				% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}			% Vertical space macro
+
+\newcommand{\MyName}[1]{
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1 		% Name
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1} % Slogan (optional)
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{						% Box2 to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}					% Entry value
+
+\newcommand{\SkillsEntry}[2]{						% Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{						% Box to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}					% Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill 					% Study
+		\colorbox{White}{%
+			\parbox{10em}{%
+			\hfill\color{Black}#2}} \par				% Duration
+		\noindent \textit{#3} \par					% School
+		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{						% Same as \EducationEntry
+		\noindent \textbf{#1} \hfill 					% Jobname
+		\colorbox{White}{\color{Black}#2} \par		% Duration
+		\noindent \textit{#3} \par					% Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
+		\normalsize \par}
+\newcommand{\RefEntry}[7]{						% Same as \EducationEntry
+		\noindent \textbf{#1} \par 					% Jobname
+		\noindent \textit{#2} \par	% Duration
+		\noindent \textit{#3} \par
+		\noindent \textit{#4} \par% Company 	% Description
+		\noindent \textit{#5} \par
+		\noindent \textit{#6} \par
+		\noindent \textit{#7} \par
+		}
+
+\newcommand{\ServiceEntry}[2]{					% Same as \EducationEntry
+		\noindent \textit{#1} \par					% Company
+		\noindent\hangindent=2em\hangafter=0 \small #2 	% Description
+		\normalsize \par}
+\newcommand{\codeEntry}[2]{						% Same as \EducationEntry
+		\noindent \textbf{#1} \hfill 					% Jobname
+		\colorbox{White}{\color{Black}#2} \par		% Duration
+		%\noindent \textit{#2} \par					% Company
+		%\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
+		%\normalsize \par}
+		}
+\newcommand{\talkEntry}[2]{						% Same as \EducationEntry
+		\noindent #1 \hfill 					% Jobname
+		\colorbox{White}{\color{Black}#2} \par		% Duration
+		%\noindent \textit{#2} \par					% Company
+		%\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
+		%\normalsize \par}
+		}
+        
+\def\FormatName#1{%
+  \def\myname{Joseph Bak-Coleman}%
+  \edef\name{#1}%
+  \ifx\name\myname
+    \textbf{#1}%
+  \else
+    #1%
+  \fi
+}
+
+%%% ------------------------------------------------------------
+%%% BEGIN DOCUMENT
+%%% ------------------------------------------------------------
+\begin{document}
+%\bibliographystyle{nature}
+%\bibliographystyle{apalike}
+%\bibliographystyle{mystyle}
+%\begin{comment}
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+%\end{comment}
+
+%\begin{shaded}\color{shader}\MyName{Simon\color{gray}Renny-Byfield}\end{shaded}
+\MyName{Joseph \color{gray}Bak-Coleman}
+%\MySlogan{\textit{Try not to become a man of success but a man of value.}}
+%\MySlogan{\textit{---- Albert Einstein}}
+\color{black}
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+%\includegraphics{myphoto.jpg}
+%\PersonalEntry{Birth}{December 20, 1986} 
+\begin{minipage}{0.9\textwidth}\raggedright
+% \PersonalEntry{Mobile}{(609) 746-0235}
+\PersonalEntry{E-Mail}{jbakcoleman@gmail.com}
+\PersonalEntry{Website}{www.joebakcoleman.com}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}\raggedleft% adapt widths of minipages to your needs
+%\includegraphics[scale=0.025]{myphoto}
+\end{minipage}
+%\PersonalEntry{Webpage}{\href{https://wiki.qut.edu.au/display/cyphy/Hu+He}{\color{red}{https://wiki.qut.edu.au/display/cyphy/Hu+He}}}
+%\PersonalEntry{}{\href{http://hehuvision.blogspot.com}{\color{red}{http://hehuvision.blogspot.com}}}
+
+%%% Education %%%%%
+%%% ------------------------------------------------------------
+%%%% Work experience
+%%%% ------------------------------------------------------------
+\NewPart{Professional Appointments}{}
+
+\WorkEntry{Research Scientist}{May 2025 - Present}{University of Washington}{Department of Biology}
+
+\WorkEntry{Consulting Expert}{Jul 2024 - May 2025}{United Nations Development Programme}{Human Development Reports Office}
+
+\WorkEntry{Associate Research Scientist}{July 2022 - June 2024}{Columbia University}{Craig Newmark Center for Journalism Ethics and Security}
+
+\WorkEntry{Postdoctoral Scholar}{Sept. 2020 - July 2022}{University of Washington}{Center for an Informed Public}
+
+\WorkEntry{Adjunct Instructor}{2014}{Owens Community College}{Biology Department}
+
+
+\NewPart{Affiliations}{}
+
+\WorkEntry{External Applied Complexity Fellow}{Jan 2025 - Present}{Santa Fe Institute}{Applied Complexity}
+
+
+\WorkEntry{Collaboration Partner}{Aug. 2024 - Present}{University of Konstanz}{Centre for the Advanced Study of Collective Behaviour*}
+
+\WorkEntry{External Affiliate}{Apr. 2023 - Present}{Harvard University}{Berkman Klein Center}
+
+\WorkEntry{Affiliate}{Aug. 2022 - Present}{UNC Chapel Hill}{Center for Information, Technology, and Public Life }
+
+\WorkEntry{RSM Assembly Fellow}{Sept. 2022 - Apr. 2023}{Harvard University}{Berkman Klein Center}
+
+\WorkEntry{UW Data Science Postdoctoral Fellow}{Sept. 2020 - July 2022}{University of Washington}{eScience Institute}
+
+
+\NewPart{Education}{} 
+
+\EducationEntry{Ph.D. Ecology and Evolutionary Biology}{2014-2020}{Princeton University}{Supervisors: Professor Iain Couzin, Professor Dan Rubenstein\\
+Dissertation Title: Collective behavior in a connected world}
+\sepspace
+
+\EducationEntry{M.A. Ecology and Evolutionary Biology}{2016}{Princeton University}{Supervisors: Professor Iain Couzin, Professor Dan Rubenstein}
+\sepspace
+
+\EducationEntry{M.S. Biology}{2014}{Bowling Green State University}{Supervisor: Professor Sheryl Coombs\\
+Thesis Title: The role of the lateral line during rheotaxis}
+\sepspace
+
+\EducationEntry{B.S. Neuroscience}{2011}{Bowling Green State University}
+
+
+%\NewPart{Manuscripts}{}
+%\begin{refsection}[manuscripts]
+%   \DeclareFieldFormat{labelnumberwidth}{#1}\
+%   \nocite{Grobis2019}
+%   \nocite{BakColeman2019}
+%    \nocite{BakColeman2018}
+%\printbibliography[heading=none]{}
+%\end{refsection}
+
+
+%\WorkEntry{Adjunct Instructor}{2014}{Owens Community College}{Biology Department}
+
+\NewPart{Preprints}
+\begin{refsection}[manuscripts]
+    \nocite{bak2026industry}
+    \nocite{bak2025risks}
+    \nocite{bak-coleman_2023}
+\printbibliography[heading=none]{}
+\end{refsection}
+
+\NewPart{Publications}
+\begin{refsection}[published]
+\setcounter{enumiv}{5} 
+    \nocite{Garland2025}
+    \nocite{bak2025randomized}
+    \nocite{BergstromBakColeman2025}
+    \nocite{bak2024claims}
+    \nocite{doell2024international}
+    \nocite{kozyreva2022}
+    \nocite{Mada2024}
+    \nocite{Winklmayer2023}
+    \nocite{bak2023create}
+    \nocite{Jolles2022}
+    \nocite{bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021}
+    \nocite{BakColeman2022}
+    \nocite{BakColeman2021}
+    \nocite{Cooombs2021}
+    \nocite{bak2021reply}
+    \nocite{lum2021mislead}
+    \nocite{Winklmayer2020}
+    \nocite{Li2020}
+    \nocite{Sosna2019}
+    \nocite{bergstrom2019information}
+    \nocite{Kao2018}
+    \nocite{Kulpa2015a}
+    \nocite{Bak-Coleman2015b}
+    \nocite{Chicoli2015}
+    \nocite{Bak-Coleman2014}
+    \nocite{Chicoli2014}
+    \nocite{Bak-Coleman2013}
+\printbibliography[heading=none]{}
+\footnotetext[\value{footnote}]{\textsuperscript{\dag}Indicates joint-first authorship.}
+
+\end{refsection}
+
+% \NewPart{Invited Articles}{}
+% \begin{refsection}[invited]
+%     \nocite{bergstrom2019information}
+% \printbibliography[heading=none]{}
+% \end{refsection}
+
+\NewPart{Policy Documents}{}
+\begin{refsection}[policy]
+    \nocite{UNDP2025}
+    \nocite{UNDP2025Risk}
+    \nocite{UNDP2021}
+\printbibliography[heading=none]{}
+\end{refsection}
+
+% \NewPart{Manuscripts in Review or Revision}{}
+% \begin{refsection}[manuscripts]
+%     \nocite{BakColeman2024a}
+%     \nocite{bak-coleman_devezer_2023}
+%     \nocite{BakColemanComment}
+%     \nocite{BakColeman2022b}
+%     \nocite{Duskin_2023}
+% \printbibliography[heading=none]{}
+
+% \end{refsection}
+
+%\renewcommand\refname{\vskip -1cm}
+%\bibliographystyle{siam}
+%\nocite{Bak-Coleman2013}
+%\nocite{Chicoli2014}
+%\nocite{Bak-Coleman2015b}
+
+%\bibliography{cv.template}
+%\bibliographystyle{plain}
+%\printbibliography
+
+\vspace{7 mm}
+%\text{\textsuperscript{\ast} joint first author}
+
+\NewPart{Awards and Funding}{}
+\talkEntry{\textbf{Templeton World Charities Foundation} (2025)}{\$256k}
+\talkEntry{\textbf{Behavioral Science and Policy Association} Paper of the Year (2024)}{}
+\talkEntry{\textbf{Santa Fe Institute} Dimensionality Working Group}{\$17k}
+\talkEntry{\textbf{Berkman Klein Center} RSM Fellowship}{\$18K}
+\talkEntry{\textbf{CIP Innovation Fund} Rapid Response Workshop}{\$2.5K}
+\talkEntry{\textbf{CIP Innovation Fund} Experimental approaches to studying misinformation online}{\$10K}
+\talkEntry{\textbf{CIP} Postdoctoral Fellowship}{\$170K}
+\talkEntry{\textbf{UW eScience Institute} Data Science Postdoctoral fellowship}{\$2K}
+%\talkEntry{\textbf{Princeton University} Graduate Student Fellowship (6 years)}{\ast\$550K}
+\talkEntry{\textbf{BGSU CURS} Summer Research Fellowship}{\$2.5K}
+\talkEntry{\textbf{BGSU SETGO} Summer Research Fellowship}{\$3.5K}
+\talkEntry{\textbf{Choose Ohio First} Bioinformatics Scholarship (3. years)}{\$12K}
+\talkEntry{\textbf{Flow Sensing in Air and Water} Travel Award}{\$2K}
+
+
+%\WorkEntry{eScience Postdoctoral Fellowship}{Princeton}{\textit{\$2000}}{2011}'
+%\WorkEntry{Graduate Fellowship}{Princeton}{\textit{\approx\$450,000}}{2011}'
+%\talkEntry{Choose Ohio First for Bioinformatics Scholarship}{{\small\raisebox{4pt}[0pt]{\ast}}2016}
+%\talkEntry{Travel Award, Flow Sensing in Air and Water %\textit{\$2000}}{2011}
+%\WorkEntry{Summer Research Fellowship}{Center for Undergraduate Research and Scholarship}{\textit{\$2500}}{2011}
+%\WorkEntry{Summer Research Fellowship}{Science, Engineering, Technology Gateway Ohio}{\textit{\$3500}}{2010}
+%\WorkEntry{Bioinformatics Scholarship}{Choose Ohio First for Bioinformatics}{\textit{\$4000 per annum}}{2009-2011}
+
+\NewPart{Books}{}
+\textbf{Title:} \textit{Of Fish and Fascists} (Forthcoming: 2026)\\
+\textbf{Publisher(s)}: Princeton University Press (US), Oneworld Publishing (UK), Corpus (Russia), Ullstein Verlag (Germany), Sangsangsquare (Korea)\\
+\textbf{Agent}: Brockman Inc. 
+
+\NewPart{Popular Press and Misc. Writing}{}
+TikTok’s API Guidelines Are a Minefield for Researchers, \textit{Tech Policy Press}\\
+Twitter Is Not Rocket Science—It’s Harder, \textit{Scientific American}\\
+On Elon Musk’s Vision of Twitter as a Hive Mind, \textit{Tech Policy Press}\\
+Promoting sustainability and equity in global social systems , \textit{UNDP Report}, 2021\\
+A High-Speed Scientific Hive Mind Emerged, \textit{Scientific American}, 2021\\%\small\raisebox{4pt}[0pt]{\ast}\\
+Meta's 'average user' data obscures harm to thousands... \textit{The Conversation}, 2021\\%\small\raisebox{4pt}[0pt]{\ast}\\
+Journalists are exposing Facebook’s problems. We’ll need academics... \textit{Tech Policy Press}, 2021\\%\small\raisebox{4pt}[0pt]{\ast}\\
+The Long Fuse: Misinformation and the 2020 Election \textit{Election Integrity Partnership}, 2021\\
+The ignorance of the crowd. \textit{Scientific American}, Nov. 2017\\%\small\raisebox{4pt}[0pt]{\ast}\\
+Why did Donald Trump get elected? Ask the bees. \textit{Wired}, Dec. 2016\\%\small\raisebox{4pt}[0pt]{\ast}\\
+%\talkEntry{}{\small\raisebox{4pt}[0pt]{\ast}denotes primary/sole author}
+
+
+
+\NewPart{Seminars and Conference Participation}
+\talkEntry{CITP Seminar (Princeton University)}{*2025}
+\talkEntry{Guest Seminar (Stocklholm Resilience Center)}{*2025}
+\talkEntry{Closing Keynote at CoCCoN workshop (Humboldt University)}{*2025}
+\talkEntry{BKC Circle Launch Panel (Harvard University)}{*2025}
+\talkEntry{Special Seminar (Center for the Advanced Study of Collective Behavior)}{*2025}
+\talkEntry{Wikidata Day 2024 Panel (Wikimedia NYC)}{*2024}
+\talkEntry{Collective Adaptation in a Turbulent World (Santa Fe Institute)}{*2023}
+\talkEntry{Diverse Intelligences Summit (Saint Andrews)}{*2023}
+\talkEntry{Our shared digital future (UNDP)}{*2023}
+\talkEntry{Optimizing for What? (Columbia University)}{*2023}
+\talkEntry{Future of Mathematical Social Science Workshop, (UPenn)}{*2023}
+\talkEntry{Vlasceanu Lab Meeting,  (NYU)}{{\ast}2022}
+\talkEntry{Collective Intelligence Journal Launch  (Sage Journals)}{{\ast}2022}
+\talkEntry{Keynote Speaker, Rebooting Social Media Kickoff (Berkman Klein Center, Harvard)}{{\ast}2021}
+\talkEntry{Machine Learning Ethics, Transparency and Accountability Seminar Speaker (Twitter)}{{\ast}2021}
+\talkEntry{Plenary, DARPA ISAT SLICE Workshop (Stanford Internet Observatory)}{{\ast}2021}
+\talkEntry{Whole U Seminar Series (University of Washington)}{{\ast}2021}
+\talkEntry{Online Behavioral Interventions Workshop (Max Planck Institute for Human Development)}{{\ast}2021}
+\talkEntry{Collective Intelligence Workshop (Santa Fe Institute)}{{\ast}2021}
+\talkEntry{Humphrey Fellowship Seminar (University of Washington)}{{\ast}2021}
+\talkEntry{IC2S2 Satellite Panel (Konstanz)}{{\ast}2021}
+\talkEntry{iSchool Seminar Series (University of Washington)}{{\ast}2021}
+\talkEntry{IC2S2 (Amsterdam)}{2019}
+\talkEntry{Invited Lecture (Lenoir-Rhyne University)}{{\ast}2019}
+\talkEntry{Van Bavel Lab Meeting (New York University)}{{\small\raisebox{4pt}[0pt]{\ast}}2019}
+\talkEntry{Collective Behavior, Social Media and Systemic Risk (Princeton University)}{{\small\raisebox{4pt}[0pt]{\ast}}2018}
+\talkEntry{Yale Institute for Network Science (Yale University)}{{\small\raisebox{4pt}[0pt]{\ast}}2018}
+\talkEntry{Distributed, Collective Computation in Biological and Artificial Systems (Janelia Farm)}{2018}
+\talkEntry{Integrated Behavioral Research Group (Princeton University)}{2018}
+\talkEntry{Metropolitan Society of Natural Historians (AMNH)}{{\small\raisebox{4pt}[0pt]{\ast}}2016}
+\talkEntry{Integrated Behavioral Research Group (Princeton University)}{2016}
+\talkEntry{Animal Behavior Society (Bloomington, IN)}{2012}
+\talkEntry{International Congress of Neuroethology (College Park, MD)}{2012}
+\talkEntry{Ecological and Evolutionary Ecology of Fishes (Windsor, ON)}{2012}
+\talkEntry{J.P. Scott Seminar (BGSU)}{2011}
+\talkEntry{Flow Sensing in Air and Water (Bonn, Germany)}{{\small\raisebox{4pt}[0pt]{\ast}}2011}
+\talkEntry{Undergraduate Honors Society Seminar (BGSU)}{{\small\raisebox{4pt}[0pt]{\ast}}2011}
+\talkEntry{SETGO Symposium (BGSU)}{2011}
+\talkEntry{J.P. Scott Seminar (BGSU)}{2010}
+\talkEntry{}{\small\raisebox{4pt}[0pt]{\ast} Invited}
+
+\NewPart{Selected Coverage and Impact}{}
+Nearly one-third of social media research has undisclosed tie to industry, preprint claims \textit{Science}\\
+Science’s reform movement should have seen Trump’s... \textit{Science}\\
+‘We are embarrassed’: Scientific rigor proponents retract paper on benefits of scientific rigor. \textit{Science}\\
+This Study Was Hailed as a Win for Science Reform...\textit{The Chronicle of Higher Ed}\\
+Does social media polarize voters? Unprecedented experiments ... \textit{Science}\\
+Beyond the Doom and Gloom, Here's how to Stimulate Climate Change Action. \textit{Scientific American}\\
+The only thing Elon Musk understands about Twitter is how to kill it \textit{Insider}\\
+2021-22 Human Development Report. \textit{United Nations Development Program}\\
+Big Tech must step up now to fight misinformation in the midterms.  \textit{The Hill}\\
+Journals must adapt to better serve misinformation research. \textit{Nature}\\
+Detecting Bullshit. \textit{Science}\\
+As Climate Change Fries the World, Social Media Is Frying Our Brains. \textit{Bloomberg}\\
+It's Time to Treat Social Media Like the Climate Crisis, Researchers Argue. \textit{Gizmodo} \\
+Why some biologists and ecologists think social media is a risk to humanity. \textit{Vox}\\
+The coronavirus pandemic drove life online. It may never return., \textit{NBC News} \\
+Social-Media Companies Took an Aggressive Stance During the Election. Will It Continue?, \textit{WSJ}\\
+Misinformation by a thousand cuts: Varied rigged election claims circulate, \textit{NBC News}\\
+Project Veritas Video Was a ‘Coordinated Disinformation Campaign,’ Researchers Say. \textit{NYT}
+
+\NewPart{Teaching}{}
+\WorkEntry{Faculty}{Santa Fe Institute}{The Complexity Global School for Emerging Political Economies}{2025}
+\WorkEntry{Guest Lecturer}{NYU}{Graduate Regression}{2023-2024}
+\WorkEntry{Guest Lecturer}{University of Pennsylvania}{Policy Lab: Women in Conflict \& Security}{2023}
+\WorkEntry{Guest Lecturer}{University of Washington}{Calling Bullshit}{2020}
+\WorkEntry{Guest Lecturer}{Princeton University}{Comparative Physiology}{2017-2018}
+\WorkEntry{Assistant in Instruction}{Princeton University}{Comparative Physiology\\Conservation Biology \\ Life on Earth: Chaos and Clockwork of Biological Design}{2014-2018}
+\WorkEntry{Adjunct Instructor}{Owens Community College}{Introductory Biology, Taxonomy}{2014}
+
+
+
+\NewPart{Service}{}
+Member, \textbf{Coalition for Independent Tech Research}, 2022-\\
+Annual Report Consultant, \textbf{United Nations Development Programme}, 2022\\
+Lab meeting and Seminar Series Organizer, \textbf{Center for an Informed Public}, 2020-2022 \\
+Hidden Curriculum Happy Hour Organizer, \textbf{Center for an Informed Public}, 2021-2022 \\
+Misinfo rapid-response workshop organizer, \textbf{Center for an Informed Public}, 2021-2022\\
+Election Integrity Partnership Analyst Team Lead, \textbf{Election Integrity Partnership}, 2020 \\
+EEB Scholars Host and Speaker, \textbf{Princeton}, 2018-2019\\
+DEI Recruiting, \textbf{ABRCMS}, 2018\\
+CBSMSR Conference Organizer, \textbf{Princeton}, 2017 \\
+Graduate Representative, \textbf{Princeton}, 2016-2018\\
+DEI Recruiting, \textbf{ABRCMS}, 2017\\
+Prospective Student Week Organizer, \textbf{Princeton}, 2014-2019 \\
+Behavior Seminar Series Organizer, \textbf{Princeton}, 2015-2016\\
+Graduate Retreat Organizer, \textbf{Princeton}, 2016-2017\\
+President of Biology Graduate Student Association, \textbf{BGSU}, 2011-2013\\
+
+
+
+
+%\NewPart{Technical Skills}
+%\codeEntry{Python}{Advanced}
+%\codeEntry{Bayesian Inference}{Advanced}
+%\codeEntry{Machine Learning}{Proficient}
+%\codeEntry{React}{Proficient}
+%\codeEntry{Javascript}{Proficient}
+%\codeEntry{R}{Proficient}
+%\codeEntry{Computer Vision}{Proficient}
+%\codeEntry{Matlab}{Proficient}
+%\codeEntry{Full stack development}{Proficient}
+%\codeEntry{Deep Learning}{Familiar}
+
+\NewPart{Peer review}{}
+Animal Behavior\\
+Biology Open \\
+Journal of Experimental Biology\\
+Nature \\
+Nature Communications \\
+Nature Communications Psychology \\
+Nature Human Behavior \\
+Nature Reviews Psychology \\ 
+Perspectives on Psychological Science \\
+Physics Review Letters \\
+Patterns \\
+PLoS Computational Biology\\
+PLoS ONE\\
+PNAS \\
+Proceedings B\\
+Science \\
+Science Advances \\
+
+%\NewPart{References}
+%\address{42 Apartment complex}{Street}{City\\Country}
+%\RefEntry{Prof. Iain Couzin}{Max Planck Institute of Animal Behavior}{Department of Collective Behavior}{University of Konstanz Z8}{Konstanz, DE}{icouzin@ab.mpg.de}{}
+%\RefEntry{Prof. Carl Bergstrom}{University of Washington}{Department of Biology}{Seattle, WA}{bergst@uw.edu}{}{}
+%\RefEntry{Prof. Sheryl Coombs,\textit{Emeritus}}{Bowling Green State University}{Biology Department}{Biological Sciences Building}{Bowling Green, OH 43402}{scoombs@bgsu.edu}{}
+%\RefEntry{Prof. Dan Rubenstein}{Princeton University}{Eno Hall}{Department of Ecology and Evolutionary Biology}{Princeton, NJ}{dir@princeton.edu}{}
+%\WorkEntry{Post-Doctoral Research}{Queen Mary University of London}{Supervisor: Prof. Andrew R. Leitch}{2012}
+%%% Publications
+%%% ------------------------------------------------------------
+%\NewPart{Publications}{}
+%\begin{enumerate}
+%\item \bibentry{he2012measuring}
+%\item \bibentry{he2011towards}
+%\item \bibentry{he2010graphcut}
+%\item \bibentry{mckinnon2011towards}
+%\item \bibentry{warren2012large}
+%\item \bibentry{warren2010unaided}
+%\end{enumerate}
+%
+%{\color{red}{\textit{Manuscripts under Review}:}}
+%\begin{enumerate}
+%\item \bibentry{hu2013ietcv}
+%\item \bibentry{hu2013sensors}
+%\item \bibentry{hu2013aim}
+%\item \bibentry{hu2013IROS}
+%\item \bibentry{inkyu2013aim}
+%\item \bibentry{Ferrari2013mee}
+%\end{enumerate}
+%
+%
+%%%% Work experience
+%%%% ------------------------------------------------------------
+%\NewPart{Experience}{}
+%\WorkEntry{Teaching Assistant}{Mar 2012 - Jul 2012}{Queensland University of Technology}{\textbf{ENB244} Microprocessors and Digital Systems}
+%\sepspace
+%\WorkEntry{Research Assistant}{Aug 2009 - Dec 2010}{The University of Queensland}{Working for CRCMining on multiple sensors fusion using EKF}
+%\sepspace
+%\WorkEntry{Teaching Assistant}{Mar 2010 - Dec 2010}{The University of Queensland}{\textbf{MECH3750} Numerical Analysis and Python Programming\\
+%\textbf{MECH2301/2300} Structure Mechanics}
+%\sepspace
+%\WorkEntry{Mentoring}{Sep 2008 - Jun 2009}{Central South University}{Mentoring 30 first year undergraduates in College of Mechanical and Electrical Engineering}
+%
+%
+%%%% Skills
+%%%% ------------------------------------------------------------
+%\NewPart{Skills}{}
+%\SkillsEntry{Languages}{English (fluent)}
+%\SkillsEntry{}{\textbf{CET\footnote{CET: Chinese College English Test}-4, CET-6 and IELTS\footnote{IELTS: International English Language Testing System} 6.5}}
+%\SkillsEntry{Programming}{\textsc{Matlab}, \LaTeX, \textsc{C++}, \textsc{Python}}
+%\SkillsEntry{Softwares}{Solid Edge, Solid Works, AutoCAD, Final Cut Pro}
+%\SkillsEntry{OS}{Windows, Linux, Mac OS X}
+%
+%%%% Services
+%%%% ------------------------------------------------------------
+%\NewPart{Academic Services}{}
+%\ServiceEntry{Conference Reviewer}{IEEE/RSJ International Conference on Intelligent Robots and Systems (\textbf{IROS}) 2013\\
+%IAPR International Conference on Pattern Recognition (\textbf{ICPR}) 2012\\
+%IEEE International Conference of Robotics and Automation (\textbf{ICRA}) 2011,2012\\
+%IEEE Intelligent Vehicles Symposium (\textbf{IV}) 2012\\
+%Australasian Conference on Robotics and Automation (\textbf{ACRA}) 2010\\
+%Marine Robotics Workshop at Robotics: Science and Systems (\textbf{RSS}) 2011}
+%
+%
+%%%% Honors and Awards
+%%%% ------------------------------------------------------------
+%\NewPart{Honors \& Awards}{}
+%\begin{itemize}
+%\item Vice-Chancellor Initiative Top Up Scholarship funded by QUT (2011 - 2012)
+%\item Queensland University of Technology Tuition Fee Waiver Scholarship (2011 - 2013)
+%\item The University of Queensland Research Scholar scholarship (2009 - 2010)
+%\item The University of Queensland International Research Tuition Awards (2009 - 2010)
+%\item Chinese Scholarship Council (CSC) Scholarship (2009-2013)
+%\item State Scholarship, Ministry of Education of China (2007)
+%\item Tanghan Scholarship funded by Guangxi Tanghan Zinc \& Indium Co., Ltd (2007)
+%\item First-Class Scholarship for Outstanding Student funded by CSU (2005-2007)
+%\end{itemize}
+%
+%
+%%%% References
+%%%% ------------------------------------------------------------
+%\NewPart{References}{
+%Carl Bergstrom \\
+%University of Washington \\
+%cbergst@uw.edu \\
+
+\noindent
+%Iain Couzin \\
+%Max Planck Institute for Animal Behavior \\
+%icouzin@ab.mpg.de
+%Available upon request
+%
+%\nobibliography{hu}
+\end{document}

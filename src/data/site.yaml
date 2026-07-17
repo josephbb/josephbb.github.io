@@ -1,0 +1,60 @@
+name: Joe B. Bak-Coleman
+short_name: Joe Bak-Coleman
+tagline: Collective behavior from fish to fascists.
+subtitle: Collective Behavior, Computational Social Science, Metascience, Statistics.
+location: Queens, NY
+title: Research Scientist
+affiliation: University of Washington
+book:
+  title: Of Fish and Fascists
+  year: 2027
+  press: Princeton University Press
+affiliations:
+  - role: Research Scientist
+    org: University of Washington, Department of Biology
+    current: true
+  - role: External Applied Complexity Fellow
+    org: Santa Fe Institute
+    current: true
+  - role: External Affiliate
+    org: Harvard Berkman Klein Center
+    current: true
+  - role: Collaboration Partner
+    org: University of Konstanz, Centre for the Advanced Study of Collective Behaviour
+    current: true
+education:
+  - degree: Ph.D. Ecology and Evolutionary Biology
+    year: 2020
+    school: Princeton University
+  - degree: M.S. Biology
+    year: 2014
+    school: Bowling Green State University
+  - degree: B.S. Neuroscience
+    year: 2011
+    school: Bowling Green State University
+bio_short: >
+  I’m a computational social scientist whose research explores how collectives
+  make decisions in the face of uncertainty, focusing on the impact of digital
+  technologies on collective behavior.
+bio: |
+  I’m a computational social scientist whose research explores how collectives
+  make decisions in the face of uncertainty, focusing on the impact of digital
+  technologies on collective behavior. Currently, I am a research scientist at
+  the University of Washington, an External Applied Complexity Fellow at the
+  Santa Fe Institute, an external affiliate at the Harvard Berkman Klein Center
+  and a Collaboration Partner at the University of Konstanz’s Centre for the
+  Advanced Study of Collective Behaviour. My work spans topics such as
+  misinformation, polarization, and the development of evidence-based tech
+  policy, with work in Nature, Science Advances, and PNAS. I have a forthcoming
+  book, Of Fish and Fascists, set for release in 2027 by Princeton University Press.
+
+  Before my current role, I served as a Consulting Expert for the United Nations
+  Development Programme Human Development Reports Office, and an Associate
+  Research Scholar at Columbia University’s Craig Newmark Center for Journalism
+  Ethics and Security. I earned my Ph.D. in Ecology and Evolutionary Biology from
+  Princeton University in 2020, where I worked with Iain Couzin and Dan
+  Rubenstein, followed by a postdoctoral fellowship at the University of
+  Washington’s Center for an Informed Public. Over the past decade, my research
+  has examined decision-making in human and animal collectives, from fish schools
+  and zebra herds to social media users and scientists.
+contact_note: The best way to reach me is by email.

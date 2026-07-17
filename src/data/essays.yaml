@@ -1,0 +1,58 @@
+# Pieces written (or co-wrote) for external outlets.
+# Optional: image (per-piece thumb under public/), cite_key (exclude from Publications)
+
+- title: AI, peer review and the human activity of science
+  outlet: Nature
+  date: 2025-06-25
+  url: https://www.nature.com/articles/d41586-025-01839-w
+  blurb: Why the slog of human judgment in peer review is where science happens—and what AI can’t replace.
+  cite_key: BergstromBakColeman2025
+
+- title: Create an IPCC-like body to harness benefits and combat harms of digital tech
+  outlet: Nature
+  date: 2023-05-17
+  url: https://www.nature.com/articles/d41586-023-01606-9
+  blurb: A call for an intergovernmental panel to synthesize evidence on digital technologies.
+  cite_key: bak2023create
+
+- title: What Generative AI Reveals About the Limits of Technological Innovation
+  outlet: Tech Policy Press
+  date: 2023-04-06
+  url: https://www.techpolicy.press/what-generative-ai-reveals-about-the-limits-of-technological-innovation/
+  blurb: Generative AI makes plain how little guardrail we have for technologies that reshape society.
+
+- title: TikTok’s API Guidelines Are a Minefield for Researchers
+  outlet: Tech Policy Press
+  date: 2023-02-22
+  url: https://www.techpolicy.press/tiktoks-api-guidelines-are-a-minefield-for-researchers/
+  blurb: Why TikTok’s research API terms leave little room for publishable independent science.
+
+- title: Twitter Is Not Rocket Science—It’s Harder
+  outlet: Scientific American
+  date: 2022-11-21
+  url: https://www.scientificamerican.com/article/twitter-is-not-rocket-science-its-harder/
+  blurb: Managing a social network is not an engineering problem you can solve by moving fast and breaking things.
+
+- title: On Elon Musk’s Vision of Twitter as a Hive Mind
+  outlet: Tech Policy Press
+  date: 2022-11-03
+  url: https://www.techpolicy.press/on-elon-musks-vision-of-twitter-as-a-hive-mind/
+  blurb: Treating Twitter as a cybernetic super-intelligence misunderstands how collectives actually work.
+
+- title: A High-Speed Scientific Hive Mind Emerged from the COVID Pandemic
+  outlet: Scientific American
+  date: 2022-03-01
+  url: https://www.scientificamerican.com/article/a-high-speed-scientific-hive-mind-emerged-from-the-covid-pandemic/
+  blurb: How the pandemic forced science into rapid, open collaboration—and where that model still failed.
+
+- title: The Ignorance of the Crowd
+  outlet: Scientific American
+  date: 2017-11-03
+  url: https://blogs.scientificamerican.com/observations/the-ignorance-of-the-crowd/
+  blurb: Collective wisdom is real—but so are the conditions under which crowds go badly wrong.
+
+- title: Why Did Donald Trump Get Elected? Ask the Bees
+  outlet: Wired
+  date: 2016-12-02
+  url: https://www.wired.com/2016/12/donald-trump-get-elected-ask-bees/
+  blurb: Nest-site choice in honeybees as a lens on elections, social media, and fragile crowd wisdom.

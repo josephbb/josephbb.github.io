@@ -1,0 +1,121 @@
+---
+import type { Publication } from '../lib/publications';
+
+interface Props {
+  pub: Publication;
+  showAuthors?: boolean;
+  showCitations?: boolean;
+}
+
+const { pub, showAuthors = true, showCitations = false } = Astro.props;
+const isPreprint =
+  pub.section === 'manuscripts' ||
+  /preprint/i.test(pub.note ?? '') ||
+  /arxiv|socarxiv|preprint/i.test(pub.venue ?? '');
+const isPolicy = pub.section === 'policy';
+
+const roleNote =
+  pub.note && !(isPreprint && pub.note.toLowerCase() === 'preprint')
+    ? pub.note.replace(/^role:\s*/i, '')
+    : null;
+
+const doiUrl = pub.doi ? `https://doi.org/${pub.doi}` : undefined;
+// Prefer a non-DOI landing link when we have one distinct from the DOI
+const landingUrl =
+  pub.url && pub.url !== doiUrl ? pub.url : undefined;
+---
+
+<li
+  class:list={[
+    'pub-item',
+    isPreprint && 'pub-item--preprint',
+    isPolicy && 'pub-item--policy',
+    pub.isOpenAccess && 'pub-item--oa',
+  ]}
+>
+  <div class="pub-item__main">
+    <p class="pub-item__title">{pub.title}</p>
+    {
+      showAuthors && (
+        <p class="pub-item__meta">{pub.authors}</p>
+      )
+    }
+    <p class="pub-item__meta">
+      <em>{pub.venue || 'Preprint / report'}</em>{pub.year ? `, ${pub.year}` : ''}
+      {
+        isPreprint && (
+          <span class="pub-item__badge pub-item__badge--preprint">Preprint</span>
+        )
+      }
+      {
+        isPolicy && (
+          <span class="pub-item__badge pub-item__badge--policy">Policy</span>
+        )
+      }
+      {
+        pub.isOpenAccess && (
+          <span class="pub-item__badge pub-item__badge--oa">Open</span>
+        )
+      }
+    </p>
+    {
+      roleNote && (
+        <p class="pub-item__meta pub-item__note">
+          <span class="pub-item__role-label">Role:</span> {roleNote}
+        </p>
+      )
+    }
+    {
+      (landingUrl || doiUrl || pub.oaUrl) && (
+        <div class="pub-item__links">
+          {landingUrl && (
+            <a href={landingUrl} rel="noopener noreferrer">
+              Link
+            </a>
+          )}
+          {doiUrl && (
+            <a href={doiUrl} rel="noopener noreferrer">
+              DOI
+            </a>
+          )}
+          {pub.oaUrl && (
+            <a
+              class="pub-item__oa-link"
+              href={pub.oaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open / free version"
+            >
+              {isPolicy ? 'Full text' : 'Free PDF'}
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+  {
+    showCitations && pub.citations !== undefined && (
+      <p class="pub-item__cites">
+        {
+          pub.citesUrl ? (
+            <a
+              class="pub-item__cites-link"
+              href={pub.citesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Citing papers on Google Scholar"
+            >
+              <span class="pub-item__cites-num">{pub.citations.toLocaleString('en-US')}</span>
+              <span class="pub-item__cites-label">cites</span>
+            </a>
+          ) : (
+            <>
+              <span class="pub-item__cites-num">{pub.citations.toLocaleString('en-US')}</span>
+              <span class="pub-item__cites-label">cites</span>
+            </>
+          )
+        }
+      </p>
+    )
+  }
+</li>

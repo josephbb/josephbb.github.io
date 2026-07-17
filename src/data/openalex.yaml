@@ -1,0 +1,232 @@
+last_updated: 2026-07-17
+source: OpenAlex
+author_id: A5029967709
+works:
+  bak2026industry:
+    unmatched: true
+  garland2026case:
+    openalex_id: https://openalex.org/W7125372721
+    matched_title: 'The case against efficiency: friction in social media'
+    title_score: 1
+    doi: 10.1038/s44260-025-00061-z
+    is_oa: true
+    oa_url: https://www.nature.com/articles/s44260-025-00061-z.pdf
+    cited_by_count: null
+  UNDP2025Risk:
+    unmatched: true
+  UNDP2025:
+    unmatched: true
+  bak2025randomized:
+    openalex_id: https://openalex.org/W4412689064
+    matched_title: Randomized controlled trials cannot identify social media’s causal effects
+    title_score: 1
+    doi: 10.1038/s44159-025-00475-5
+    is_oa: false
+    oa_url: null
+    cited_by_count: 1
+  bak2025risks:
+    unmatched: true
+  Mada2024:
+    openalex_id: https://openalex.org/W4391629219
+    matched_title: 'Addressing climate change with behavioral science: A global intervention tournament
+      in 63 countries'
+    title_score: 1
+    doi: 10.1126/sciadv.adj5778
+    is_oa: true
+    oa_url: https://www.science.org/doi/pdf/10.1126/sciadv.adj5778?download=true
+    cited_by_count: 258
+  bak2024claims:
+    openalex_id: https://openalex.org/W4402759025
+    matched_title: Claims about scientific rigour require rigour
+    title_score: 1
+    doi: 10.1038/s41562-024-01982-w
+    is_oa: false
+    oa_url: null
+    cited_by_count: 11
+  doell2024international:
+    openalex_id: https://openalex.org/W4403036292
+    matched_title: 'The International Climate Psychology Collaboration: Climate change-related data collected
+      from 63 countries'
+    title_score: 1
+    doi: 10.1038/s41597-024-03865-1
+    is_oa: true
+    oa_url: https://www.nature.com/articles/s41597-024-03865-1.pdf
+    cited_by_count: 5
+  kozyreva2022:
+    openalex_id: https://openalex.org/W4396870527
+    matched_title: Toolbox of individual-level interventions against online misinformation
+    title_score: 1
+    doi: 10.1038/s41562-024-01881-0
+    is_oa: true
+    oa_url: null
+    cited_by_count: 168
+  Winklmayer2023:
+    openalex_id: https://openalex.org/W4319439352
+    matched_title: Collective decision strategies in the presence of spatio-temporal correlations
+    title_score: 1
+    doi: 10.1177/26339137221148675
+    is_oa: true
+    oa_url: https://journals.sagepub.com/doi/pdf/10.1177/26339137221148675
+    cited_by_count: 4
+  bak-coleman_2023:
+    openalex_id: https://openalex.org/W4365455448
+    matched_title: Limiting Factors in the Effectiveness of Crowd-Sourced Labeling for Combating Misinformation
+    title_score: 1
+    doi: 10.31235/osf.io/ahm27
+    is_oa: true
+    oa_url: https://osf.io/ahm27/download
+    cited_by_count: 4
+  Jolles2022:
+    openalex_id: https://openalex.org/W4285797947
+    matched_title: Both prey and predator features predict the individual predation risk and survival
+      of schooling prey
+    title_score: 1
+    doi: 10.7554/elife.76344
+    is_oa: true
+    oa_url: https://doi.org/10.7554/elife.76344
+    cited_by_count: 22
+  BakColeman2022:
+    openalex_id: https://openalex.org/W4295832547
+    matched_title: Collective wisdom in polarized groups
+    title_score: 1
+    doi: 10.1177/26339137221104788
+    is_oa: true
+    oa_url: https://doi.org/10.1177/26339137221104788
+    cited_by_count: 4
+  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021:
+    openalex_id: https://openalex.org/W4283325287
+    matched_title: Combining interventions to reduce the spread of viral misinformation
+    title_score: 1
+    doi: 10.1038/s41562-022-01388-6
+    is_oa: true
+    oa_url: https://www.nature.com/articles/s41562-022-01388-6.pdf
+    cited_by_count: 146
+  UNDP2021:
+    unmatched: true
+  lum2021mislead:
+    openalex_id: https://openalex.org/W3186851928
+    matched_title: How to Mislead with Statistics
+    title_score: 1
+    doi: 10.1111/1740-9713.01550
+    is_oa: false
+    oa_url: null
+    cited_by_count: null
+  bak2021reply:
+    openalex_id: https://openalex.org/W3207903154
+    matched_title: 'Reply to Cheong and Jones: The role of science in responding to collective behavioral
+      threats'
+    title_score: 1
+    doi: 10.1073/pnas.2114477118
+    is_oa: true
+    oa_url: https://www.pnas.org/content/pnas/118/42/e2114477118.full.pdf
+    cited_by_count: 1
+  BakColeman2021:
+    openalex_id: https://openalex.org/W3177125472
+    matched_title: Stewardship of global collective behavior
+    title_score: 1
+    doi: 10.1073/pnas.2025764118
+    is_oa: true
+    oa_url: https://www.pnas.org/content/pnas/118/27/e2025764118.full.pdf
+    cited_by_count: 291
+  Cooombs2021:
+    openalex_id: https://openalex.org/W3113180917
+    matched_title: 'Rheotaxis revisited: a multi-behavioral and multisensory perspective on how fish orient
+      to flow'
+    title_score: 0.769
+    doi: 10.1242/jeb.223008
+    is_oa: true
+    oa_url: https://journals.biologists.com/jeb/article-pdf/223/23/jeb223008/1981005/jeb223008.pdf
+    cited_by_count: 83
+  Winklmayer2020:
+    openalex_id: https://openalex.org/W3096424387
+    matched_title: 'The wisdom of stalemates: consensus and clustering as filtering mechanisms for improving
+      collective accuracy'
+    title_score: 1
+    doi: 10.1098/rspb.2020.1802
+    is_oa: true
+    oa_url: https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.1802
+    cited_by_count: 13
+  Li2020:
+    openalex_id: https://openalex.org/W3094496700
+    matched_title: Vortex phase matching as a strategy for schooling in robots and in fish
+    title_score: 1
+    doi: 10.1038/s41467-020-19086-0
+    is_oa: true
+    oa_url: https://www.nature.com/articles/s41467-020-19086-0.pdf
+    cited_by_count: 230
+  bergstrom2019information:
+    openalex_id: https://openalex.org/W2971737644
+    matched_title: Information gerrymandering in social networks skews collective decision-making
+    title_score: 1
+    doi: 10.1038/d41586-019-02562-z
+    is_oa: true
+    oa_url: https://media.nature.com/original/magazine-assets/d41586-019-02562-z/d41586-019-02562-z.pdf
+    cited_by_count: 30
+  Sosna2019:
+    openalex_id: https://openalex.org/W2973928903
+    matched_title: Individual and collective encoding of risk in animal groups
+    title_score: 1
+    doi: 10.1073/pnas.1905585116
+    is_oa: true
+    oa_url: https://www.pnas.org/content/pnas/116/41/20556.full.pdf
+    cited_by_count: null
+  Kao2018:
+    openalex_id: https://openalex.org/W2796234406
+    matched_title: Counteracting estimation bias and social influence to improve the wisdom of crowds
+    title_score: 1
+    doi: 10.1098/rsif.2018.0130
+    is_oa: true
+    oa_url: https://royalsocietypublishing.org/doi/pdf/10.1098/rsif.2018.0130
+    cited_by_count: 71
+  Bak-Coleman2015b:
+    openalex_id: https://openalex.org/W808845928
+    matched_title: 'Going with, then against the flow: evidence against the optomotor hypothesis of fish
+      rheotaxis'
+    title_score: 1
+    doi: 10.1016/j.anbehav.2015.06.007
+    is_oa: false
+    oa_url: null
+    cited_by_count: 24
+  Chicoli2015:
+    openalex_id: https://openalex.org/W2216131188
+    matched_title: Rheotaxis performance increases with group size in a coupled phase model with sensory
+      noise
+    title_score: 0.786
+    doi: 10.1140/epjst/e2015-50080-x
+    is_oa: false
+    oa_url: null
+    cited_by_count: 10
+  Kulpa2015a:
+    openalex_id: https://openalex.org/W2061521951
+    matched_title: The lateral line is necessary for blind cavefish rheotaxis in non-uniform flow
+    title_score: 1
+    doi: 10.1242/jeb.119537
+    is_oa: true
+    oa_url: https://journals.biologists.com/jeb/article-pdf/218/10/1603/1886590/jeb119537.pdf
+    cited_by_count: 40
+  Bak-Coleman2014:
+    openalex_id: https://openalex.org/W2118150391
+    matched_title: Sedentary behavior as a factor in determining lateral line contributions to rheotaxis
+    title_score: 1
+    doi: 10.1242/jeb.102574
+    is_oa: true
+    oa_url: https://journals.biologists.com/jeb/article-pdf/217/13/2338/1915574/2338.pdf
+    cited_by_count: 22
+  Chicoli2014:
+    openalex_id: https://openalex.org/W2003082213
+    matched_title: 'The effects of flow on schooling <i>Devario aequipinnatus</i>: school structure, startle
+      response and information transmission'
+    title_score: 1
+    doi: 10.1111/jfb.12365
+    is_oa: true
+    oa_url: https://www.ncbi.nlm.nih.gov/pmc/articles/4040972
+    cited_by_count: 48
+  Bak-Coleman2013:
+    openalex_id: https://openalex.org/W2138530634
+    matched_title: The spatiotemporal dynamics of rheotactic behavior depends on flow speed and available
+      sensory information
+    title_score: 1
+    doi: 10.1242/jeb.090480
+    is_oa: true
+    oa_url: https://jeb.biologists.org/content/jexbio/216/21/4011.full.pdf
+    cited_by_count: 48

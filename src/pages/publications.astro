@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import {
+  getPublications,
+  groupByYear,
+  sortByCitations,
+  getCitationsUpdated,
+  getPublicationStats,
+} from '../lib/publications';
+import { getSocials, scholarUrl } from '../lib/site';
+
+const pubs = getPublications();
+const byYear = groupByYear(pubs);
+const byCites = sortByCitations(pubs);
+const citesUpdated = getCitationsUpdated();
+const stats = getPublicationStats(pubs);
+const socials = getSocials();
+const scholarProfile = scholarUrl(socials.scholar_userid);
+---
+
+<BaseLayout
+  title="Publications"
+  description="Publications, preprints, and policy work by Joe B. Bak-Coleman."
+>
+  <h1 class="page-title">Publications, Preprints &amp; Policy Work</h1>
+
+  <section class="section" data-pub-modes>
+    <div class="section__head section__head--modes">
+      <h2 class="visually-hidden">All works</h2>
+      <div class="mode-toggle" role="group" aria-label="Sort publications">
+        <button type="button" class="mode-toggle__btn" data-mode="latest" aria-pressed="true">
+          Latest
+        </button>
+        <button type="button" class="mode-toggle__btn" data-mode="greatest" aria-pressed="false">
+          Greatest
+        </button>
+      </div>
+    </div>
+
+    <p class="mode-hint mute" data-hint-for="latest">
+      Sorted by year.
+    </p>
+    <p
+      class="mode-hint pub-stats mute"
+      data-hint-for="greatest"
+      hidden
+      title={citesUpdated ? `Citation snapshot ${citesUpdated}` : undefined}
+    >
+      {stats.items} items ·
+      <a href={scholarProfile} target="_blank" rel="noopener noreferrer">
+        {stats.citations.toLocaleString('en-US')} citations · h-index {stats.hIndex}
+      </a>
+    </p>
+
+    <div data-panel="latest">
+      {
+        byYear.map(([year, items]) => (
+          <div class="year-block">
+            <h3>{year || 'n.d.'}</h3>
+            <ol class="pub-list">
+              {items.map((pub) => (
+                <PublicationItem pub={pub} showCitations />
+              ))}
+            </ol>
+          </div>
+        ))
+      }
+    </div>
+
+    <div data-panel="greatest" hidden>
+      <ol class="pub-list pub-list--ranked">
+        {
+          byCites.map((pub) => (
+            <PublicationItem pub={pub} showCitations />
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const root = document.querySelector('[data-pub-modes]');
+  if (root) {
+    const buttons = root.querySelectorAll('.mode-toggle__btn');
+    const panels = {
+      latest: root.querySelector('[data-panel="latest"]'),
+      greatest: root.querySelector('[data-panel="greatest"]'),
+    };
+    const hints = {
+      latest: root.querySelector('[data-hint-for="latest"]'),
+      greatest: root.querySelector('[data-hint-for="greatest"]'),
+    };
+
+    function setMode(mode) {
+      for (const btn of buttons) {
+        const active = btn.getAttribute('data-mode') === mode;
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      }
+      for (const key of Object.keys(panels)) {
+        panels[key]?.toggleAttribute('hidden', key !== mode);
+        hints[key]?.toggleAttribute('hidden', key !== mode);
+      }
+      try {
+        localStorage.setItem('pubs-mode', mode);
+      } catch {}
+    }
+
+    for (const btn of buttons) {
+      btn.addEventListener('click', () => setMode(btn.getAttribute('data-mode')));
+    }
+
+    let initial = 'latest';
+    try {
+      const saved = localStorage.getItem('pubs-mode');
+      if (saved === 'latest' || saved === 'greatest') initial = saved;
+    } catch {}
+    setMode(initial);
+  }
+</script>

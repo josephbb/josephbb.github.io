@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  getSite,
+  getSocials,
+  scholarUrl,
+  orcidUrl,
+  githubUrl,
+} from '../lib/site';
+
+const site = getSite();
+const socials = getSocials();
+---
+
+<BaseLayout title="CV" description={`Curriculum vitae for ${site.name}.`}>
+  <h1 class="page-title">Curriculum vitae</h1>
+  <p class="page-lede">
+    Download the PDF below, or browse a short summary of current affiliations and
+    education. The LaTeX source lives on
+    <a href={socials.cv_repo}>GitHub</a>.
+  </p>
+
+  <div class="cv-panel">
+    <p>
+      <strong>{site.name}</strong><br />
+      {site.title}, {site.affiliation}<br />
+      Based in {site.location}
+    </p>
+    <div class="actions">
+      <a class="button" href={socials.cv_pdf}>Download PDF</a>
+      <a class="button button--ghost" href={socials.cv_repo}>CV source on GitHub</a>
+    </div>
+
+    <h3 style="margin-top: 1.5rem">Current affiliations</h3>
+    <ul>
+      {
+        site.affiliations
+          .filter((a) => a.current)
+          .map((a) => (
+            <li>
+              {a.role}, {a.org}
+            </li>
+          ))
+      }
+    </ul>
+
+    <h3 style="margin-top: 1.5rem">Education</h3>
+    <ul>
+      {
+        site.education.map((e) => (
+          <li>
+            {e.degree}, {e.school} ({e.year})
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3 style="margin-top: 1.5rem">Profiles</h3>
+    <p class="mute">
+      <a href={scholarUrl(socials.scholar_userid)}>Google Scholar</a>
+      ·
+      <a href={orcidUrl(socials.orcid_id)}>ORCID</a>
+      ·
+      <a href={githubUrl(socials.github_username)}>GitHub</a>
+      ·
+      <a href={`mailto:${socials.email}`}>Email</a>
+    </p>
+  </div>
+</BaseLayout>

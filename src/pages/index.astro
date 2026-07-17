@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import { getCollection, render } from 'astro:content';
+import { getSelectedPublications } from '../lib/publications';
+import {
+  getSite,
+  getSocials,
+  scholarUrl,
+  orcidUrl,
+  githubUrl,
+} from '../lib/site';
+import { formatDate, dateAttr } from '../lib/dates';
+
+const site = getSite();
+const socials = getSocials();
+const selected = getSelectedPublications();
+const news = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout description={site.bio_short}>
+  <section class="hero">
+    <div class="hero__identity">
+      <img
+        class="hero__portrait"
+        src="/images/prof_pic.jpg"
+        alt={`Portrait of ${site.name}`}
+        width="767"
+        height="511"
+      />
+      <div class="hero__copy">
+        <p class="hero__eyebrow">{site.location}</p>
+        <h1>{site.name}</h1>
+        <p class="hero__tagline">{site.tagline}</p>
+        <p class="hero__meta">
+          {site.title}, {site.affiliation}
+        </p>
+      </div>
+    </div>
+    <div class="actions hero__actions">
+      <a class="button" href={socials.cv_pdf}>Download CV</a>
+      <a class="button button--ghost" href={`mailto:${socials.email}`}>Email</a>
+      <a class="button button--ghost" href={scholarUrl(socials.scholar_userid)}
+        >Scholar</a
+      >
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>About</h2>
+    </div>
+    {
+      site.bio
+        .split(/\n\s*\n+/)
+        .map((para) => para.replace(/\s*\n\s*/g, ' ').trim())
+        .filter(Boolean)
+        .map((para) => <p>{para}</p>)
+    }
+    <p class="mute">
+      <a href={orcidUrl(socials.orcid_id)}>ORCID</a>
+      ·
+      <a href={githubUrl(socials.github_username)}>GitHub</a>
+      ·
+      <a href="/publications/">Publications</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>News</h2>
+      <a href="/news/">All news</a>
+    </div>
+    <ul class="news-list">
+      {
+        news.slice(0, 6).map(async (item) => {
+          const { Content } = await render(item);
+          return (
+            <li class="news-item">
+              <time class="news-item__date" datetime={dateAttr(item.data.date)}>
+                {item.data.date_label ?? formatDate(item.data.date)}
+              </time>
+              <div class="news-item__body">
+                <Content />
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>Selected publications</h2>
+      <a href="/publications/">All publications</a>
+    </div>
+    <ol class="pub-list">
+      {selected.map((pub) => <PublicationItem pub={pub} />)}
+    </ol>
+  </section>
+</BaseLayout>
