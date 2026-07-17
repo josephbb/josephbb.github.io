@@ -42,6 +42,17 @@ function isCurrent(href: string) {
       rel="stylesheet"
     />
     <title>{pageTitle}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme');
+          if (theme !== 'night' && theme !== 'light') theme = 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div class="site-shell">
@@ -60,6 +71,14 @@ function isCurrent(href: string) {
               ))
             }
           </nav>
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-label="Switch color theme"
+          >
+            Night
+          </button>
         </div>
       </header>
 
@@ -75,5 +94,42 @@ function isCurrent(href: string) {
         </p>
       </footer>
     </div>
+    <script>
+      function currentTheme() {
+        const attr = document.documentElement.getAttribute('data-theme');
+        return attr === 'night' ? 'night' : 'light';
+      }
+
+      function applyTheme(theme: 'light' | 'night') {
+        document.documentElement.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('theme', theme);
+        } catch {
+          /* ignore */
+        }
+        syncToggle();
+      }
+
+      function syncToggle() {
+        const theme = currentTheme();
+        const next = theme === 'night' ? 'light' : 'night';
+        document.querySelectorAll('[data-theme-toggle]').forEach((el) => {
+          if (!(el instanceof HTMLButtonElement)) return;
+          el.textContent = next === 'night' ? 'Night' : 'Day';
+          el.setAttribute(
+            'aria-label',
+            next === 'night' ? 'Switch to night theme' : 'Switch to day theme',
+          );
+        });
+      }
+
+      document.querySelectorAll('[data-theme-toggle]').forEach((el) => {
+        el.addEventListener('click', () => {
+          applyTheme(currentTheme() === 'night' ? 'light' : 'night');
+        });
+      });
+
+      syncToggle();
+    </script>
   </body>
 </html>
