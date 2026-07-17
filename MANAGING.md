@@ -271,6 +271,8 @@ Hosting: **GitHub Pages** via Actions on [`josephbb/josephbb.github.io`](https:/
 3. `public/CNAME` must contain `joebakcoleman.com`.
 4. In the GitHub repo: **Settings → Pages → Source = GitHub Actions**.
 
+Build also emits **`/sitemap-index.xml`** and **`/robots.txt`**. After deploy, submit `sitemap-index.xml` in [Google Search Console → Sitemaps](https://search.google.com/search-console).
+
 The previous al-folio site is preserved on `archive/al-folio` (source) and `archive/gh-pages-legacy` (built HTML).
 
 **There is no separate Vercel/Netlify step** for this static site; Pages replaces that.

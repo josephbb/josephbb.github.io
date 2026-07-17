@@ -12,6 +12,7 @@ const socials = getSocials();
 const { title, description = site.tagline } = Astro.props;
 const pageTitle = title ? `${title} · ${site.short_name}` : site.name;
 const pathname = Astro.url.pathname;
+const canonicalURL = new URL(pathname, Astro.site);
 
 const nav = [
   { href: '/', label: 'About' },
@@ -34,6 +35,8 @@ function isCurrent(href: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content={site.name} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
