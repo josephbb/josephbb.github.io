@@ -1,0 +1,14 @@
+project:
+  type: default
+
+format:
+  gfm:
+    echo: true
+    warning: false
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+
+jupyter: site-notebooks

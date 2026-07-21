@@ -1,0 +1,5 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/notebooks/.venv/bin/python",
+  "jupyter.kernels.filter": [],
+  "notebook.defaultFormatter": null
+}

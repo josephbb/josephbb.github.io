@@ -1,0 +1,37 @@
+# Recipes for the site notebooks env (run from notebooks/)
+
+default:
+    @just --list
+
+# Install locked deps into ./.venv
+install:
+    ./scripts/install-deps.sh
+
+# Sync deps + register Jupyter kernel for Cursor / JupyterLab
+setup: install kernel
+
+# Register kernel (uses .venv so it works outside `nix develop` too)
+kernel:
+    ./scripts/setup-kernel.sh
+
+# JupyterLab focused on drafts/ (site root so ../../public/... images resolve)
+lab:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    site="$(cd "{{ justfile_directory() }}/.." && pwd)"
+    uv run jupyter lab \
+      --ServerApp.root_dir="$site" \
+      --ServerApp.preferred_dir="$site/notebooks/drafts"
+
+# Quarto HTML preview (executes notebook; shows `{python}` inline values)
+preview notebook:
+    quarto render {{notebook}} --to html --execute
+
+# Convert a notebook to an Astro blog draft (via Quarto → md)
+# Usage: just export drafts/my-post.ipynb
+export notebook:
+    ./scripts/nb-to-blog.sh {{notebook}}
+
+# Remove local Python env
+clean-env:
+    rm -rf .venv

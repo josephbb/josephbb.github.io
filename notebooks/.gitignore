@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.jupyter/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+exported/
+_freeze/
+
+/.quarto/
+
+**/*.quarto_ipynb

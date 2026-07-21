@@ -12,7 +12,11 @@ Future site work — not scheduled. Easy polish from this list is already shippe
 ## Cool but more build
 
 - **Citation story / sparkline** for a few flagship papers (OpenAlex / Scholar time series).
-- **Notebook → blog export helper** — clean path from analysis notebooks into `src/content/blog/` (nbconvert / Quarto), so metascience writeups don’t rot privately.
+- **Notebook → blog polish** — `notebooks/` already has Nix + uv + PyMC + `just export`; extend with Quarto option, richer frontmatter, or CI checks if needed.
+
+## Shipped tooling
+
+- **`notebooks/`** — reproducible Nix shell, uv lockfile, Jupyter kernel, `just export` → `src/content/blog/`.
 
 ## Probably skip
 

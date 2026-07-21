@@ -33,7 +33,9 @@ const { Content } = await render(post);
       </time>
     </p>
     <h1 class="page-title">{post.data.title}</h1>
-    <p class="page-lede">{post.data.description}</p>
+    {post.data.description ? (
+      <p class="page-lede">{post.data.description}</p>
+    ) : null}
     <Content />
   </article>
   <p style="margin-top: 3rem">

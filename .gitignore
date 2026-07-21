@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # nested clone metadata if CV is vendored as a plain copy
 vendor/cv/.git/
+
+# notebook env (venv lives under notebooks/)
+notebooks/.venv/
+notebooks/exported/
+notebooks/.ipynb_checkpoints/
