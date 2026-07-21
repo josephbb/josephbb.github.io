@@ -108,6 +108,7 @@ perl -i -0pe \
   "$MD_SRC"
 
 # Normalize ``` python → ```python and wrap source fences in foldable <details>.
+# Prefer $$ display math in notebooks: Quarto GFM drops \begin{align}…\end{align}.
 python3 - "$MD_SRC" <<'PY'
 from pathlib import Path
 import re
