@@ -1,6 +1,6 @@
 # Site notebooks
 
-Little Nix + **uv** + Jupyter environment for drafting analysis posts, then rendering them to Astro Markdown. Pattern matches [IASimple](https://github.com/josephbb/IASimple) / [LLMDiscourse](https://github.com/josephbb/LLMDiscourse): Nix pins Python tooling, uv owns the venv + lockfile, PyMC included.
+Little [Nix](https://nixos.org/) + **[uv](https://docs.astral.sh/uv/)** + Jupyter environment for drafting analysis posts, then rendering them to Astro Markdown. Pattern matches [IASimple](https://github.com/josephbb/IASimple) / [LLMDiscourse](https://github.com/josephbb/LLMDiscourse): Nix pins Python tooling, uv owns the venv + lockfile, PyMC included.
 
 ## Quick start
 
