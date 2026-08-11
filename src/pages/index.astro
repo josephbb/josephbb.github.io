@@ -67,7 +67,16 @@ const personJsonLd = {
       site.now && (
         <p class="hero__now">
           <span class="hero__now-label">Now</span>
-          <span class="hero__now-text">{site.now.replace(/\s*\n\s*/g, ' ').trim()}</span>
+          <span
+            class="hero__now-text"
+            set:html={site.now
+              .replace(/\s*\n\s*/g, ' ')
+              .trim()
+              .replace(
+                /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+                '<a href="$2" rel="noopener noreferrer">$1</a>',
+              )}
+          />
           {site.now_updated && (
             <span class="hero__now-updated">{site.now_updated}</span>
           )}
