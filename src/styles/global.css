@@ -13,12 +13,12 @@
   --astro-code-foreground: var(--ink);
   --astro-code-background: var(--bg-elevated);
   --astro-code-token-constant: var(--slate-blue);
-  --astro-code-token-string: var(--ochre);
+  --astro-code-token-string: #7a5530;
   --astro-code-token-comment: var(--ink-muted);
   --astro-code-token-keyword: var(--accent);
   --astro-code-token-parameter: var(--slate-blue);
   --astro-code-token-function: var(--slate-blue);
-  --astro-code-token-string-expression: var(--ochre);
+  --astro-code-token-string-expression: #7a5530;
   --astro-code-token-punctuation: var(--ink-muted);
   --astro-code-token-link: var(--accent);
 
@@ -46,6 +46,8 @@ html[data-theme='night'] {
   --accent-soft: #7d9470;
   --ochre: #d0ae78;
   --slate-blue: #8a9fa8;
+  --astro-code-token-string: #e0b87a;
+  --astro-code-token-string-expression: #e0b87a;
 }
 
 *,
