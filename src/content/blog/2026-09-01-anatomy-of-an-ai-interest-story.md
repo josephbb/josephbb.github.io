@@ -55,7 +55,7 @@ This is kind of a big deal... the key premise of the article, that bots are emai
 
 This isn't really a case of an LLM wanting to talk about consciousness, as the lede suggests. It looks a lot more like a phishing attempt, which Ord rejects because the email seems to have come from a platform for setting up LLM agents. Of course, someone could very well have prompted an LLM to reach out to effective altruists and ask for donations. People have certainly come up with less funny pranks and less effective phishing schemes. Importantly, we know LLMs can write emails and send them. Emailing at the behest of a human prompt is an advertised feature of plenty of products and startups. There's really nothing compellingly new in the Ord Example. 
 
-In fairness to Metz or credit to his editor, the piece does note that there is no way to know if the claim these came autonomously from LLMs is true. If the claim in the headline is made without regard to the truth, it is by definition bullshit. From (Philosopher) Harry Frankfurt's *On Bullshit*: 
+It's weird to see a piece acknowledge that it cannot verify the claims made in its own headline. Yet if the claim in the headline is made without regard to the truth, it is by definition bullshit. From (Philosopher) Harry Frankfurt's *On Bullshit*: 
 
 > "That is why she cannot be regarded as lying; for she does not presume that she knows the truth, and therefore she cannot be deliberately promulgating a proposition that she presumes to be false: Her statement is grounded neither in a belief that it is true, nor, as a lie must be, in a belief that it is not true. It is just this lack of connection to a concern with truth - this indifference to how things really are - that I regard as the essence of bullshit."
 
