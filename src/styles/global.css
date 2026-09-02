@@ -688,6 +688,53 @@ html[data-theme='night'] .hero__portrait {
   background: color-mix(in srgb, var(--line) 35%, transparent);
 }
 
+.prose img {
+  cursor: zoom-in;
+}
+
+.img-lightbox {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: min(96vw, 1100px);
+  max-height: 96vh;
+}
+
+.img-lightbox::backdrop {
+  background: color-mix(in srgb, #0b0d10 78%, transparent);
+}
+
+.img-lightbox img {
+  display: block;
+  max-width: 96vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  cursor: zoom-out;
+  box-shadow: 0 12px 40px color-mix(in srgb, #000 35%, transparent);
+}
+
+.img-lightbox__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+}
+
+.img-lightbox__close:hover {
+  color: var(--accent);
+}
+
 .news-list,
 .pub-list,
 .theme-list,
