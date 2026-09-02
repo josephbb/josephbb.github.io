@@ -243,26 +243,26 @@ p:last-child {
 
 .hero {
   display: grid;
-  gap: var(--space-4);
-  margin-bottom: var(--space-6);
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
 }
 
 .hero__identity {
   display: grid;
   gap: var(--space-4);
-  align-items: end;
+  align-items: start;
 }
 
 @media (min-width: 640px) {
   .hero__identity {
-    grid-template-columns: 18rem minmax(0, 1fr);
-    gap: var(--space-5);
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: var(--space-4);
   }
 }
 
 .hero__portrait {
   display: block;
-  width: min(100%, 18rem);
+  width: min(100%, 14rem);
   height: auto;
   aspect-ratio: 767 / 511;
   object-fit: cover;
@@ -277,20 +277,17 @@ html[data-theme='night'] .hero__portrait {
 
 .hero__copy {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   animation: rise 560ms ease both;
   animation-delay: 90ms;
 }
 
 .hero__actions {
-  margin-top: 0;
+  margin-top: var(--space-3);
   animation: rise 560ms ease both;
   animation-delay: 150ms;
-}
-
-@media (min-width: 640px) {
-  .hero__actions {
-    margin-left: calc(18rem + var(--space-5));
-  }
 }
 
 .hero__eyebrow {
@@ -314,48 +311,8 @@ html[data-theme='night'] .hero__portrait {
   margin: 0;
 }
 
-.hero__now {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.55rem 0.85rem;
-  margin: 0;
-  padding-top: var(--space-3);
-  border-top: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
-  color: var(--ink-muted);
-  font-size: 0.98rem;
-  line-height: 1.5;
-  animation: rise 560ms ease both;
-  animation-delay: 210ms;
-  transition:
-    color 320ms ease,
-    border-color 320ms ease;
-}
-
-@media (min-width: 640px) {
-  .hero__now {
-    margin-left: calc(18rem + var(--space-5));
-  }
-}
-
-.hero__now-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ochre);
-}
-
-.hero__now-text {
-  flex: 1 1 12rem;
-  min-width: 0;
-  color: var(--ink);
-}
-
-.hero__now-updated {
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  white-space: nowrap;
+.hero h1 {
+  margin-bottom: var(--space-2);
 }
 
 @keyframes portrait-in {
@@ -967,6 +924,36 @@ html[data-theme='night'] .hero__portrait {
 }
 
 .mute {
+  color: var(--ink-muted);
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  margin-top: var(--space-3);
+}
+
+.profile-links__icon {
+  display: inline-flex;
+  color: var(--ink-muted);
+  line-height: 0;
+  transition: color 280ms ease;
+}
+
+.profile-links__icon:hover,
+.profile-links__icon:focus-visible {
+  color: var(--accent);
+}
+
+.profile-links__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.profile-links__sep {
   color: var(--ink-muted);
 }
 

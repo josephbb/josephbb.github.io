@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationItem from '../components/PublicationItem.astro';
+import ProfileLinks from '../components/ProfileLinks.astro';
 import { getCollection, render } from 'astro:content';
 import { getSelectedPublications } from '../lib/publications';
-import { getSite, getSocials, scholarUrl, orcidUrl, githubUrl } from '../lib/site';
+import { getSite, getSocials, scholarUrl, orcidUrl, githubUrl, linkedinUrl, blueskyUrl } from '../lib/site';
 import { formatDate, dateAttr } from '../lib/dates';
 
 const site = getSite();
@@ -33,6 +34,8 @@ const personJsonLd = {
     scholarUrl(socials.scholar_userid),
     orcidUrl(socials.orcid_id),
     githubUrl(socials.github_username),
+    ...(socials.linkedin_url ? [linkedinUrl(socials.linkedin_url)] : []),
+    ...(socials.bluesky_handle ? [blueskyUrl(socials.bluesky_handle)] : []),
   ],
   description: site.bio_short.trim(),
 };
@@ -55,34 +58,13 @@ const personJsonLd = {
         <p class="hero__meta">
           {site.title}, {site.affiliation}
         </p>
+        <div class="actions hero__actions">
+          <a class="button" href={socials.cv_pdf}>Download CV</a>
+          <a class="button button--ghost" href={`mailto:${socials.email}`}>Email</a>
+          <a class="button button--ghost" href={scholarUrl(socials.scholar_userid)}>Scholar</a>
+        </div>
       </div>
     </div>
-    <div class="actions hero__actions">
-      <a class="button" href={socials.cv_pdf}>Download CV</a>
-      <a class="button button--ghost" href={`mailto:${socials.email}`}>Email</a>
-      <a class="button button--ghost" href={scholarUrl(socials.scholar_userid)}>Scholar</a
-      >
-    </div>
-    {
-      site.now && (
-        <p class="hero__now">
-          <span class="hero__now-label">Now</span>
-          <span
-            class="hero__now-text"
-            set:html={site.now
-              .replace(/\s*\n\s*/g, ' ')
-              .trim()
-              .replace(
-                /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
-                '<a href="$2" rel="noopener noreferrer">$1</a>',
-              )}
-          />
-          {site.now_updated && (
-            <span class="hero__now-updated">{site.now_updated}</span>
-          )}
-        </p>
-      )
-    }
   </section>
 
   <section class="section">
@@ -96,13 +78,7 @@ const personJsonLd = {
         .filter(Boolean)
         .map((para) => <p>{para}</p>)
     }
-    <p class="mute">
-      <a href={orcidUrl(socials.orcid_id)}>ORCID</a>
-      ·
-      <a href={githubUrl(socials.github_username)}>GitHub</a>
-      ·
-      <a href="/publications/">Publications</a>
-    </p>
+    <ProfileLinks />
   </section>
 
   <section class="section">

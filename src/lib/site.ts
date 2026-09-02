@@ -27,6 +27,8 @@ export type SocialsConfig = {
   scholar_userid: string;
   orcid_id: string;
   github_username: string;
+  linkedin_url?: string;
+  bluesky_handle?: string;
   cv_pdf: string;
   cv_repo: string;
 };
@@ -84,4 +86,12 @@ export function orcidUrl(id: string) {
 
 export function githubUrl(username: string) {
   return `https://github.com/${username}`;
+}
+
+export function linkedinUrl(url: string) {
+  return url;
+}
+
+export function blueskyUrl(handle: string) {
+  return `https://bsky.app/profile/${handle.replace(/^@/, '')}`;
 }

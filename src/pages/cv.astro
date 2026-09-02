@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getSite, getSocials, scholarUrl, orcidUrl, githubUrl } from '../lib/site';
+import ProfileLinks from '../components/ProfileLinks.astro';
+import { getSite, getSocials } from '../lib/site';
 
 const site = getSite();
 const socials = getSocials();
@@ -48,14 +49,6 @@ const socials = getSocials();
     </ul>
 
     <h3 style="margin-top: 1.5rem">Profiles</h3>
-    <p class="mute">
-      <a href={scholarUrl(socials.scholar_userid)}>Google Scholar</a>
-      ·
-      <a href={orcidUrl(socials.orcid_id)}>ORCID</a>
-      ·
-      <a href={githubUrl(socials.github_username)}>GitHub</a>
-      ·
-      <a href={`mailto:${socials.email}`}>Email</a>
-    </p>
+    <ProfileLinks showScholar showEmail />
   </div>
 </BaseLayout>

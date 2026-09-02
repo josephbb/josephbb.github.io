@@ -1,0 +1,141 @@
+---
+import {
+  getSocials,
+  scholarUrl,
+  orcidUrl,
+  githubUrl,
+  linkedinUrl,
+  blueskyUrl,
+} from '../lib/site';
+
+interface Props {
+  /** Include Google Scholar (useful on the CV page). */
+  showScholar?: boolean;
+  /** Include mailto: email. */
+  showEmail?: boolean;
+  /** Trailing internal link, e.g. Publications. */
+  trailing?: { href: string; label: string };
+}
+
+const {
+  showScholar = false,
+  showEmail = false,
+  trailing,
+} = Astro.props;
+const socials = getSocials();
+
+const links = [
+  showScholar
+    ? {
+        href: scholarUrl(socials.scholar_userid),
+        label: 'Google Scholar',
+        icon: 'scholar' as const,
+      }
+    : null,
+  {
+    href: orcidUrl(socials.orcid_id),
+    label: 'ORCID',
+    icon: 'orcid' as const,
+  },
+  {
+    href: githubUrl(socials.github_username),
+    label: 'GitHub',
+    icon: 'github' as const,
+  },
+  socials.linkedin_url
+    ? {
+        href: linkedinUrl(socials.linkedin_url),
+        label: 'LinkedIn',
+        icon: 'linkedin' as const,
+      }
+    : null,
+  socials.bluesky_handle
+    ? {
+        href: blueskyUrl(socials.bluesky_handle),
+        label: 'Bluesky',
+        icon: 'bluesky' as const,
+      }
+    : null,
+  showEmail
+    ? {
+        href: `mailto:${socials.email}`,
+        label: 'Email',
+        icon: 'email' as const,
+      }
+    : null,
+].filter(Boolean) as { href: string; label: string; icon: string }[];
+---
+
+<p class="profile-links mute">
+  {
+    links.map((link) => (
+      <a
+        class="profile-links__icon"
+        href={link.href}
+        aria-label={link.label}
+        title={link.label}
+        rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+      >
+        {link.icon === 'scholar' && (
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 2 1 7.5 12 13l8-4.1V16h2V7.5L12 2zm-6.5 11.2L5 14c0 2.8 3.1 5 7 5s7-2.2 7-5l-.5-.8L12 16.5l-6.5-3.3z"
+            />
+          </svg>
+        )}
+        {link.icon === 'orcid' && (
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.62 17.06H8.19V8.94h1.43v8.12zm-.72-9.25c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87zm9.91 9.25h-1.43v-4.35c0-1.04-.37-1.75-1.3-1.75-.71 0-1.13.48-1.32.94-.07.16-.09.39-.09.62v4.54h-1.43s.02-7.36 0-8.12h1.43v1.15c.19-.29.53-.71 1.3-.71 1.35 0 2.36.88 2.36 2.78v4.9z"
+            />
+          </svg>
+        )}
+        {link.icon === 'github' && (
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.28 10.28 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"
+            />
+          </svg>
+        )}
+        {link.icon === 'linkedin' && (
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22 2H2v20h20V2z"
+            />
+          </svg>
+        )}
+        {link.icon === 'bluesky' && (
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 11.47c-1.6-3.1-5.96-8.9-10-9.36C.75 1.95 0 3.25 0 4.79c0 1.55.8 8.07 9.37 13.77.52.34 1.18.7 1.93.7s1.41-.36 1.93-.7C21.2 12.86 22 6.34 22 4.79c0-1.54-.75-2.84-2-3.68-4.04.46-8.4 6.26-10 9.36z"
+              transform="translate(1 2) scale(0.92)"
+            />
+          </svg>
+        )}
+        {link.icon === 'email' && (
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"
+            />
+          </svg>
+        )}
+      </a>
+    ))
+  }
+  {
+    trailing && (
+      <>
+        <span class="profile-links__sep" aria-hidden="true">
+          ·
+        </span>
+        <a href={trailing.href}>{trailing.label}</a>
+      </>
+    )
+  }
+</p>
