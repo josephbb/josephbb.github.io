@@ -35,6 +35,12 @@ pnpm format
 pnpm format:check
 ```
 
+Accessibility (WCAG 2 AA via [Pa11y CI](https://github.com/pa11y/pa11y-ci); runs on PRs):
+
+```bash
+pnpm a11y:check
+```
+
 ## Updating content
 
 | What                            | Where                                                                                           |

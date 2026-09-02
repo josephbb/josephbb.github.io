@@ -13,7 +13,9 @@
     "astro": "astro",
     "enrich:openalex": "node scripts/enrich-openalex.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "a11y": "start-server-and-test \"astro preview --host 127.0.0.1 --port 4321\" http-get://127.0.0.1:4321 \"pa11y-ci\"",
+    "a11y:check": "pnpm build && pnpm a11y"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.3",
@@ -27,7 +29,9 @@
     "yaml": "^2.9.0"
   },
   "devDependencies": {
+    "pa11y-ci": "^4.0.1",
     "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "start-server-and-test": "^2.1.2"
   }
 }
