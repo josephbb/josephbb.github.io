@@ -31,7 +31,7 @@ If we're on the website, we encounter this below a page-filling portrait of some
 
 ## II · The Hero(es)
 
-Claim 1 of the lede gets us to the second part of the anatomy, our hero character. There's a researcher or software developer who has bravely come forward with their tale of how the bots are becoming conscious. But is it true in this case? 
+Claim 1 of the headline gets us to the second part of the anatomy, our hero character. There's a researcher or software developer who has bravely come forward with their tale of how the bots are becoming conscious. But is it true in this case? 
 
 First and foremost, Cade chooses to frame a preprint as a published [research paper](https://arxiv.org/pdf/2510.24797). This is not a published research paper in the sense that most readers might have come to understand published academic work. Cameron Berg had uploaded a preprint to [ArXiV](https://arxiv.org/), which is moderated (they remove spam) but not peer-reviewed. In this sense it's a repository (like google drive) more than a publisher (like Nature, Science, or PNAS). The difference here being that academic publishing involves editorial discretion, peer review, and exerts filters on the accuracy and content of published work. They're imperfect, but they do exist. Cade's framing of a pdf dropped onto a repository as a "research paper" encourages us to see the hero character as some established philosopher. 
 
