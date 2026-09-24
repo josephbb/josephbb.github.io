@@ -14,10 +14,11 @@ const isPreprint =
   /arxiv|socarxiv|preprint/i.test(pub.venue ?? '');
 const isPolicy = pub.section === 'policy';
 
-const roleNote =
+const noteText =
   pub.note && !(isPreprint && pub.note.toLowerCase() === 'preprint')
     ? pub.note.replace(/^role:\s*/i, '')
     : null;
+const showRoleLabel = Boolean(noteText && isPolicy);
 
 const doiUrl = pub.doi ? `https://doi.org/${pub.doi}` : undefined;
 // Prefer a non-DOI landing link when we have one distinct from the DOI
@@ -46,9 +47,10 @@ const landingUrl = pub.url && pub.url !== doiUrl ? pub.url : undefined;
       {pub.isOpenAccess && <span class="pub-item__badge pub-item__badge--oa">Open</span>}
     </p>
     {
-      roleNote && (
+      noteText && (
         <p class="pub-item__meta pub-item__note">
-          <span class="pub-item__role-label">Role:</span> {roleNote}
+          {showRoleLabel && <span class="pub-item__role-label">Role:</span>}
+          {showRoleLabel ? ` ${noteText}` : noteText}
         </p>
       )
     }
