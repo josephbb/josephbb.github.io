@@ -346,12 +346,47 @@ I encourage you to read Svante Arrhenius' paper and compare his methodology and 
 
 Project 2027 and the various AI safety outfits, by contrast, seem almost allergic to spelling out their assumptions into a proper model of the process by which they predict catastrophe. Above, with the simplest models I can imagine, I wanted to show why. These models don't tell us what the future will bring but force us to think more clearly about how we'd answer that question. We find that RSI will not universally lead to superintelligence if *costs* exist, which they most assuredly do. We find that competition across technologies could be a barrier and one without a trivial solution. We also reveal that Bostrom-style super-intelligence implies our GPTs should be able to do all of the things that butterflies, squirrels and fish do---or that intelligence is not a *scala*. Notably my models do not preclude RSI from leading to superintelligence, they just constrain how that could occur once we are clear about very simple assumptions. They also hint at a ton of levers one could pull to avert such an AI doomsday, but I'll leave that as an exercise for the Doomers.  
 
-As this is a blog post, I haven't put nearly the time into the theory above that I do academic publications, or that I would if this were my dayjob. Each of the models could be extended in various ways, probed and analyzed, blended with data. There's lots of work that one could do just to map out the theoretical landscape, and the data are rich as well. There's a huge taxonomy of AI models dating back decades; one could fit that phylogeny and perhaps ask questions about the structure of artificial intelligence. Setting humans aside, is there even a *scala artificialis*? 
+As this is a blog post, I haven't put nearly the time into the theory above that I do academic publications, or that I would if this were my day job. Each of the models could be extended in various ways, probed and analyzed, blended with data. There's lots of work that one could do just to map out the theoretical landscape, and the data are rich as well. There's a huge taxonomy of AI models dating back decades; one could fit that phylogeny and perhaps ask questions about the structure of artificial intelligence. Setting humans aside, is there even a *scala artificialis*? 
 
-Yet for reasons that are beyond me, the level of rigor behind concerns over AI safety is less than what we had for climate science in 1896. Nevertheless, hundreds of millions of dollars are invested in fixing the ill-defined problem, it captivates politicians, and has journalists at reputable outlets devoting substantial coverage. It's apparently headline-grabbing news when CEOs and randos just *say shit* about p(doom). Academics are even getting involved, taking seriously a problem we would disregard were it not for the substantial amount of funding available if one plays along with doomers' concerns. At the end of the day, if the effective altruits funding this whole thing dedicated even a tiny fraction of their budget to a red-team of people with proper training in theory and statistics, they'd sleep easy at night and could get back to buying mosquito nets. 
+Yet for reasons that are beyond me, the level of rigor behind concerns over AI safety is less than what we had for climate science in 1896. Nevertheless, hundreds of millions of dollars are invested in fixing the ill-defined problem, it captivates politicians, and has journalists at reputable outlets devoting substantial coverage. It's apparently headline-grabbing news when CEOs and randos just *say shit* about p(doom). Academics are even getting involved, taking seriously a problem we would disregard were it not for the substantial amount of funding available if one plays along with doomers' concerns. At the end of the day, if the effective altruists funding this whole thing dedicated even a tiny fraction of their budget to a red-team of people with proper training in theory and statistics, they'd sleep easy at night and could get back to buying mosquito nets. 
 
 tl;dr? If this is an existential crisis, it's embarrassing we've not been more rigorous. If it isn't, it's embarrassing we've taken it so seriously in the absence of rigor. 
 
+
+
+#### Coda: an actual model, albeit a preprint. 
+After writing this, I was sent [this paper](https://arxiv.org/pdf/2609.15802) out of METR which *does* make a mathematical model of RSI. Below are my super quick thoughts from a rapid read-through so I could point folks who reply somewhere when this invariably gets linked to me. 
+
+The paper is a bit odd, in that it builds out a very large complicated world with various bottlenecks and then winds up riddled with assumptions that boil it down into ~3 terms (section 4.1) which if multiplied together and greater than 1.0 will ostensibly takeoff. To me this seems an exercise in trying to rhetorically acknowledge complexity but then brush it aside with many, many untested assumptions. It'd be more honest, imo, to simply state the 3 term model. That model, simply put, suggests RSI takes off if:
+
+$$
+A \times B \times C > 1.0
+$$
+ 
+ where: 
+
+- **$A$:** return to R&D after diminishing returns on ideas.
+- **$B$:** how much newer models raise effective R&D. 
+- **$C$:** how much algorithmic efficiency gains raise capabilities.
+
+(A/B/C are my simplification of their terms). They plug in 1 for A, 6.5 for C and solve for B: $1 \div 6 = 0.15$. It all seems very precise! They write:
+
+>Opus 4.8 scores one ECI unit more than Claude Opus 4.7. Thus under our model, Anthropic would meet the self-sustaining acceleration condition if adopting Claude Opus 4.8 led to 15% higher research productivity than Opus 4.7.
+
+Later:
+
+>Claude Opus 4.8 scores 16 ECI points more than Claude 3.7 Sonnet, which was released in February 2025 alongside
+Claude Code. At the time, estimates for AI uplift on engineering tasks varied but were not conclusively larger than 0.12 More recently, Anthropic engineers surveyed in the Claude Mythos Preview system card reported a 4X uplift from Claude use (Anthropic, 2026). The 4X uplift is very likely to be an overestimate, but even if it were true it would imply a 9% increase in productivity per unit of ECI, below the threshold for self-sustaining acceleration over this period.
+
+Here's the rub. That 1 for A? Let's consider just the numerator: they take it from [this 2024 paper](https://arxiv.org/abs/2403.05812) as $\ln(3)$. That comes from the estimate of 8 month doubling time, as best as I can tell. However, the uncertainty there is *huge* with a CI from 5 to 14 months which would push the numerator around from around 0.59 to 1.7. That makes the critical value (B) range from 9-26%. The denominator's terms add more uncertainty still. There's a similar problem with $C$, which takes a slope from a regression but not its uncertainty. On top of this, I don't see any reason to believe $A$ and $C$ are constant, independent, and time-invariant. 
+
+For all the math, the authors boil off most of the model using either simplification or "calibration" to just focus on $B$, how much newer models raise effective R&D. We wind up with a zombie-statistic, 15\% that seems like a magical take-off number and are told we're not there yet (9\%) but it sure seems close! The authors then seem to try and even-handedly consider the evidence that RSI is/will occur. In a section called "Best evidence in favor of acceleration:", one of their bullet points says:
+
+>"Jack Clark predicted a 60% chance that by the end of 2028, there will be “an AI system powerful enough that it could autonomously build its own successor"  
+
+It's truly weird to consider a CEO's guesstimate as "best evidence". That said, I am glad to see an example of something like RSI being treated with math. At the same time, the math here reads like rhetoric designed to extract a "number to watch", consistent with METR's goals... rather than to really sort the science. A lot of the dynamics, including things like saturation and diminishing returns, are boiled off into those fixed-point nowcast numbers for A and B, both of which yeet uncertainty into the void and generate an over-confident estimate. An earnestly curious approach, I would think, wouldn't be so hasty. 
+
+Finally, I would note that, in reading the references in this preprint, it is striking how much they cite Epoch.AI, blogs, Preprints, Working papers, their own githubs/blogs, popular science books, CEOs, news articles and other things that just aren't peer-reviewed research. As a peer reviewer, I would raise that as a *massive* red flag. This necessitates two things: On one hand, perhaps I've missed formal theory that exists in this parallel grey-literature of EA-funded institute blogs and such. On the other hand, this parallel ecosystem of homogeneously funded "research institutes" largely abstaining from the independent evaluation of peer-review sure looks like an intellectual bubble inside of an economic bubble. 
 
 [^1]: Associated is necessary here because the trait might not *cause* fitness. Sometimes it's just along for the ride with something that is. If you want to really have your mind explode, start thinking about ways in which you could get apparent directional selection for one trait when the underlying selection is disruptive or stabilizing for the actual causal trait.
 
