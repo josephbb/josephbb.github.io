@@ -2,6 +2,8 @@
 title: 'Pitfalls in AI Self-Improvement'
 date: 2026-10-07
 description: 'The evolutionary misconceptions behind recursive self-improvement'
+image: /assets/img/og/pitfalls-in-ai-self-improvement.jpg
+image_caption: 'Die Leiter des Auf- und Abstiegs (The Ladder of Ascent and Descent), from a 1512 edition of Ramon Llull. Wikimedia Commons (public domain).'
 tags:
   - LLMs
   - AI
