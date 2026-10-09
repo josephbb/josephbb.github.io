@@ -17,6 +17,10 @@ const blog = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     description: z.string(),
+    /** Optional social card / feature image (site-root path, e.g. /assets/img/og/slug.jpg). */
+    image: z.string().optional(),
+    /** Optional caption shown under the feature image. */
+    image_caption: z.string().optional(),
     tags: z.array(z.string()).default([]),
   }),
 });

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostTOC from '../../components/PostTOC.astro';
 import { getCollection, render } from 'astro:content';
 import { formatDate, dateAttr } from '../../lib/dates';
 
@@ -12,37 +13,64 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const tocHeadings = headings.filter(
+  (h) =>
+    h.depth >= 2 &&
+    h.depth <= 3 &&
+    h.slug !== 'contents' &&
+    h.slug !== 'refs-and-notes',
+);
+const showToc = tocHeadings.length >= 2;
 ---
 
 <BaseLayout
   title={post.data.title}
   description={post.data.description}
+  image={post.data.image}
   ogType="article"
 >
-  <article class="prose">
-    <p class="mute">
-      <time datetime={dateAttr(post.data.date)}>
-        {
-          formatDate(post.data.date, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })
-        }
-      </time>
-    </p>
-    <h1 class="page-title">{post.data.title}</h1>
-    {post.data.description ? (
-      <p class="page-lede">{post.data.description}</p>
-    ) : null}
-    <Content />
-  </article>
+  <div class:list={['post-layout', showToc && 'post-layout--with-toc']}>
+    <article class="prose">
+      <p class="mute">
+        <time datetime={dateAttr(post.data.date)}>
+          {
+            formatDate(post.data.date, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+          }
+        </time>
+      </p>
+      <h1 class="page-title">{post.data.title}</h1>
+      {post.data.description ? (
+        <p class="page-lede">{post.data.description}</p>
+      ) : null}
+      {
+        post.data.image && (
+          <figure class="post-feature">
+            <img
+              src={post.data.image}
+              alt={post.data.image_caption ?? ''}
+            />
+            {post.data.image_caption ? (
+              <figcaption class="post-feature__caption">
+                {post.data.image_caption}
+              </figcaption>
+            ) : null}
+          </figure>
+        )
+      }
+      <Content />
+    </article>
+    {showToc ? <PostTOC headings={headings} /> : null}
+  </div>
   <p style="margin-top: 3rem">
     <a href="/writing/">← Back to writing</a>
   </p>
 
-  <dialog class="img-lightbox" data-img-lightbox aria-label="Expanded image">
+  <dialog class="img-lightbox" data-img-lightbox aria-label="Expanded image" tabindex="-1">
     <form method="dialog">
       <button type="submit" class="img-lightbox__close">Close</button>
     </form>
@@ -54,16 +82,55 @@ const { Content } = await render(post);
   const dialog = document.querySelector('[data-img-lightbox]');
   if (dialog instanceof HTMLDialogElement) {
     const enlarged = dialog.querySelector('img');
+    /** @type {number | null} */
+    let lockedScrollY = null;
+
+    const openLightbox = (src, alt = '') => {
+      if (!(enlarged instanceof HTMLImageElement)) return;
+      lockedScrollY = window.scrollY;
+      // Freeze the page in place before showModal(), which otherwise jumps to the dialog node.
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      enlarged.src = src;
+      enlarged.alt = alt;
+      dialog.showModal();
+      dialog.focus({ preventScroll: true });
+    };
+
+    const unlockScroll = () => {
+      if (lockedScrollY === null) return;
+      const y = lockedScrollY;
+      lockedScrollY = null;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      window.scrollTo(0, y);
+    };
+
     document.querySelectorAll('.prose img').forEach((img) => {
       if (!(img instanceof HTMLImageElement)) return;
       if (img.closest('a')) return;
       img.addEventListener('click', () => {
-        if (!(enlarged instanceof HTMLImageElement)) return;
-        enlarged.src = img.currentSrc || img.src;
-        enlarged.alt = img.alt;
-        dialog.showModal();
+        openLightbox(img.currentSrc || img.src, img.alt);
       });
     });
+
+    // Text links that open an image in the same lightbox:
+    // <a href="/assets/....jpg" data-lightbox>click here</a>
+    document.querySelectorAll('.prose a[data-lightbox]').forEach((link) => {
+      if (!(link instanceof HTMLAnchorElement)) return;
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        openLightbox(link.href, link.getAttribute('data-alt') ?? '');
+      });
+    });
+
+    dialog.addEventListener('close', unlockScroll);
+
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) dialog.close();
     });

@@ -13,6 +13,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
+    remarkRehype: {
+      footnoteLabel: 'Refs and Notes',
+    },
     shikiConfig: {
       theme: 'css-variables',
     },

@@ -1,0 +1,79 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const SKIP = new Set(['contents', 'refs-and-notes']);
+
+const { headings } = Astro.props;
+const items = headings.filter(
+  (h) => h.depth >= 2 && h.depth <= 3 && !SKIP.has(h.slug),
+);
+---
+
+{
+  items.length >= 2 ? (
+    <nav class="post-toc" aria-label="Table of contents" data-post-toc>
+      <p class="post-toc__label">Contents</p>
+      <ol class="post-toc__list">
+        {items.map((heading) => (
+          <li
+            class:list={[
+              'post-toc__item',
+              `post-toc__item--h${heading.depth}`,
+            ]}
+          >
+            <a href={`#${heading.slug}`} data-toc-link={heading.slug}>
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  ) : null
+}
+
+<script>
+  const toc = document.querySelector('[data-post-toc]');
+  if (toc instanceof HTMLElement) {
+    const links = [...toc.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+    const headings = links
+      .map((link) => {
+        const id = link.dataset.tocLink;
+        return id ? document.getElementById(id) : null;
+      })
+      .filter((el): el is HTMLElement => el instanceof HTMLElement);
+
+    const setActive = (id: string | null) => {
+      for (const link of links) {
+        const active = link.dataset.tocLink === id;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+    };
+
+    if (headings.length > 0 && 'IntersectionObserver' in window) {
+      let current: string | null = headings[0]?.id ?? null;
+      setActive(current);
+
+      const observer = new IntersectionObserver(
+        () => {
+          const fromTop = headings
+            .filter((h) => h.getBoundingClientRect().top <= window.innerHeight * 0.35)
+            .at(-1);
+          if (fromTop) current = fromTop.id;
+          setActive(current);
+        },
+        {
+          rootMargin: '0px 0px -65% 0px',
+          threshold: [0, 1],
+        },
+      );
+
+      for (const heading of headings) observer.observe(heading);
+    }
+  }
+</script>

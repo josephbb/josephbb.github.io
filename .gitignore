@@ -30,3 +30,6 @@ vendor/cv/.git/
 notebooks/.venv/
 notebooks/exported/
 notebooks/.ipynb_checkpoints/
+
+# blog drafts (local only; move to src/content/blog/ when ready to publish)
+drafts/blog/
