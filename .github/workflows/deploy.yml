@@ -1,12 +1,16 @@
 name: Deploy to GitHub Pages
 
 on:
+  schedule:
+    # Weekly, outside GitHub Actions' busiest top-of-hour window.
+    - cron: '17 6 * * 1'
+      timezone: America/New_York
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -29,6 +33,18 @@ jobs:
           cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
+      - name: Refresh Google Scholar citation counts
+        run: pnpm refresh:scholar
+      - name: Commit refreshed citation counts
+        run: |
+          if git diff --quiet -- src/data/citations.yaml; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/citations.yaml
+          git commit -m 'chore: refresh Google Scholar citation counts'
+          git push origin HEAD:${{ github.ref_name }}
       - name: Build
         run: pnpm run build
       - name: Upload Pages artifact
