@@ -11,6 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "refresh:scholar": "node scripts/refresh-scholar-citations.mjs",
     "enrich:openalex": "node scripts/enrich-openalex.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

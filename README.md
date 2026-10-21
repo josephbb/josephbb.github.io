@@ -48,7 +48,7 @@ pnpm a11y:check
 | Bio, affiliations, tagline, **Now** line | `src/data/site.yaml` (`now` / `now_updated`) |
 | Email, Scholar, ORCID, CV links | `src/data/socials.yaml`                                                                         |
 | Homepage selected papers        | `src/data/selected.yaml` (cite keys)                                                            |
-| Citation counts (Greatest sort) | `src/data/citations.yaml` (Scholar snapshot; OpenAlex cites fill gaps)                          |
+| Citation counts (Greatest sort) | `src/data/citations.yaml` (refreshed from Scholar on each `main` push; OpenAlex fills gaps)     |
 | DOI / open access               | `src/data/openalex.yaml` — refresh with `pnpm enrich:openalex`                                  |
 | News                            | `src/content/news/*.md`                                                                         |
 | Blog                            | `src/content/blog/*.md`                                                                         |
