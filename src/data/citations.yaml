@@ -1,40 +1,38 @@
-# Google Scholar citation counts (from al-folio snapshot, last updated ~2026-07-13).
-# Refresh periodically; keyed by CV cite keys.
-# Source: Scholar profile Y5000VQAAAAJ via previous site citations.yml
-last_updated: '2026-07-13'
+# Google Scholar citation counts, refreshed automatically from the public profile.
+last_updated: 2026-10-21
 scholar_user: Y5000VQAAAAJ
 counts:
-  garland2026case: 3
-  bak2025randomized: 3
+  garland2026case: 7
+  bak2025randomized: 4
   BergstromBakColeman2025: 0
-  Mada2024: 390
-  bak2024claims: 21
-  doell2024international: 34
-  kozyreva2022: 348
+  Mada2024: 440
+  bak2024claims: 26
+  doell2024international: 37
+  kozyreva2022: 403
   Winklmayer2023: 5
   bak2023create: 18
-  Jolles2022: 26
-  BakColeman2022: 6
-  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021: 231
-  BakColeman2021: 458
-  Cooombs2021: 97
+  Jolles2022: 32
+  BakColeman2022: 5
+  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021: 256
+  BakColeman2021: 479
+  Cooombs2021: 111
   bak2021reply: 0
   lum2021mislead: 0
   Winklmayer2020: 18
-  Li2020: 291
-  Sosna2019: 158
-  bergstrom2019information: 60
-  Kao2018: 83
+  Li2020: 338
+  Sosna2019: 165
+  bergstrom2019information: 63
+  Kao2018: 86
   Bak-Coleman2015b: 34
-  Chicoli2015: 0
-  Kulpa2015a: 48
-  Bak-Coleman2014: 27
-  Chicoli2014: 57
-  Bak-Coleman2013: 63
-  bak2026industry: 0
-  bak2025risks: 0
+  Chicoli2015: 10
+  Kulpa2015a: 49
+  Bak-Coleman2014: 28
+  Chicoli2014: 58
+  Bak-Coleman2013: 65
+  bak2026industry: 2
+  bak2025risks: 11
   BakColeman2026SocialMedia: 0
-  bak-coleman_2023: 0
+  bak-coleman_2023: 6
 scholar_ids:
   bak2024claims: JV2RwH3_ST0C
   bak2026industry: eq2jaN3J8jMC
