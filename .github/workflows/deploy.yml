@@ -34,8 +34,17 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
       - name: Refresh Google Scholar citation counts
+        id: scholar
+        continue-on-error: true
         run: pnpm refresh:scholar
+      - name: Report unavailable citation refresh
+        if: steps.scholar.outcome == 'failure'
+        run: |
+          echo '::warning::Google Scholar refresh failed. Deploying with the saved citation counts; see the refresh step for details.'
+          echo '### Citation refresh unavailable' >> "$GITHUB_STEP_SUMMARY"
+          echo 'The site will deploy with its saved citation counts. No fresh Scholar counts were retrieved. See the refresh step for the error.' >> "$GITHUB_STEP_SUMMARY"
       - name: Commit refreshed citation counts
+        if: steps.scholar.outcome == 'success'
         run: |
           if git diff --quiet -- src/data/citations.yaml; then
             exit 0
