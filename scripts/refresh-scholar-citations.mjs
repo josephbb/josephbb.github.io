@@ -3,9 +3,9 @@
  * Refresh the Google Scholar citation counts stored by citation ID.
  *
  * Google Scholar exposes an author's publications in its public profile HTML;
- * using citation IDs avoids brittle title matching. The script intentionally
- * refuses to write a partial response so a temporary Scholar block cannot
- * erase otherwise valid counts.
+ * using citation IDs avoids brittle title matching. The script preserves an
+ * existing count for a record unavailable from Scholar, and refuses broadly
+ * incomplete responses so a temporary Scholar block cannot erase valid data.
  *
  * Usage: pnpm refresh:scholar
  */
@@ -71,19 +71,34 @@ async function main() {
   if (!response.ok) throw new Error(`Google Scholar returned HTTP ${response.status}.`);
 
   const countsById = citationCountsFromProfile(await response.text(), user);
-  const missing = Object.entries(scholarIds)
+  const configuredIds = Object.entries(scholarIds);
+  const available = configuredIds.filter(([, id]) => countsById.has(id));
+  const missing = configuredIds
     .filter(([, id]) => !countsById.has(id))
     .map(([key]) => key);
-  if (missing.length) {
+  const minimumAvailable = Math.ceil(configuredIds.length * 0.75);
+  if (available.length < minimumAvailable) {
     throw new Error(
-      `Scholar response is incomplete; missing ${missing.length} configured citation IDs: ${missing.join(', ')}`,
+      'Scholar response is incomplete; found ' +
+        available.length +
+        '/' +
+        configuredIds.length +
+        ' configured citation IDs.',
+    );
+  }
+  if (missing.length) {
+    console.warn(
+      'Keeping existing counts for ' +
+        missing.length +
+        ' unavailable Scholar record(s): ' +
+        missing.join(', '),
     );
   }
 
   // Keep manually maintained entries that do not yet have a Scholar citation
   // ID. Only the configured IDs can be refreshed safely.
   const nextCounts = { ...(data.counts ?? {}) };
-  for (const [key, id] of Object.entries(scholarIds)) {
+  for (const [key, id] of available) {
     nextCounts[key] = countsById.get(id);
   }
   const changed = JSON.stringify(data.counts ?? {}) !== JSON.stringify(nextCounts);
