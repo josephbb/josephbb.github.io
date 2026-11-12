@@ -55,7 +55,7 @@ const scholarProfile = scholarUrl(socials.scholar_userid);
       hidden
       title={citesUpdated ? `Citation snapshot ${citesUpdated}` : undefined}
     >
-      {stats.items} items ·
+      {stats.items} items ·{' '}
       <a href={scholarProfile} target="_blank" rel="noopener noreferrer">
         {stats.citations.toLocaleString('en-US')} citations · h-index {stats.hIndex}
       </a>

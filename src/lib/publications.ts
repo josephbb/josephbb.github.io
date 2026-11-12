@@ -347,5 +347,19 @@ export function getPublicationStats(pubs: Publication[] = getPublications()): {
     if (counts[i] >= i + 1) hIndex = i + 1;
     else break;
   }
-  return { items: pubs.length, citations, hIndex };
+  // Prefer the Scholar profile's own totals, which cover every listed work;
+  // the computed values only count publications shown on this site.
+  const citationsPath = path.join(process.cwd(), 'src', 'data', 'citations.yaml');
+  const totals = fs.existsSync(citationsPath)
+    ? (
+        yaml.parse(fs.readFileSync(citationsPath, 'utf8')) as {
+          totals?: { citations?: number; h_index?: number };
+        }
+      ).totals
+    : undefined;
+  return {
+    items: pubs.length,
+    citations: totals?.citations ?? citations,
+    hIndex: totals?.h_index ?? hIndex,
+  };
 }

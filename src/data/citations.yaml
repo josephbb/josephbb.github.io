@@ -4,7 +4,7 @@ scholar_user: Y5000VQAAAAJ
 counts:
   garland2026case: 7
   bak2025randomized: 5
-  BergstromBakColeman2025: 0
+  BergstromBakColeman2025: 19
   Mada2024: 458
   bak2024claims: 26
   doell2024international: 38
@@ -31,7 +31,7 @@ counts:
   Bak-Coleman2013: 65
   bak2026industry: 3
   bak2025risks: 11
-  BakColeman2026SocialMedia: 0
+  BakColeman2026SocialMedia: 26
   bak-coleman_2023: 6
 scholar_ids:
   bak2024claims: JV2RwH3_ST0C
@@ -62,3 +62,8 @@ scholar_ids:
   Chicoli2014: UeHWp8X0CEIC
   Bak-Coleman2013: u-x6o8ySG0sC
   bak-coleman_2023: Wp0gIr-vW9MC
+  BergstromBakColeman2025: VL0QpB8kHFEC
+  BakColeman2026SocialMedia: 8AbLer7MMksC
+totals:
+  citations: 2986
+  h_index: 19

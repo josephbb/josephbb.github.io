@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    }
+  },
+  "urls": [
+    "http://127.0.0.1:4321/",
+    "http://127.0.0.1:4321/news/",
+    "http://127.0.0.1:4321/publications/",
+    "http://127.0.0.1:4321/writing/",
+    "http://127.0.0.1:4321/cv/",
+    "http://127.0.0.1:4321/blog/2023-03-10-pcurve/",
+    "http://127.0.0.1:4321/blog/2026-07-04-fdr/"
+  ]
+}
