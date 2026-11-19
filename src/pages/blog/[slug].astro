@@ -27,7 +27,7 @@ const showToc = tocHeadings.length >= 2;
 <BaseLayout
   title={post.data.title}
   description={post.data.description}
-  image={post.data.image}
+  image={post.data.social_image ?? post.data.image}
   ogType="article"
 >
   <div class:list={['post-layout', showToc && 'post-layout--with-toc']}>
