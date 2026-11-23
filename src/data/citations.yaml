@@ -1,5 +1,5 @@
 # Google Scholar citation counts, refreshed automatically from the public profile.
-last_updated: 2026-11-22
+last_updated: 2026-11-23
 scholar_user: Y5000VQAAAAJ
 counts:
   garland2026case: 7
@@ -13,16 +13,16 @@ counts:
   bak2023create: 18
   Jolles2022: 34
   BakColeman2022: 5
-  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021: 271
+  bak-coleman_kennedy_wack_beers_schafer_spiro_starbird_west_2021: 272
   BakColeman2021: 494
   Cooombs2021: 112
   bak2021reply: 0
   lum2021mislead: 0
   Winklmayer2020: 18
-  Li2020: 350
+  Li2020: 352
   Sosna2019: 166
-  bergstrom2019information: 63
-  Kao2018: 88
+  bergstrom2019information: 68
+  Kao2018: 90
   Bak-Coleman2015b: 34
   Chicoli2015: 10
   Kulpa2015a: 49
@@ -65,5 +65,5 @@ scholar_ids:
   BergstromBakColeman2025: VL0QpB8kHFEC
   BakColeman2026SocialMedia: 8AbLer7MMksC
 totals:
-  citations: 3019
+  citations: 3013
   h_index: 19
