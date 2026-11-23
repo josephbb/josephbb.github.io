@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatDate, dateAttr } from '../../lib/dates';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Joe Bak-Coleman’s notes on collective behavior, statistics, and technology."
+>
+  <h1 class="page-title">Blog</h1>
+  <ul class="post-list">
+    {
+      posts.map((post) => (
+        <li class="post-item">
+          <p class="post-item__date">
+            <time datetime={dateAttr(post.data.date)}>
+              {formatDate(post.data.date, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+          </p>
+          <h2>
+            <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          </h2>
+          <p class="mute">{post.data.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

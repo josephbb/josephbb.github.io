@@ -30,8 +30,8 @@ const showToc = tocHeadings.length >= 2;
   image={post.data.social_image ?? post.data.image}
   ogType="article"
 >
-  <div class:list={['post-layout', showToc && 'post-layout--with-toc']}>
-    <article class="prose">
+  <article class:list={['post-layout', showToc && 'post-layout--with-toc']}>
+    <header class="post-intro">
       <p class="mute">
         <time datetime={dateAttr(post.data.date)}>
           {
@@ -47,6 +47,9 @@ const showToc = tocHeadings.length >= 2;
       {post.data.description ? (
         <p class="page-lede">{post.data.description}</p>
       ) : null}
+    </header>
+    {showToc && <PostTOC headings={tocHeadings} />}
+    <div class="prose">
       {
         post.data.image && (
           <figure class="post-feature">
@@ -63,18 +66,17 @@ const showToc = tocHeadings.length >= 2;
         )
       }
       <Content />
-    </article>
-    {showToc ? <PostTOC headings={headings} /> : null}
-  </div>
+    </div>
+  </article>
   <p style="margin-top: 3rem">
-    <a href="/writing/">← Back to writing</a>
+    <a href="/blog/">← Back to blog</a>
   </p>
 
-  <dialog class="img-lightbox" data-img-lightbox aria-label="Expanded image" tabindex="-1">
+  <dialog id="expanded-image" class="img-lightbox" data-img-lightbox aria-label="Expanded image">
     <form method="dialog">
       <button type="submit" class="img-lightbox__close">Close</button>
     </form>
-    <img src="" alt="" />
+    <img alt="" />
   </dialog>
 </BaseLayout>
 
@@ -82,11 +84,12 @@ const showToc = tocHeadings.length >= 2;
   const dialog = document.querySelector('[data-img-lightbox]');
   if (dialog instanceof HTMLDialogElement) {
     const enlarged = dialog.querySelector('img');
-    /** @type {number | null} */
-    let lockedScrollY = null;
+    let lockedScrollY: number | null = null;
+    let opener: HTMLElement | null = null;
 
-    const openLightbox = (src, alt = '') => {
+    const openLightbox = (trigger: HTMLElement, src: string, alt: string) => {
       if (!(enlarged instanceof HTMLImageElement)) return;
+      opener = trigger;
       lockedScrollY = window.scrollY;
       // Freeze the page in place before showModal(), which otherwise jumps to the dialog node.
       document.body.style.position = 'fixed';
@@ -96,7 +99,6 @@ const showToc = tocHeadings.length >= 2;
       enlarged.src = src;
       enlarged.alt = alt;
       dialog.showModal();
-      dialog.focus({ preventScroll: true });
     };
 
     const unlockScroll = () => {
@@ -107,15 +109,22 @@ const showToc = tocHeadings.length >= 2;
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
-      window.scrollTo(0, y);
+      window.scrollTo({ top: y, behavior: 'instant' });
+      opener?.focus({ preventScroll: true });
+      opener = null;
     };
 
-    document.querySelectorAll('.prose img').forEach((img) => {
-      if (!(img instanceof HTMLImageElement)) return;
-      if (img.closest('a')) return;
-      img.addEventListener('click', () => {
-        openLightbox(img.currentSrc || img.src, img.alt);
-      });
+    document.querySelectorAll<HTMLImageElement>('.prose img').forEach((img) => {
+      if (img.closest('a, button')) return;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'figure-zoom';
+      button.setAttribute('aria-label', img.alt ? `Enlarge image: ${img.alt}` : 'Enlarge image');
+      button.setAttribute('aria-haspopup', 'dialog');
+      button.setAttribute('aria-controls', dialog.id);
+      img.replaceWith(button);
+      button.append(img);
+      button.addEventListener('click', () => openLightbox(button, img.currentSrc || img.src, img.alt));
     });
 
     // Text links that open an image in the same lightbox:
@@ -125,7 +134,7 @@ const showToc = tocHeadings.length >= 2;
       link.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        openLightbox(link.href, link.getAttribute('data-alt') ?? '');
+        openLightbox(link, link.href, link.getAttribute('data-alt') ?? '');
       });
     });
 

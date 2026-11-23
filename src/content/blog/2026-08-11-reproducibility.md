@@ -42,28 +42,6 @@ If you want to skip reading this post and just play around with my barebones, ev
 git clone https://github.com/josephbb/ReproducibilityNow
 ```
 
-## Contents
-
-- [Prerequisites](#prerequisites)
-- [A solved problem, from the bottom up.](#a-solved-problem-from-the-bottom-up)
-- [Part 1: Nix](#part-1-nix)
-  - [Barebones](#barebones)
-- [Part 2: Managing our analysis libraries/packages](#part-2-managing-our-analysis-librariespackages)
-  - [Managing dependencies in R](#managing-dependencies-in-r)
-  - [Managing dependencies in Python](#managing-dependencies-in-python)
-- [Part 3: Everyone needs a little structure](#part-3-everyone-needs-a-little-structure)
-  - [Directory Structure](#directory-structure)
-  - [Data](#data)
-  - [Analysis](#analysis)
-  - [Output](#output)
-- [Part 4: Extending your analysis beyond the bullshit I provided](#part-4-extending-your-analysis-beyond-the-bullshit-i-provided)
-  - [Python: The easy way](#python-the-easy-way)
-  - [Why is everything a little harder with R?](#why-is-everything-a-little-harder-with-r)
-- [Part 5: Producing and Re-producing](#part-5-producing-and-re-producing)
-  - [The Payoff](#the-payoff)
-- [Coda: Just for single-line reproducibility](#coda-just-for-single-line-reproducibility)
-- [Coda 2: Preregistration](#coda-2-preregistration)
-
 ## Prerequisites
 
 1. **Terminal / command line:** Truly reproducible workflows require comfort with the command line, there's just no way around it. You don't need to be a wizard; just comfortable navigating directories and running simple commands.

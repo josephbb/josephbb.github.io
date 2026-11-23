@@ -592,9 +592,14 @@ html[data-theme='night'] .hero__portrait {
   gap: var(--space-4);
 }
 
+.post-intro,
 .post-layout .prose {
   max-width: var(--measure);
   min-width: 0;
+}
+
+.post-intro .page-lede {
+  margin-bottom: 0;
 }
 
 @media (min-width: 960px) {
@@ -605,6 +610,8 @@ html[data-theme='night'] .hero__portrait {
   }
 
   .post-toc {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     position: sticky;
     top: var(--space-4);
     align-self: start;
@@ -622,7 +629,7 @@ html[data-theme='night'] .hero__portrait {
 }
 
 .post-toc__label {
-  margin: 0 0 var(--space-2);
+  cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
@@ -633,7 +640,7 @@ html[data-theme='night'] .hero__portrait {
 
 .post-toc__list {
   list-style: none;
-  margin: 0;
+  margin: var(--space-2) 0 0;
   padding: 0;
   border-left: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
 }
@@ -675,36 +682,16 @@ html[data-theme='night'] .hero__portrait {
 
 @media (max-width: 959px) {
   .post-toc {
-    order: -1;
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    border-block: 1px solid var(--line);
+  }
+
+  .post-toc__label {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
   }
 
   .post-toc__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.85rem;
-    border-left: none;
-  }
-
-  .post-toc__item + .post-toc__item {
-    margin-top: 0;
-  }
-
-  .post-toc__item--h3 {
-    padding-left: 0;
-  }
-
-  .post-toc__item a {
-    padding: 0;
-    border-left: none;
-    margin-left: 0;
-  }
-
-  .post-toc__item a.is-active,
-  .post-toc__item a[aria-current='location'] {
-    border-left-color: transparent;
-    color: var(--accent);
+    margin: 0 0 var(--space-3);
   }
 }
 
@@ -786,8 +773,25 @@ html[data-theme='night'] .hero__portrait {
   background: color-mix(in srgb, var(--line) 35%, transparent);
 }
 
-.prose img {
+.figure-zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
   cursor: zoom-in;
+}
+
+.figure-zoom:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.prose video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
 }
 
 /* Short figure labels only — long descriptions stay body size */

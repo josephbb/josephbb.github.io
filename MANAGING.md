@@ -51,8 +51,9 @@ Useful commands:
 | ---------------- | ----------------------------------------------- | ----------------------------------------------------------------------- |
 | `/` (About)      | Portrait, name, **Now** line, bio, recent news, selected pubs | `site.yaml` (`now`), `socials.yaml`, `content/news/`, `selected.yaml` + CV pubs |
 | `/news/`         | Full news list                                  | `content/news/`                                                         |
-| `/publications/` | All CV-listed works (Latest / Greatest)         | `vendor/cv` + `citations.yaml` (+ optional OpenAlex)                    |
-| `/writing/`      | Published elsewhere + Notes (blog)              | `essays.yaml`, `content/blog/`                                          |
+| `/publications/` | All CV-listed works (Latest / Most cited)         | `vendor/cv` + `citations.yaml` (+ optional OpenAlex)                    |
+| `/writing/`      | Essays published elsewhere                      | `essays.yaml`                                                            |
+| `/blog/`         | Blog posts, newest first                        | `content/blog/`                                                          |
 | `/cv/`           | PDF + short summary                             | `public/cv/…`, `site.yaml`, `socials.yaml`                              |
 
 Nav is defined in `src/layouts/BaseLayout.astro`.
@@ -118,10 +119,10 @@ title: Optional title # rarely needed; body Markdown is the main text
 
 ---
 
-## Writing → Notes (your blog)
+## Blog
 
 **Folder:** `src/content/blog/`  
-**Section on site:** Writing → **Notes**
+**Section on site:** Blog (`/blog/`)
 
 Frontmatter:
 
@@ -225,10 +226,10 @@ Garland2025: garland2026case
 
 Keys must exist in the active CV `\nocite` set (and not be excluded via an essay `cite_key`).
 
-### Latest vs Greatest
+### Latest vs Most cited
 
 - **Latest:** by year (from the bib).
-- **Greatest:** by citation counts in **`src/data/citations.yaml`**, with OpenAlex counts as a fill-in when present.
+- **Most cited:** by citation counts in **`src/data/citations.yaml`**, with OpenAlex counts as a fill-in when present.
 - Stats line (count · citations · h-index) also uses that citations snapshot.
 
 Refresh Scholar counts periodically by editing `citations.yaml` (`counts:`, `scholar_ids:`, `last_updated:`). Keys should match CV cite keys (case-insensitive match is used).

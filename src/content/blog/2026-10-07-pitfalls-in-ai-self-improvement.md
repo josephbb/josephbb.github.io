@@ -38,14 +38,14 @@ Evolutionary biology often invokes the notion of [fitness](https://en.wikipedia.
 
 The brilliant insight of Darwin and Wallace was that organisms vary in their heritable traits, such that those which are associated[^1]  with higher fitness will be more likely to persist in the population. Perhaps more colorful birds have more eggs, or bacteria producing more of some enzyme will reproduce quicker. Whatever the case may be, "survival of the fittest" leaves many of us with a mental model of selection that is directional, increasing a trait on some axis. Something like this: 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/directional_selection.png" alt="Trait selection" style="width: 55%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/directional_selection.png" loading="lazy" width="1920" height="1440" alt="Trait selection" style="width: 55%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 1. Classic directional selection: a trait's value is pushed in a direction by higher fitness associated with larger values of that trait.</p>
 
 When teaching evolutionary biology, some students invariably adopt this directional selection model of evolution and mentally map it to [*"The Road to Homo Sapiens"*](https://en.wikipedia.org/wiki/March_of_Progress) by Rudolph Zallinger. This monkey-to-man depiction of evolution is contentious for plenty of reasons, one of which is that it depicts something like a chimpanzee as less-evolved than us humans. 
 
-<p align="center">
+<p>
 <a href="https://en.wikipedia.org/wiki/File:The_March_of_Progress.jpg"><img src="https://upload.wikimedia.org/wikipedia/en/0/04/The_March_of_Progress.jpg" alt="The March of Progress" style="max-width: 100%; height: auto; margin: 0 auto;" /></a>
 </p>
 
@@ -53,16 +53,16 @@ When teaching evolutionary biology, some students invariably adopt this directio
 
 The reality is, of course, that the chimpanzees have been subjected to natural selection for the very same millennia as us and are every bit as evolved. Darwin, perhaps anticipating this misconception, famously wrote "I think" above a bushy depiction of speciation. Each species at the tips of branches (the present moment) is every bit as evolved.
 
-<p align="center">
-<a href="https://commons.wikimedia.org/wiki/File:Darwin_Tree_1837.png"><img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/darwin_tree_1837.jpg" alt="Darwin's 1837 tree of life sketch from his notebook" style="max-width: min(100%, 420px); height: auto; margin: 0 auto;" /></a>
+<p>
+<a href="https://commons.wikimedia.org/wiki/File:Darwin_Tree_1837.png"><img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/darwin_tree_1837.jpg" loading="lazy" width="736" height="1200" alt="Darwin's 1837 tree of life sketch from his notebook" style="max-width: min(100%, 420px); height: auto; margin: 0 auto;" /></a>
 </p>
 
 <p class="figcaption">Figure 2. Darwin’s 1837 notebook sketch of branching speciation. <a href="https://commons.wikimedia.org/wiki/File:Darwin_Tree_1837.png">Wikimedia Commons</a> (public domain).</p>
 
 Natural selection produces not only directional selection but also stabilizing selection and disruptive selection. Stabilizing selection sees highest fitness in a Goldilocks zone, imposing costs for (perhaps literally) being too hot or too cold. Disruptive selection does the exact opposite, imposing a cost for fence-sitting and making organisms choose a side (e.g., dark or light colored). Selection isn't the only game in town and is accompanied by genetic drift, where genes in a population change somewhat arbitrarily.[^2] 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/selection_modes.png" alt="Directional, stabilizing, and disruptive selection" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/selection_modes.png" loading="lazy" width="3600" height="1050" alt="Directional, stabilizing, and disruptive selection" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 3. Directional, stabilizing, and disruptive selection</p>
 
@@ -118,8 +118,8 @@ $$
 
 Once some threshold is crossed ($A_c$), AI starts helping to improve itself alongside human effort. Below that, it does nothing. There's a graphical way we can analyze these kinds of models, by plotting $\dot{A}$ vs. $A$ as seen in the figure below. This tells us how much smarter it'll get in the next bit of time, given how smart it is currently. If the line is above zero, AI will get smarter; if it's below zero it will become less smart (we'll come back to this).
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/rsi_flow_threshold.png" alt="Diagram showing positive values of A dot for all values of A" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/rsi_flow_threshold.png" loading="lazy" width="2069" height="1227" alt="Diagram showing positive values of A dot for all values of A" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 4. $\dot{A}$ vs $A$ with an RSI threshold, the Yud model.</p>
 
@@ -142,8 +142,8 @@ Add even this tiny tweak and things get interesting. Now, the takeoff story runs
 
 Here too, we can analyze the model visually, but we're gonna take a slightly different approach because the model does more than "line goes up". Below, stable-state intelligence (i.e., how smart will AI ever get) is plotted against the cost rate, $\delta$, while holding other values in the model constant. Unlike the plot above, height here tells us where intelligence $A$ settles at the end of time (e.g. $t\to\infty$). If costs of model maintenance are large enough (green line), our human effort simply won't be enough to get AI to where it can begin improving itself. This is the "no RSI, no way, never" regime. Finite artificial intelligence, below human intelligence. 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/rsi_bifurcation_delta.png" alt="" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/rsi_bifurcation_delta.png" loading="lazy" width="2129" height="1166" alt="As maintenance costs rise, the model shifts from runaway growth to a finite capability level, then below the threshold for self-improvement." style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 5. Long-run intelligence (A) vs costs. </p>
 
@@ -173,8 +173,8 @@ So why is RuBisCO shit? When it first evolved, the atmosphere had very little $\
 
 There's a saying in Maine, that "you can't get there from here." A state with many peninsulas, some destinations may seem close but require a very long drive up north to Highway 1, and back down south on the adjacent peninsula.
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/national-atlas-maine.png" alt="National Atlas map of Maine showing peninsulas and coastline" style="width: 75%; max-width: 75%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/national-atlas-maine.png" loading="lazy" width="1280" height="868" alt="National Atlas map of Maine showing peninsulas and coastline" style="width: 75%; max-width: 75%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 6. Maine. <a href="https://commons.wikimedia.org/wiki/File:National-atlas-maine.png">National Atlas of the United States</a> via Wikimedia Commons (public domain).</p>
 
@@ -185,8 +185,8 @@ In my opinion this is the biggest problem with RSI arguments, my model above, an
 For example, even under Amdahl's law, progress towards more intelligent systems continues albeit hampered by bottlenecks. We'll get formal again soon, but let's start by just imagining a ball being pushed up the intelligence hill by humans, machines, or some combination per our model in the last section. The height of that hill is going to be determined by costs, settling at (say) $\frac{cH}{\delta-\rho}$, even if ASI occurs but doesn't overcome take-offs. 
 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/climbing_intelligence_pt1.png" alt="" style="width: 75%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/climbing_intelligence_pt1.png" loading="lazy" width="1606" height="1168" alt="A ball climbs a single hill toward a finite peak in intelligence." style="width: 75%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 7. Models generally assume we're climbing the lone intelligence hill</p>
 
@@ -194,8 +194,8 @@ For example, even under Amdahl's law, progress towards more intelligent systems 
 
 The architecture behind today's AI is largely Generative Pre-trained Transformers (GPTs). Perhaps there exists an entirely different way of constructing artificial intelligence. Let's imagine two other architectures, TBDs and BFDs, that have lower costs, yielding higher finite (TBDs) or infinite (BFDs) intelligence.  
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/climbing_intelligence_pt2.png" alt="" style="width: 75%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/climbing_intelligence_pt2.png" loading="lazy" width="1606" height="1239" alt="Three architectures appear as separate hills: GPTs have the lowest peak, TBDs peak higher, and BFDs rise beyond the plot." style="width: 75%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 8. Each architecture could have its own unique limits</p>
 
@@ -223,8 +223,8 @@ $$
 
 Because this is a blog post, let's consider one simple parameter space for the model. We're going to imagine that $A_1$ is our GPTs, capable of perhaps RSI but only finite intelligence. An alternative approach, BFDs, $A_2$, creates artificial intelligence but does so in a qualitatively distinct way. These technologies are mostly the same, except that BFDs/$A_2$ has better cost scaling (i.e. $\delta$ is smaller) and is a bit more efficient for RSI. We set parameters such that, on their own, BFDs would become infinitely super-intelligent. What happens in competition? 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/rsi_two_model_threshold.png" alt="Phase plane of two competing AI architectures" style="width: 75%; max-width: 75%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/rsi_two_model_threshold.png" loading="lazy" width="1631" height="1649" alt="Phase plane of two competing AI architectures" style="width: 75%; max-width: 75%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Figure 9. Phase plane for two competing architectures</p>
 
@@ -239,8 +239,8 @@ The broader point is that even if super-intelligence is *technically* possible, 
 ### Scala Artificialis
 For millennia, it had been taken as obvious that life and nature had a hierarchy. God on top, followed by angels and current local religious leaders, then other humans, mammals, birds, lizards, fish, insects and so on until we reach rocks. Any questions can be resolved by consulting the chart, learning that [Lichens are more godly than truffles](https://upload.wikimedia.org/wikipedia/commons/0/08/BonnetChain.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original). Versions of this hierarchy go back to Aristotle's ['History of Animals'](https://penelope.uchicago.edu/aristotle/histanimals9.html), but the idea is most firmly associated with the *scala naturae* of medieval times. It was literally hard to argue with. What commoner would be bold enough to argue a peasant can be smarter than a king?  
 
-<p align="center">
-<a href="https://commons.wikimedia.org/wiki/File:Die_Leiter_des_Auf-_und_Abstiegs.jpg"><img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/leiter-auf-abstieg.jpg" alt="1512 woodcut of Ramon Llull's Ladder of Ascent and Descent, a staircase of being from stone to God labeled Scala intellectus" style="max-width: min(100%, 520px); height: auto; margin: 0 auto;" /></a>
+<p>
+<a href="https://commons.wikimedia.org/wiki/File:Die_Leiter_des_Auf-_und_Abstiegs.jpg"><img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/leiter-auf-abstieg.jpg" loading="lazy" width="399" height="524" alt="1512 woodcut of Ramon Llull's Ladder of Ascent and Descent, a staircase of being from stone to God labeled Scala intellectus" style="max-width: min(100%, 520px); height: auto; margin: 0 auto;" /></a>
 </p>
 <p class="figcaption"><a href="https://commons.wikimedia.org/wiki/File:Die_Leiter_des_Auf-_und_Abstiegs.jpg">Die Leiter des Auf- und Abstiegs</a> (The Ladder of Ascent and Descent), from a 1512 edition of Ramon Llull. Wikimedia Commons (public domain).</p>
 
@@ -330,15 +330,15 @@ This blog post was motivated by reading through reports from a host of "institut
 
 A point of comparison is warranted. In the mid 1800s, [Eunice Foote](https://en.wikipedia.org/wiki/Eunice_Newton_Foote) discovered the Greenhouse effect via an ingenious experiment involving various gases in glass containers exposed to light. Decades later, in 1896, Svante Arrhenius published the world's [first climate model](https://geosci.uchicago.edu/~archer/warming_papers/arrhenius.1896.climate.pdf). His model made predictions of temperatures throughout the year, by latitude across varying degrees of $\textrm{CO}_2$ concentration. 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/arrhenius-table-vii-co2-temp.jpg" alt="Table VII from Arrhenius: variation of temperature caused by a given variation of carbonic acid, by latitude and season" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/arrhenius-table-vii-co2-temp.jpg" loading="lazy" width="1024" height="715" alt="Table VII from Arrhenius: variation of temperature caused by a given variation of carbonic acid, by latitude and season" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Table VII from Svante Arrhenius, “On the Influence of Carbonic Acid in the Air upon the Temperature of the Ground,” <em>Philosophical Magazine</em> (1896). Temperature change (°C) for different levels of atmospheric $\textrm{CO}_2$ , by latitude and season.</p>
 
 How did he arrive at these numbers? If you read the paper linked above, it was through a very thorough set of equations he derived for the physics governing temperature change with the greenhouse effect. It even includes things like albedo feedback. Most astonishingly, the predictions for temperatures he comes up with aren't bad. They're off by perhaps a degree or so for a doubling of $\textrm{CO}_2$ relative to modern IPCC calculations. Of course a degree means a lot with climate change, but not bad for calculations *by hand* a decade before the Ford Model T. 
 
-<p align="center">
-<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/arrhenius-pages-256-257.jpg" alt="Pages 256–257 of Arrhenius 1896 paper on carbonic acid and ground temperature, showing radiation-balance equations" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
+<p>
+<img src="/assets/img/notebooks/pitfalls-in-ai-self-improvement/arrhenius-pages-256-257.jpg" loading="lazy" width="1024" height="768" alt="Pages 256–257 of Arrhenius 1896 paper on carbonic acid and ground temperature, showing radiation-balance equations" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto;" />
 </p>
 <p class="figcaption">Svante Arrhenius, “On the Influence of Carbonic Acid in the Air upon the Temperature of the Ground,” <em>Philosophical Magazine</em> (1896), pp. 256–257.</p>
 

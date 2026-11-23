@@ -5,39 +5,31 @@ interface Props {
   headings: MarkdownHeading[];
 }
 
-const SKIP = new Set(['contents', 'refs-and-notes']);
-
 const { headings } = Astro.props;
-const items = headings.filter(
-  (h) => h.depth >= 2 && h.depth <= 3 && !SKIP.has(h.slug),
-);
 ---
 
-{
-  items.length >= 2 ? (
-    <nav class="post-toc" aria-label="Table of contents" data-post-toc>
-      <p class="post-toc__label">Contents</p>
-      <ol class="post-toc__list">
-        {items.map((heading) => (
-          <li
-            class:list={[
-              'post-toc__item',
-              `post-toc__item--h${heading.depth}`,
-            ]}
-          >
-            <a href={`#${heading.slug}`} data-toc-link={heading.slug}>
-              {heading.text}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  ) : null
-}
+<nav id="contents" class="post-toc" aria-label="Table of contents" data-post-toc>
+  <details>
+    <summary class="post-toc__label">Contents</summary>
+    <ol class="post-toc__list">
+      {headings.map((heading) => (
+        <li class:list={['post-toc__item', `post-toc__item--h${heading.depth}`]}>
+          <a href={`#${heading.slug}`} data-toc-link={heading.slug}>{heading.text}</a>
+        </li>
+      ))}
+    </ol>
+  </details>
+</nav>
 
 <script>
   const toc = document.querySelector('[data-post-toc]');
   if (toc instanceof HTMLElement) {
+    const disclosure = toc.querySelector('details')!;
+    const desktop = window.matchMedia('(min-width: 960px)');
+    const setDefaultOpen = () => { disclosure.open = desktop.matches; };
+    setDefaultOpen();
+    desktop.addEventListener('change', setDefaultOpen);
+
     const links = [...toc.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
     const headings = links
       .map((link) => {

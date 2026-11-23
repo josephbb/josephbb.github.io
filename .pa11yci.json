@@ -11,8 +11,12 @@
     "http://127.0.0.1:4321/news/",
     "http://127.0.0.1:4321/publications/",
     "http://127.0.0.1:4321/writing/",
+    "http://127.0.0.1:4321/blog/",
     "http://127.0.0.1:4321/cv/",
     "http://127.0.0.1:4321/blog/2023-03-10-pcurve/",
-    "http://127.0.0.1:4321/blog/2026-07-04-fdr/"
+    "http://127.0.0.1:4321/blog/2026-07-04-fdr/",
+    "http://127.0.0.1:4321/blog/2026-07-21-signmag/",
+    "http://127.0.0.1:4321/blog/2026-08-11-reproducibility/",
+    "http://127.0.0.1:4321/blog/2026-10-07-pitfalls-in-ai-self-improvement/"
   ]
 }

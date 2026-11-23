@@ -90,7 +90,7 @@ fi
 # Notebook-relative links into public/ → site-root URLs for Astro.
 # Markdown: ![](../../public/assets/...) and HTML: src="../../public/assets/..."
 perl -i -pe \
-  's|\((\.\./)+public(/assets/[^)]+)\)|($2|g; s|(src=["'\''])(\.\./)+public(/assets/[^"'\''>]+)|$1$3|g' \
+  's|\((\.\./)+public(/assets/[^)]+)\)|($2|g; s!((?:src|poster|href)=["'\''])(\.\./)+public(/assets/[^"'\''>]+)!$1$3!g' \
   "$MD_SRC"
 
 # Pandoc often escapes citation brackets: [\[1\]](#ref-1) / <strong>\[1\]</strong>

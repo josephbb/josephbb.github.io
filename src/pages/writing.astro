@@ -1,12 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 import { formatDate, dateAttr } from '../lib/dates';
 import { getEssays } from '../lib/site';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
 const essays = getEssays();
 
 function outletMark(outlet: string) {
@@ -26,14 +22,9 @@ function essayDate(iso: string) {
 
 <BaseLayout
   title="Writing"
-  description="Writing for other outlets, as well as notes on collective behavior, statistics, and technology."
+  description="Essays and commentary by Joe Bak-Coleman for other outlets."
 >
   <h1 class="page-title">Writing</h1>
-  <p class="page-lede">
-    For other outlets, as well as notes on collective behavior, statistics, and
-    technology.
-  </p>
-
   <section class="section">
     <div class="section__head">
       <h2>Published elsewhere</h2>
@@ -78,33 +69,6 @@ function essayDate(iso: string) {
             </li>
           );
         })
-      }
-    </ul>
-  </section>
-
-  <section class="section">
-    <div class="section__head">
-      <h2>Notes</h2>
-    </div>
-    <ul class="post-list">
-      {
-        posts.map((post) => (
-          <li class="post-item">
-            <p class="post-item__date">
-              <time datetime={dateAttr(post.data.date)}>
-                {formatDate(post.data.date, {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-            </p>
-            <h3>
-              <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-            </h3>
-            <p class="mute">{post.data.description}</p>
-          </li>
-        ))
       }
     </ul>
   </section>

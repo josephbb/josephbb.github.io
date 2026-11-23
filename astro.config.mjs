@@ -22,7 +22,6 @@ export default defineConfig({
   },
   // Old al-folio permalinks → Astro routes (static meta-refresh on GitHub Pages).
   redirects: {
-    '/blog/': '/writing/',
     '/blog/2023/pcurve/': '/blog/2023-03-10-pcurve/',
     '/blog/2023/Harvard/': '/blog/2023-06-20-harvard/',
     '/blog/2023/harvard/': '/blog/2023-06-20-harvard/',

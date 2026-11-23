@@ -21,8 +21,8 @@ const noteText =
 const showRoleLabel = Boolean(noteText && isPolicy);
 
 const doiUrl = pub.doi ? `https://doi.org/${pub.doi}` : undefined;
-// Prefer a non-DOI landing link when we have one distinct from the DOI
-const landingUrl = pub.url && pub.url !== doiUrl ? pub.url : undefined;
+const titleUrl = pub.url || doiUrl || pub.oaUrl;
+const fullTextUrl = pub.oaUrl !== titleUrl ? pub.oaUrl : undefined;
 ---
 
 <li
@@ -34,7 +34,9 @@ const landingUrl = pub.url && pub.url !== doiUrl ? pub.url : undefined;
   ]}
 >
   <div class="pub-item__main">
-    <p class="pub-item__title">{pub.title}</p>
+    <p class="pub-item__title">
+      {titleUrl ? <a href={titleUrl}>{pub.title}</a> : pub.title}
+    </p>
     {showAuthors && <p class="pub-item__meta">{pub.authors}</p>}
     <p class="pub-item__meta">
       <em>{pub.venue || 'Preprint / report'}</em>{pub.year ? `, ${pub.year}` : ''}
@@ -55,29 +57,17 @@ const landingUrl = pub.url && pub.url !== doiUrl ? pub.url : undefined;
       )
     }
     {
-      (landingUrl || doiUrl || pub.oaUrl) && (
+      fullTextUrl && (
         <div class="pub-item__links">
-          {landingUrl && (
-            <a href={landingUrl} rel="noopener noreferrer">
-              Link
-            </a>
-          )}
-          {doiUrl && (
-            <a href={doiUrl} rel="noopener noreferrer">
-              DOI
-            </a>
-          )}
-          {pub.oaUrl && (
-            <a
-              class="pub-item__oa-link"
-              href={pub.oaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Open / free version"
-            >
-              {isPolicy ? 'Full text' : 'Free PDF'}
-            </a>
-          )}
+          <a
+            class="pub-item__oa-link"
+            href={fullTextUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Free full text of ${pub.title}`}
+          >
+            Free full text
+          </a>
         </div>
       )
     }
